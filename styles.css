@@ -1,0 +1,560 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/*Font stuff*/
+p,h1,h2,h3,h4,h5,h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+}
+
+
+h1 {
+    font-size: 36px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(33, 32, 32);
+}
+
+ul {
+    list-style-type: none;
+}
+
+body {
+    min-height: 100vh;
+}
+
+
+
+/* Dividers */
+hr {
+    height: 1px;
+    max-height: 1px;
+    font-weight: 1px;
+    border: none;
+    background-color: rgb(193, 193, 193);
+    max-width: 100%;
+}
+
+.pad-0 {
+    padding: 0;
+}
+
+.pad-top-10 {
+    padding-top: 10px;
+}
+
+.pad-left-15 {
+    padding-left: 15px;
+}
+
+.pad-left-10 {
+    padding-left: 10px;
+}
+
+.pad-bottom-10 {
+    padding-bottom: 10px;
+}
+
+.marg-0 {
+    margin: 0;
+}
+
+.d-inline {
+    display: inline-block;
+}
+
+/* main container */
+.container-wrapper {
+    display: flex;
+}
+
+/* Navigation bar */
+.navbar-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 56px;
+    background-color: rgb(0, 48, 132);
+    text-align: center;
+    z-index: 1;
+}
+
+.navbar {
+    max-height: 100%;
+    z-index: 1;
+}
+
+.nav-top {
+    padding-top: 10px;
+}
+
+.nav-item-top {
+    margin-top: 10px;
+}
+
+.bottom-item {
+    margin-top: auto;
+}
+
+/* header */
+header {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-right: 10px;
+    font-weight: 200;
+    max-height: 100px;
+    
+}
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    width: 71vw;
+}
+
+.btn-3-dot {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    font-weight: bolder;
+    color: rgb(32, 32, 32);
+}
+
+/*Todo section*/
+.todo-container {
+    width: 18vw;
+    max-height: 100px;
+    margin-left: 2vw;
+    z-index: 1;
+}
+
+.subtitle {
+    font-weight: bold;
+    margin-top: 36px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.subtitle-0 {
+    margin: 0;
+    padding: 0;
+}
+
+.subtitle-light {
+    font-weight: 300;
+}
+
+.subtitle-light-0 {
+    font-weight: 300;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.subtitle-lg {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.info-text {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.btn-view-grades {
+    border: solid;
+    border-color: rgb(191, 198, 202);
+    border-width: 1px;
+    border-radius: 2.5%;
+    background-color: rgb(243, 243, 243);
+    margin-top: 20px;
+    width: 100%;
+    text-align: left;
+    height: 40px;
+    color: rgb(60, 72, 80);
+}
+
+.btn-font {
+    font-weight: 300;
+    padding-left: 10px;
+}
+
+
+/* Grades page */
+.page-header {
+    font-size: 18px;
+    font-weight: bolder;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 10px;
+}
+
+.grades-container {
+    width: 94vw;
+}
+
+.courses-label {
+    font-weight: 400;
+    font-size: 28px;
+}
+
+.class-container {
+    display: flex;
+    justify-content: space-between;
+    max-height: 100%;
+    width: 60vw;
+}
+
+.class-list-item {
+    width: 60vw;
+}
+
+.grade-text {
+    font-weight: 600;
+}
+
+
+/* main class tiles stuff */
+.class-tiles-container {
+    display: flex;
+    padding-left: 20px;
+    gap: 40px;
+    z-index: 1;
+    max-width: 75vw;
+    position: absolute;
+}
+
+.class-tile {
+    height: 256px;
+    width: 248px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgb(167, 167, 167);
+    position: relative;
+}
+
+.text-white {
+    color: white;
+}
+
+.btn-class-tile {
+    padding-top: 5px;
+    padding-left: 230px;
+    padding-bottom: 100px;
+    background-image: linear-gradient(rgb(184, 26, 26),rgb(41, 165, 115));
+}
+
+.class-tile-text {
+    padding-left: 15px;
+    font-size: 15px;
+}
+
+.main-class-text {
+    padding-top: 10px;
+    font-weight: 500;
+}
+
+.sub-class-text {
+    padding-top: 5px;
+    font-weight: 300;
+}
+
+.term-text {
+    padding-top: 3px;
+    padding-left: 2px;
+    font-size: 12px;
+}
+
+.text-gray {
+    color: gray;
+}
+
+.icon-image {
+    height: 20px;
+}
+
+.icon-image-lg {
+    height: 28px;
+}
+
+.icon-image-xl {
+    height: 72px;
+}
+
+.icon-image-meter {
+    height: 20px;
+    padding-left: 4px;
+}
+
+.btn-transparent {
+    background-color: transparent;
+    border: none;
+}
+
+.class-tile-icons {
+    padding-top: 20px;
+    padding-left: 15px;
+    justify-content: space-between;
+    letter-spacing: 30px;
+}
+
+/* User Menu */
+.user-menu {
+    width: 400px;
+    height: 100vh;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 15px;
+    margin-left: 48px;
+    z-index: 999;
+    background-color: white;
+    box-shadow: 0 2px 4px rgb(167, 167, 167);
+    position: absolute;
+}
+
+#user {
+    visibility: hidden;
+}
+
+#user.active {
+    visibility: visible;
+}
+
+.user-info-container {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+    display: block;
+    z-index: 999;
+    justify-content: center;
+}
+
+.user-name-text {
+    font-weight: 700;
+    font-size: 20px;
+    z-index: 999;
+}
+
+.btn-logout {
+    max-width: 15%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 30px;
+    border-radius: 7%;
+}
+
+.logout-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submenu-text {
+    line-height: 2;
+}
+
+.submenu-text-sm {
+    line-height: 1.5;
+}
+
+.x-button-container {
+    display: flex;
+    padding-top: 10px;
+    justify-content: right;
+    align-items: right;
+    position: relative;
+}
+
+.btn-x {
+    background-color: transparent;
+    border: none;
+}
+
+/*Courses Menu*/
+
+#courses {
+    visibility: hidden;
+}
+
+#courses.active {
+    visibility: visible;
+}
+
+.course-container {
+    padding-top: 10px;
+}
+
+.submenu-para {
+    padding-top: 40px;
+    font-weight: 500;
+}
+
+.course-container-bottom {
+    padding-bottom: 10px;
+}
+
+/*Groups Menu*/
+#groups {
+    visibility: hidden;
+}
+
+#groups.active {
+    visibility: visible;
+}
+
+/*History Menu */
+#history {
+    visibility: hidden;
+}
+
+#history.active {
+    visibility: visible;
+}
+
+/*Help Menu */
+#help {
+    visibility: hidden;
+}
+
+#help.active {
+    visibility: visible;
+}
+
+.course-page-container {
+    width: 94vw;
+    height: 100%;
+}
+
+/* Course page */
+.course-title-container {
+    display: flex;
+    width: 100%;
+}
+
+.btn-3-line {
+    font-size: 36px;
+    background-color: transparent;
+    border: none;
+    color: rgb(55, 100, 164);
+    font-stretch: extra-expanded;
+    font-weight: 100;
+}
+
+.course-header {
+    padding-left: 20px;
+}
+
+.class-tabs-menu {
+    max-height: 100%;
+    width: 200px;
+    margin-left: 35px;
+}
+
+.term-text-italic {
+    font-style: italic;
+    font-size: 11px;
+    padding-left: 10px;
+    font-weight: 400;
+}
+
+.tabs-text {
+    font-weight: 400;
+    padding-top: 20px;
+    font-size: 16px;
+    color: rgb(0, 48, 132);
+}
+
+.under-header-container {
+    padding-top: 0;
+    display: flex;
+    width: 94vw;
+}
+
+
+/*Announcements */
+
+.announcements {
+    width: 52vw;
+}
+
+.announcements-header {
+    padding-left: 0;
+    font-size: 38px;
+    font-weight: 300;
+    padding-bottom: 10px;
+}
+
+.announcement-container {
+    display: flex;
+    max-height: 100px;
+    width: 52vw;
+    align-items: center;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.announcement-text-main-container {
+    justify-content: space-between;
+    display: flex;
+    gap: 10vw;
+    padding: 0;
+    margin: 0;
+    max-height: 100%;
+    width: 52vw;
+}
+
+.announcement-text-container {
+    width: 75%;
+}
+
+.announcement-date-container {
+    width: 25%;
+    padding-top: 10px;
+    text-align: right;
+}
+
+.date-text {
+    font-weight: bold;
+}
+
+.pad-right-15 {
+    padding-right: 15px;
+}
+
+.fs-10 {
+    height: 42px;
+}
+
+/*Rightside buttons*/
+
+.btn-course-stream {
+    margin-top: 0;
+}
+
+.todo-course-container {
+    justify-content: space-between;
+    padding-left: 15px;
+}
+
+.btn-course-calendar {
+    margin-top: 5px;
+}
+
+.button-container {
+    display: flex;
+    gap: 5px;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
