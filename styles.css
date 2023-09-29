@@ -479,6 +479,11 @@ header {
     border: none;
 }
 
+.btn-tab:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .under-header-container {
     padding-top: 0;
     display: flex;
