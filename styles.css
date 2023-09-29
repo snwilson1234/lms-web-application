@@ -473,6 +473,12 @@ header {
     color: rgb(0, 48, 132);
 }
 
+.btn-tab {
+    display: block;
+    background-color: transparent;
+    border: none;
+}
+
 .under-header-container {
     padding-top: 0;
     display: flex;
@@ -482,7 +488,7 @@ header {
 
 /*Announcements */
 
-.announcements {
+.middle-section {
     width: 52vw;
 }
 
@@ -498,9 +504,6 @@ header {
     max-height: 100px;
     width: 52vw;
     align-items: center;
-    padding-left: 20px;
-    padding-top: 20px;
-    padding-bottom: 10px;
 }
 
 .announcement-text-main-container {
@@ -519,7 +522,7 @@ header {
 
 .announcement-date-container {
     width: 25%;
-    padding-top: 10px;
+    padding-top: 25px;
     text-align: right;
 }
 
@@ -557,4 +560,74 @@ header {
 
 .fw-400 {
     font-weight: 400;
+}
+
+/*Class Content Dynamic*/
+
+#home-content {
+    visibility: hidden;
+    display: none;
+}
+
+#home-content.active {
+    visibility: visible;
+    display: flex;
+}
+
+.home-section {
+    display: flex;
+    width: 100vw - 200px;
+    z-index: 3;
+}
+
+#announcement-content {
+    visibility: hidden;
+    display: none;
+}
+
+#announcement-content.active {
+    visibility: visible;
+    display: block;
+}
+
+.announcement-section {
+    width: 76vw;
+    z-index: 4;
+}
+
+.search-container {
+    height: 40px;
+    width: 76vw;
+    gap: 1vw;
+    display: flex;
+    margin-bottom: 75px;
+}
+
+.announcement-filter-selector {
+    background-color: transparent;
+    border: solid;
+    border-radius: 2.5%;
+    border-width: 1px;
+    border-color: rgb(191, 198, 202);
+    width: 35vw;
+}
+
+.announcement-search {
+    width: 40vw;
+    border: solid;
+    border-radius: 2.5%;
+    border-width: 1px;
+    border-color: rgb(191, 198, 202);
+}
+
+.announcement-text-main-container-xl {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* gap: 0; */
+}
+
+.marg-top-20 {
+    margin-top: 20px;
 }
