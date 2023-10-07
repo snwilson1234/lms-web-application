@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    {% load static %}
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'css/styles/style.css' %}" type="text/css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
@@ -19,47 +22,47 @@
             <ul class="pad-0 pad-top-10 marg-0 navbar">
                 <li>
                     <a href="index.html">
-                        <img src="assets/icons/pitt-shield.png" height="50px">
+                        <img src="{% static 'assets/icons/pitt-shield.png' %}" height="50px">
                     </a>
                 </li>
                 <li class="nav-item-top">
                     <a href="#" onclick="toggleUserMenu()">
-                        <img class="icon-image-lg" src="assets/icons/person.png" height="36px">
+                        <img class="icon-image-lg" src="{% static 'assets/icons/person.png' %}" height="36px">
                     </a>
                 </li>
                 <li class="nav-item-top">
                     <a href="index.html">
-                        <img class="icon-image-meter icon-image-lg" src="assets/icons/meter.png" height="36px">
+                        <img class="icon-image-meter icon-image-lg" src="{% static 'assets/icons/meter.png' %}" height="36px">
                     </a>
                 </li>
                 <li class="nav-item-top">
                     <a href="#" onclick="toggleCoursesMenu()">
-                        <img class="icon-image-lg" src="assets/icons/book.png" height="36px">
+                        <img class="icon-image-lg" src="{% static 'assets/icons/book.png' %}" height="36px">
                     </a>
                 </li>
                 <li class="nav-item-top">
                     <a href="#" onclick="toggleGroupsMenu()">
-                        <img class="icon-image-meter" src="assets/icons/people.png" height="36px">
+                        <img class="icon-image-meter" src="{% static 'assets/icons/people.png' %}" height="36px">
                     </a>
                 </li>
                 <li class="nav-item-top">
                     <a href="https://www.w3schools.com">
-                        <img class="icon-image-lg" src="assets/icons/calendar.png" height="36px">
+                        <img class="icon-image-lg" src="{% static 'assets/icons/calendar.png' %}" height="36px">
                     </a>
                 </li>
                 <li class="nav-item-top">
                     <a href="https://www.w3schools.com">
-                        <img class="icon-image-lg" src="assets/icons/mail.png" height="36px">
+                        <img class="icon-image-lg" src="{% static 'assets/icons/mail.png' %}" height="36px">
                     </a>
                 </li>
                 <li class="nav-item-top">
                     <a href="#" onclick="toggleHistoryMenu()">
-                        <img class="icon-image-lg" src="assets/icons/clock.png" height="36px">
+                        <img class="icon-image-lg" src="{% static 'assets/icons/clock.png' %}" height="36px">
                     </a>
                 </li>
                 <li class="nav-item-top">
                     <a href="#" onclick="toggleHelpMenu()">
-                        <img class="icon-image-lg" src="assets/icons/question.png" height="36px">
+                        <img class="icon-image-lg" src="{% static 'assets/icons/question.png' %}" height="36px">
                     </a>
                 </li>
                 
@@ -67,7 +70,7 @@
             <div class="bottom-item">
                 <li>
                     <a href="https://www.w3schools.com">
-                        <img src="assets/icons/arrow.png" height="36px">
+                        <img src="{% static 'assets/icons/arrow.png' %}" height="36px">
                     </a>
                 </li>
             </div>
@@ -79,7 +82,7 @@
                 <button class="btn-x" href="#" onclick="toggleUserMenu()">X</button>
             </div>
             <div class="user-info-container">
-                <img class="icon-image-xl" src="assets/icons/placeholder-pf-pic.png">
+                <img class="icon-image-xl" src="{% static 'assets/icons/placeholder-pf-pic.png' %}">
                 <h3 class="user-name-text">Shelby Wilson</h3>
                 <button class="btn-view-grades btn-logout">
                     Logout
@@ -203,10 +206,10 @@
                     </a>
                     <div class="class-tile-icons">
                         <button class="btn-transparent">
-                            <img class="icon-image" src="assets/icons/alarm.png">
+                            <img class="icon-image" src="{% static 'assets/icons/alarm.png' %}">
                         </button>
                         <button class="btn-transparent">
-                            <img class="icon-image" src="assets/icons/assignments.png">
+                            <img class="icon-image" src="{% static 'assets/icons/assignments.png' %}">
                         </button>
                     </div>
                 </div>
