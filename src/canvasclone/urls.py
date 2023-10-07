@@ -23,8 +23,13 @@ from grades.views import (
     grades_view
 )
 
+from sampleclass.views import (
+    sample_class_view
+)
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", home_screen_view, name="home"),
-    path("grades/", grades_view, name="grades")
+    path("grades/", grades_view, name="grades"),
+    path("sampleclass/", sample_class_view, name="sampleclass")
 ]

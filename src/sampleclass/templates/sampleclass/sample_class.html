@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="course-page-container">
+    <header>
+        <div class="course-title-container">
+            <button class="btn-3-line">≡</button>
+            <h3 class="page-header course-header">
+                1234 SAMPLE CLASS SEC1234
+            </h3>
+        </div>
+        <hr>   
+    </header>
+    <div class="under-header-container">
+        <div class="class-tabs-menu">
+            <h3 class="term-text-italic">Summer Term 2022-2023</h3>
+            <button class="btn-tab" id="btn-home" onclick="toggleClassContent('btn-home')">
+                <h3 class="tabs-text">Home</h3>
+            </button>
+            <button class="btn-tab" id="btn-announcement" onclick="toggleClassContent('btn-announcement')">
+                <h3 class="tabs-text">Announcements</h3>
+            </button>
+            <button class="btn-tab">
+                <h3 class="tabs-text">Syllabus</h3>
+            </button>
+            <button class="btn-tab">
+                <h3 class="tabs-text">Modules</h3>
+            </button>
+            <button class="btn-tab">
+                <h3 class="tabs-text">Assignments</h3>
+            </button>
+            <button class="btn-tab">
+                <h3 class="tabs-text">Grades</h3>
+            </button>
+            <button class="btn-tab">
+                <h3 class="tabs-text">OMET Surveys</h3>
+            </button>
+            <button class="btn-tab">
+                <h3 class="tabs-text">Library Guides</h3>
+            </button>
+            <button class="btn-tab">
+                <h3 class="tabs-text">Gradescope</h3>
+            </button>
+            <button class="btn-tab">
+                <h3 class="tabs-text">People</h3>
+            </button>
+        </div>
+        
+        <div id="home-content" class="home-section">
+            <div class="middle-section">
+                <div id="home-middle">
+                    <h1 class="announcements-header">Recent Announcements</h1>
+                    <hr>
+                    <div class="announcement-container">
+                        <img class="icon-image-lg pad-right-15 fs-10" src="assets/icons/profile-pic.png">
+                        <div class="announcement-text-main-container">
+                            <div class="announcement-text-container">
+                                <h4 class="subtitle subtitle-0">Announcement Title</h4>
+                                <h4 class="subtitle subtitle-light-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Volupta</h4>
+                            </div>
+                            <div class="announcement-date-container">
+                                <h5 class="date-text">Posted on:</h5>
+                                <h5 class="pad-top-10">Jan 1, 2023, 12:00 AM</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="announcement-container">
+                        <img class="icon-image-lg pad-right-15 fs-10" src="assets/icons/profile-pic.png">
+                        <div class="announcement-text-main-container">
+                            <div class="announcement-text-container">
+                                <h4 class="subtitle subtitle-0">Announcement Title</h4>
+                                <h4 class="subtitle subtitle-light-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Volupta</h4>
+                            </div>
+                            <div class="announcement-date-container">
+                                <h5 class="date-text">Posted on:</h5>
+                                <h5 class="pad-top-10">Jan 1, 2023, 12:00 AM</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="announcement-container">
+                        <img class="icon-image-lg pad-right-15 fs-10" src="assets/icons/profile-pic.png">
+                        <div class="announcement-text-main-container">
+                            <div class="announcement-text-container">
+                                <h4 class="subtitle subtitle-0">Announcement Title</h4>
+                                <h4 class="subtitle subtitle-light-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Volupta</h4>
+                            </div>
+                            <div class="announcement-date-container">
+                                <h5 class="date-text">Posted on:</h5>
+                                <h5 class="pad-top-10">Jan 1, 2023, 12:00 AM</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <h2 class="pad-top-10"><b>Welcome to CLASS CLASS SEC1234</b></h2>
+                </div>
+            </div>
+            <div class="todo-course-container todo-container">
+
+                <button class="btn-view-grades btn-course-stream">
+                    <div class="button-container">
+                        <img class="pad-left-10 icon-image" src="assets/icons/bars.png">
+                        <h3>View Course Stream</h3>
+                    </div>
+                </button>
+                <button class="btn-view-grades btn-course-calendar">
+                    <div class="button-container">
+                        <img class="pad-left-10 icon-image" src="assets/icons/date.png">
+                        <h3>View Course Calendar</h3>
+                    </div>
+                </button>
+                <button class="btn-view-grades btn-course-calendar">
+                    <div class="button-container">
+                        <img class="pad-left-10 icon-image" src="assets/icons/bell.png">
+                        <h3>View Course Notifications</h3>
+                    </div>
+                </button>
+
+                <div>
+                    <h4 class="subtitle">To Do</h4>
+                    <hr>
+                    <h5 class="info-text">Nothing for now</h5>
+                    <h4 class="subtitle">Course Groups</h4>
+                    <hr>
+                    <h4 class="submenu-text">Team 1</h4>
+                    <h4 class="subtitle">Recent Feedback</h4>
+                    <hr>
+                    <h4 class="term-text">Nothing for now</h4>
+                </div>
+            </div>
+        </div>
+        <div id="announcement-content" class="announcement-section">
+            <div class="search-container">
+                <select class="announcement-filter-selector">
+                    <option value="filter-all">Test</option>
+                    <option value="filter-all">Test</option>
+                </select>
+                <input class="announcement-search" type="text" placeholder="Search">
+            </div>
+            <hr>
+            <div class="announcement-text-main-container-xl">
+                <img class="icon-image-lg pad-right-15 fs-10" src="assets/icons/profile-pic.png">
+                <div class="announcement-text-container">
+                    <h4 class="subtitle subtitle-0">Announcement Title</h4>
+                    <h5 class="pad-top-10">All Sections</h5>
+                    <h4 class="subtitle subtitle-light-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Volupta</h4>
+                </div>
+                <div class="announcement-date-container marg-top-20">
+                    <h5 class="date-text">Posted on:</h5>
+                    <h5 class="pad-top-10">Jan 1, 2023, 12:00 AM</h5>
+                </div>
+            </div>
+            <hr>
+            <div class="announcement-text-main-container-xl">
+                <img class="icon-image-lg pad-right-15 fs-10" src="assets/icons/profile-pic.png">
+                <div class="announcement-text-container">
+                    <h4 class="subtitle subtitle-0">Announcement Title</h4>
+                    <h5 class="pad-top-10">All Sections</h5>
+                    <h4 class="subtitle subtitle-light-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Volupta</h4>
+                </div>
+                <div class="announcement-date-container marg-top-20">
+                    <h5 class="date-text">Posted on:</h5>
+                    <h5 class="pad-top-10">Jan 1, 2023, 12:00 AM</h5>
+                </div>
+            </div>
+            <hr>
+            <div class="announcement-text-main-container-xl">
+                <img class="icon-image-lg pad-right-15 fs-10" src="assets/icons/profile-pic.png">
+                <div class="announcement-text-container">
+                    <h4 class="subtitle subtitle-0">Announcement Title</h4>
+                    <h5 class="pad-top-10">All Sections</h5>
+                    <h4 class="subtitle subtitle-light-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Volupta</h4>
+                </div>
+                <div class="announcement-date-container marg-top-20">
+                    <h5 class="date-text">Posted on:</h5>
+                    <h5 class="pad-top-10">Jan 1, 2023, 12:00 AM</h5>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+        
+
+        
+    </div>
+    
+</div>
+
+
+{% endblock content %}
