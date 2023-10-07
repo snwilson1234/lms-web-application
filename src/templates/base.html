@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap" rel="stylesheet">
     
-    <!--<script src="script.js"></script>-->
+    <script src="{% static 'js/script.js' %}"></script>
     <title>Canvas Clone</title>
 </head>
 <body class="pad-0 marg-0">
@@ -31,7 +31,7 @@
                     </a>
                 </li>
                 <li class="nav-item-top">
-                    <a href="index.html">
+                    <a href="{% url 'home' %}">
                         <img class="icon-image-meter icon-image-lg" src="{% static 'assets/icons/meter.png' %}" height="36px">
                     </a>
                 </li>
