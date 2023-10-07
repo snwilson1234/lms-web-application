@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="{% static 'css/styles/style.css' %}" type="text/css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap" rel="stylesheet">
     
-    <script src="script.js"></script>
+    <!--<script src="script.js"></script>-->
     <title>Canvas Clone</title>
 </head>
 <body class="pad-0 marg-0">
@@ -76,168 +76,9 @@
             </div>
         </div>
 
-        <!--Pop-up Menus-->
-        <div id="user" class="user-menu">
-            <div class="x-button-container">
-                <button class="btn-x" href="#" onclick="toggleUserMenu()">X</button>
-            </div>
-            <div class="user-info-container">
-                <img class="icon-image-xl" src="{% static 'assets/icons/placeholder-pf-pic.png' %}">
-                <h3 class="user-name-text">Shelby Wilson</h3>
-                <button class="btn-view-grades btn-logout">
-                    Logout
-                </button>
-            </div>
-            <div>
+        {% block content %}
 
-            </div>
-            <hr>
-            <h4 class="submenu-text">Notifications</h4>
-            <h4 class="submenu-text">Profile</h4>
-            <h4 class="submenu-text">Files</h4>
-            <h4 class="submenu-text">Settings</h4>
-            <h4 class="submenu-text">ePortfolios</h4>
-            <h4 class="submenu-text">OMET Surveys</h4>
-            <h4 class="submenu-text">NameCoach</h4>
-            <h4 class="submenu-text">QR for Mobile Login</h4>
-            <h4 class="submenu-text">Global Announcements</h4>
-            <h4 class="submenu-text"></h4>
-            <hr>
-
-        </div>
-
-        <div id="courses" class="user-menu">
-            <div class="x-button-container">
-                <button class="btn-x" href="#" onclick="toggleCoursesMenu()">X</button>
-            </div>
-            <h3 class="subtitle subtitle-lg">Courses</h3>
-            <hr>
-            <div>
-                <div class="course-container">
-                    <h4 class="submenu-text-sm">1234 SAMPLE CLASS SEC1234 CLASS OF CLASSES CLASS CLASS</h4>
-                    <h4 class="text-gray term-text">Summer Term 2022-2023</h4>
-                </div>
-                <div class="course-container">
-                    <h4 class="submenu-text-sm">1234 SAMPLE CLASS SEC1234 CLASS OF CLASSES CLASS CLASS</h4>
-                    <h4 class="text-gray term-text">Summer Term 2022-2023</h4>
-                </div>
-                <div class="course-container">
-                    <h4 class="submenu-text-sm">1234 SAMPLE CLASS SEC1234 CLASS OF CLASSES CLASS CLASS</h4>
-                    <h4 class="text-gray term-text">Summer Term 2022-2023</h4>
-                </div>
-                <div class="course-container">
-                    <h4 class="submenu-text-sm">1234 SAMPLE CLASS SEC1234 CLASS OF CLASSES CLASS CLASS</h4>
-                    <h4 class="text-gray term-text">Summer Term 2022-2023</h4>
-                </div>
-                <div class="course-container course-container-bottom">
-                    <h4 class="submenu-text-sm">1234 SAMPLE CLASS SEC1234 CLASS OF CLASSES CLASS CLASS</h4>
-                    <h4 class="text-gray term-text">Summer Term 2022-2023</h4>
-                </div>
-                <hr>
-                <h4 class="submenu-text-sm">All Courses</h4>
-                
-                <h4 class="submenu-text-sm submenu-para">Welcome to your courses! To customize the list of courses, click on the "All Courses" link and star the courses to display.</h4>
-            </div>
-        </div>
-
-        <div id="groups" class="user-menu">
-            <div class="x-button-container">
-                <button class="btn-x" href="#" onclick="toggleGroupsMenu()">X</button>
-            </div>
-            <h3 class="subtitle subtitle-lg">Groups</h3>
-            <hr>
-            <h4 class="submenu-text">Sample Group 1</h4>
-            <h4 class="submenu-text">Sample Group 2</h4>
-            <h4 class="submenu-text">Sample Group 3</h4>
-            <h4 class="submenu-text">Sample Group 4</h4>
-            <hr>
-            <h4 class="submenu-text">Sample Group 4</h4>
-        </div>
-
-        <div id="history" class="user-menu">
-            <div class="x-button-container">
-                <button class="btn-x" href="#" onclick="toggleHistoryMenu()">X</button>
-            </div>
-            <h3 class="subtitle subtitle-lg">History</h3>
-            <hr>
-            <h4 class="submenu-text">Sample Group 1</h4>
-            <h4 class="submenu-text">Sample Group 2</h4>
-            <h4 class="submenu-text">Sample Group 3</h4>
-            <h4 class="submenu-text">Sample Group 4</h4>
-            <hr>
-            <h4 class="submenu-text">Sample Group 4</h4>
-        </div>
-
-        <div id="help" class="user-menu">
-            <div class="x-button-container">
-                <button class="btn-x" href="#" onclick="toggleHelpMenu()">X</button>
-            </div>
-            <h3 class="subtitle subtitle-lg">Help</h3>
-            <hr>
-            <h4 class="submenu-text">Sample Group 1</h4>
-            <h4 class="submenu-text">Sample Group 2</h4>
-            <h4 class="submenu-text">Sample Group 3</h4>
-            <h4 class="submenu-text">Sample Group 4</h4>
-            <hr>
-            <h4 class="submenu-text">Sample Group 4</h4>
-        </div>
-
-        <div id="main-section">
-            <header>
-                <div class="title-container">
-                    <h1 class="pad-bottom-10">Dashboard</h1>
-                    <button class="btn-3-dot">
-                        ⋮
-                    </button>
-                </div>
-                <hr>    
-            </header>
-            <div class="class-tiles-container">
-                <div class="class-tile">
-                    <button class="btn-class-tile text-white btn-3-dot">
-                        ⋮
-                    </button>
-                    <a href="sample-class-page.html">
-                        <div class="class-tile-text">
-                            <p class="main-class-text">1234 SAMPLE CLASS SEC1234</p>
-                            <p class="sub-class-text">1234 SAMPLE CLASS SEC1234</p>
-                            <p class="term-text">Summer Term 2022-2023</p>
-                        </div>
-                    </a>
-                    <div class="class-tile-icons">
-                        <button class="btn-transparent">
-                            <img class="icon-image" src="{% static 'assets/icons/alarm.png' %}">
-                        </button>
-                        <button class="btn-transparent">
-                            <img class="icon-image" src="{% static 'assets/icons/assignments.png' %}">
-                        </button>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-
-        <div class="todo-container">
-            <h4 class="subtitle">
-                To Do
-            </h4>
-            <hr>
-            <p class="info-text">
-                Nothing for now
-            </p>
-            <h4 class="subtitle">
-                Recent Feedback
-            </h4>
-            <hr>
-            <p class="info-text">
-                Nothing for now
-            </p>
-            <button class="btn-view-grades">
-                <a href="/grades-page.html">
-                    <h3 class="btn-font">View Grades</h3>
-                </a>
-            </button>
-        </div>
+        {% endblock content %}
     </div>
     
 </body>
