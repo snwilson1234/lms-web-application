@@ -4,6 +4,7 @@
 
 {% block content %}
 
+
 <!--Pop-up Menus-->
 <div id="user" class="user-menu">
     <div class="x-button-container">
@@ -110,6 +111,7 @@
     <h4 class="submenu-text">Sample Group 4</h4>
 </div>
 
+<!--main section-->
 <div id="main-section">
     <header>
         <div class="title-container">
@@ -161,10 +163,11 @@
         Nothing for now
     </p>
     <button class="btn-view-grades">
-        <a href="/grades-page.html">
+        <a href="{% url 'grades' %}">
             <h3 class="btn-font">View Grades</h3>
         </a>
     </button>
 </div>
+
 
 {% endblock content %}
