@@ -27,9 +27,14 @@ from sampleclass.views import (
     sample_class_view
 )
 
+from account.views import (
+    registration_view,
+)
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", home_screen_view, name="home"),
     path("grades/", grades_view, name="grades"),
-    path("sampleclass/", sample_class_view, name="sampleclass")
+    path("sampleclass/", sample_class_view, name="sampleclass"),
+    path("register/", registration_view, name="register")
 ]
