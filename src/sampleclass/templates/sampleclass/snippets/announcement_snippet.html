@@ -1,0 +1,14 @@
+{% load static %}
+<div class="announcement-text-main-container-xl">
+    <img class="icon-image-lg pad-right-15 fs-10" src="{% static 'assets/icons/profile-pic.png' %}">
+    <div class="announcement-text-container">
+        <h4 class="subtitle subtitle-0">{{value.announcement_title}}</h4>
+        <h5 class="pad-top-10">All Sections</h5>
+        <h4 class="subtitle subtitle-light-0">{{value.announcement_text}}</h4>
+    </div>
+    <div class="announcement-date-container marg-top-20">
+        <h5 class="date-text">Posted on:</h5>
+        <h5 class="pad-top-10">{{value.announcement_date}}</h5>
+    </div>
+</div>
+<hr>

@@ -54,48 +54,12 @@
                 <div id="home-middle">
                     <h1 class="announcements-header">Recent Announcements</h1>
                     <hr>
-                    <div class="announcement-container">
-                        <img class="icon-image-lg pad-right-15 fs-10" src="{% static 'assets/icons/profile-pic.png' %}">
-                        <div class="announcement-text-main-container">
-                            <div class="announcement-text-container">
-                                <h4 class="subtitle subtitle-0">Announcement Title</h4>
-                                <h4 class="subtitle subtitle-light-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Volupta</h4>
-                            </div>
-                            <div class="announcement-date-container">
-                                <h5 class="date-text">Posted on:</h5>
-                                <h5 class="pad-top-10">Jan 1, 2023, 12:00 AM</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="announcement-container">
-                        <img class="icon-image-lg pad-right-15 fs-10" src="{% static 'assets/icons/profile-pic.png' %}">
-                        <div class="announcement-text-main-container">
-                            <div class="announcement-text-container">
-                                <h4 class="subtitle subtitle-0">Announcement Title</h4>
-                                <h4 class="subtitle subtitle-light-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Volupta</h4>
-                            </div>
-                            <div class="announcement-date-container">
-                                <h5 class="date-text">Posted on:</h5>
-                                <h5 class="pad-top-10">Jan 1, 2023, 12:00 AM</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="announcement-container">
-                        <img class="icon-image-lg pad-right-15 fs-10" src="{% static 'assets/icons/profile-pic.png' %}">
-                        <div class="announcement-text-main-container">
-                            <div class="announcement-text-container">
-                                <h4 class="subtitle subtitle-0">Announcement Title</h4>
-                                <h4 class="subtitle subtitle-light-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Volupta</h4>
-                            </div>
-                            <div class="announcement-date-container">
-                                <h5 class="date-text">Posted on:</h5>
-                                <h5 class="pad-top-10">Jan 1, 2023, 12:00 AM</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
+
+                    {% for announcement in announcements %}
+                        {% include 'sampleclass/snippets/home_announcement_snippet.html' with value=announcement %}
+                    {% endfor %}
+                    
+
                     <h2 class="pad-top-10"><b>Welcome to CLASS CLASS SEC1234</b></h2>
                 </div>
             </div>
@@ -142,45 +106,9 @@
                 <input class="announcement-search" type="text" placeholder="Search">
             </div>
             <hr>
-            <div class="announcement-text-main-container-xl">
-                <img class="icon-image-lg pad-right-15 fs-10" src="{% static 'assets/icons/profile-pic.png' %}">
-                <div class="announcement-text-container">
-                    <h4 class="subtitle subtitle-0">Announcement Title</h4>
-                    <h5 class="pad-top-10">All Sections</h5>
-                    <h4 class="subtitle subtitle-light-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Volupta</h4>
-                </div>
-                <div class="announcement-date-container marg-top-20">
-                    <h5 class="date-text">Posted on:</h5>
-                    <h5 class="pad-top-10">Jan 1, 2023, 12:00 AM</h5>
-                </div>
-            </div>
-            <hr>
-            <div class="announcement-text-main-container-xl">
-                <img class="icon-image-lg pad-right-15 fs-10" src="{% static 'assets/icons/profile-pic.png' %}">
-                <div class="announcement-text-container">
-                    <h4 class="subtitle subtitle-0">Announcement Title</h4>
-                    <h5 class="pad-top-10">All Sections</h5>
-                    <h4 class="subtitle subtitle-light-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Volupta</h4>
-                </div>
-                <div class="announcement-date-container marg-top-20">
-                    <h5 class="date-text">Posted on:</h5>
-                    <h5 class="pad-top-10">Jan 1, 2023, 12:00 AM</h5>
-                </div>
-            </div>
-            <hr>
-            <div class="announcement-text-main-container-xl">
-                <img class="icon-image-lg pad-right-15 fs-10" src="{% static 'assets/icons/profile-pic.png' %}">
-                <div class="announcement-text-container">
-                    <h4 class="subtitle subtitle-0">Announcement Title</h4>
-                    <h5 class="pad-top-10">All Sections</h5>
-                    <h4 class="subtitle subtitle-light-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Volupta</h4>
-                </div>
-                <div class="announcement-date-container marg-top-20">
-                    <h5 class="date-text">Posted on:</h5>
-                    <h5 class="pad-top-10">Jan 1, 2023, 12:00 AM</h5>
-                </div>
-            </div>
-            <hr>
+            {% for announcement in announcements %}
+                {% include 'sampleclass/snippets/announcement_snippet.html' with value=announcement %}
+            {% endfor %}
         </div>
 
         
