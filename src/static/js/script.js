@@ -24,13 +24,13 @@ function toggleClassContent(buttonId) {
     const homeContent = document.getElementById('home-content');
     const announcementContent = document.getElementById('announcement-content');
     //const syllabusContent = document.getElementById('syllabus-content');
-    //const modulesContent = document.getElementById('modules-content');
+    const modulesContent = document.getElementById('modules-content');
     //const assignmentsContent = document.getElementById('assignments-content');
 
     homeContent.classList.remove('active');
     announcementContent.classList.remove('active');
     //syllabusContent.classList.remove('active');
-    //modulesContent.classList.remove('active');
+    modulesContent.classList.remove('active');
     //assignmentsContent.classList.remove('active');
     
 
@@ -38,10 +38,10 @@ function toggleClassContent(buttonId) {
         homeContent.classList.toggle('active');
     } else if (buttonId === 'btn-announcement') {
         announcementContent.classList.toggle('active');
-    } else if (buttonId === 'btn-syllabus') {
-        syllabusContent.classList.toggle('active');
     } else if (buttonId === 'btn-modules') {
         modulesContent.classList.toggle('active');
+    } else if (buttonId === 'btn-syllabus') {
+        syllabusContent.classList.toggle('active');
     } else if (buttonId === 'btn-assignments') {
         assignmentsContent.classList.toggle('active');
     }

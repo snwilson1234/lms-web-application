@@ -26,7 +26,7 @@
             <button class="btn-tab">
                 <h3 class="tabs-text">Syllabus</h3>
             </button>
-            <button class="btn-tab">
+            <button class="btn-tab" id="btn-modules" onclick="toggleClassContent('btn-modules')">
                 <h3 class="tabs-text">Modules</h3>
             </button>
             <button class="btn-tab">
@@ -109,6 +109,33 @@
             {% for announcement in announcements %}
                 {% include 'sampleclass/snippets/announcement_snippet.html' with value=announcement %}
             {% endfor %}
+        </div>
+
+        <div id="modules-content" class="modules-section">
+            <div class="modules-buttons-container">
+                <button class="btn-modules">
+                    <div class="button-inner-content">
+                        <h3 class="pad-left-10">Collapse All</h3>
+                    </div>
+                </button>
+                <button class="btn-modules-export btn-modules">
+                    <div class="button-inner-content">
+                        <img class="pad-left-10 icon-image-h3" src="{% static 'assets/icons/file-export.png' %}">
+                        <h3>Export Course Content</h3>
+                    </div>
+                </button>
+            </div>
+            <hr>
+            <div class="modules-container">
+                <div class="module-container">
+                    <div class="module-header">
+                        <h4 class="module-header-text">▾ Module 1 Text</h4>
+                    </div>
+                    <div class="module-content-1">
+                        <h4 class="module-body-text">Module 1 Sample Lecture</h4>
+                    </div>
+                </div>
+            </div>
         </div>
 
         

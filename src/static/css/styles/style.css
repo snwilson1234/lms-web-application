@@ -281,6 +281,10 @@ header {
     height: 20px;
 }
 
+.icon-image-h3 {
+    height: 18.72px;
+}
+
 .icon-image-lg {
     height: 28px;
 }
@@ -560,6 +564,7 @@ header {
 
 .button-container {
     display: flex;
+    text-align: center;
     gap: 5px;
 }
 
@@ -591,6 +596,16 @@ header {
 }
 
 #announcement-content.active {
+    visibility: visible;
+    display: block;
+}
+
+#modules-content {
+    visibility: hidden;
+    display: none;
+}
+
+#modules-content.active {
     visibility: visible;
     display: block;
 }
@@ -635,4 +650,99 @@ header {
 
 .marg-top-20 {
     margin-top: 20px;
+}
+
+/* modules stuff */
+.modules-section {
+    width: 76vw;
+    z-index: 5;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.modules-buttons-container {
+    height: 38px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.modules-container {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.module-container {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    margin-top: 20px;
+}
+
+.module-header {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    vertical-align: middle;
+    align-items: center;
+    margin: 0 auto;
+    background-color: rgb(243, 243, 243);
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(213, 213, 213);
+}
+
+.btn-modules {
+    margin: 0;
+    padding: 0;
+    border: solid;
+    border-color: rgb(191, 198, 202);
+    border-width: 1px;
+    border-radius: 2.5%;
+    background-color: rgb(243, 243, 243);
+    width: 100px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    color: rgb(60, 72, 80);
+    vertical-align: middle;
+}
+
+.btn-modules-export {
+    width: 200px;
+}
+
+.button-inner-content {
+    display: flex;
+}
+
+.module-header-text {
+    padding-left: 10px;
+    font-weight: 600;
+    color: rgb(23,23,23);
+}
+
+.module-body-text {
+    padding-left: 10px;
+    color: rgb(23,23,23);
+    font-weight: 600;
+}
+
+.module-content-1 {
+    display: flex;
+    height: 50px;
+    vertical-align: middle;
+    align-items: center;
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(213, 213, 213);
 }
