@@ -17,20 +17,9 @@
         Courses I'm Taking
     </h1> 
     <ul>
-        <li class="class-list-item">
-            <div class="class-container">
-                <h3 class="class-text">1234 SAMPLE CLASS SEC1234 CLASS CLASS</h3>
-                <h3 class="grade-text">100%</h3>
-            </div>
-            <hr>
-        </li>
-        <li class="class-list-item">
-            <div class="class-container">
-                <h3 class="class-text">1234 SAMPLE CLASS SEC1234 CLASS CLASS</h3>
-                <h3 class="grade-text">100%</h3>
-            </div>
-            <hr>
-        </li>
+        {% for student_grade in student_grades %}
+            {% include 'grades/snippets/student_grade_snippet.html' with value=student_grade %}
+        {% endfor %}
     </ul>
 </div>
 
