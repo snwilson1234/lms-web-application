@@ -46,3 +46,16 @@ class CourseSections(models.Model):
     class Meta:
         verbose_name = "Course Section"
         verbose_name_plural = "Course Sections"
+
+class StudentCourses(models.Model):
+
+    username                = models.CharField(max_length=30, unique=True)
+    course_section          = models.CharField(max_length=60, unique=True)
+    course_title            = models.ForeignKey(Courses, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.username} - {self.course_section} - {self.course_title}"
+
+    class Meta:
+        verbose_name = "Assigned Course"
+        verbose_name_plural = "Student Courses"
