@@ -29,6 +29,7 @@ from sampleclass.views import (
 
 from account.views import (
     registration_view,
+    login_view,
 )
 
 urlpatterns = [
@@ -36,5 +37,6 @@ urlpatterns = [
     path("", home_screen_view, name="home"),
     path("grades/", grades_view, name="grades"),
     path("sampleclass/", sample_class_view, name="sampleclass"),
-    path("register/", registration_view, name="register")
+    path("register/", registration_view, name="register"),
+    path("login/", login_view, name="login"),
 ]
