@@ -746,3 +746,20 @@ header {
     border-style: solid;
     border-color: rgb(213, 213, 213);
 }
+
+/* Student Registration */
+.student-registration-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.registration-title {
+    display: block;
+    width: 100%;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.student-form {
+    
+}

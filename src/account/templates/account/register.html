@@ -3,28 +3,27 @@
 {% load static %}
 
 {% block content %}
-
-<h2>Register</h2>
-<form method="post">{% csrf_token %}
+<div class="student-registration-container">
+    <h2 class="registration-title">Register</h2>
+    <form class="student-form" method="post">{% csrf_token %}
     {% for field in registration_form %}
-    <p>
-        
-        {{field.label_tag}}
-        {{field}}
 
+        <h2>{{field.label_tag}}</h2>
+        {{field}}
+        {% comment %} 
         {% if field.help_text %}
-        <small style="color: gray;">{{field.help_text}}</small>
-        {% endif%}
+        
+        {% endif%} {% endcomment %}
 
         {% for error in field.errors %}
             <p style="color: red;">{{error}}</p>
         {% endfor %}
     
-    </p>
     {% endfor%}
     <button type="submit">Register</button>
 
-</form>
+    </form>
+</div>
 
 
 {% endblock content %}
