@@ -6,7 +6,7 @@ from grades.models import StudentCourseGrade
 def grades_view(request):
     context = {}
 
-    student_grades = StudentCourseGrade.objects.all()
+    student_grades = StudentCourseGrade.objects.filter(username=request.user)
     context['student_grades'] = student_grades
 
     return render(request, "grades/grades.html", context)
