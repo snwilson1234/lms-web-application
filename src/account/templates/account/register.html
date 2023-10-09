@@ -4,12 +4,14 @@
 
 {% block content %}
 <div class="student-registration-container">
-    <h2 class="registration-title">Register</h2>
+    <h3 class="registration-title">Register for a student account below.</h3>
     <form class="student-form" method="post">{% csrf_token %}
     {% for field in registration_form %}
-
-        <h2>{{field.label_tag}}</h2>
+        
+    <div class="form-element">
+        <h3 class="field-label">{{field.label_tag}}</h3>
         {{field}}
+    </div>
         {% comment %} 
         {% if field.help_text %}
         
@@ -20,7 +22,7 @@
         {% endfor %}
     
     {% endfor%}
-    <button type="submit">Register</button>
+    <button class="btn-register" type="submit">Register</button>
 
     </form>
 </div>

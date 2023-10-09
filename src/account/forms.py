@@ -9,6 +9,8 @@ class RegistrationForm(UserCreationForm):
     lastname            = forms.CharField(max_length=60, help_text="", label="Last Name")
     major               = forms.CharField(max_length=100, help_text="", label="Major")
     year                = forms.DecimalField(max_digits=2, help_text="", label="Year")
+    password1           = forms.CharField(max_length=60, help_text="", label="Password")
+    password2           = forms.CharField(max_length=60, help_text="", label="Confirm Password")
 
     class Meta:
         model = StudentAccount

@@ -751,15 +751,39 @@ header {
 .student-registration-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 95vw;
 }
 
 .registration-title {
     display: block;
     width: 100%;
-    font-size: 50px;
+    font-size: 24px;
     font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form-element {
+    margin-top: 10px;
 }
 
 .student-form {
-    
+    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-register {
+    margin-top: 15px;
+    width: 100%;
+}
+
+.field-label {
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 5px;
 }
