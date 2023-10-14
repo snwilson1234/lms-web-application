@@ -3,7 +3,7 @@ from sampleclass.models import CourseAnnouncement
 
 # Create your views here.
 
-def sample_class_view(request):
+def sample_class_view(request, course_id):
 
     context = {}
 

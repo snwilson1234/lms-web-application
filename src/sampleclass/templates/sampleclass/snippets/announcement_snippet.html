@@ -1,4 +1,9 @@
 {% load static %}
+
+<script>
+    const filteredAnnouncements = announcements.filter(announcement => value.course_title == courseTitle);
+</script>
+
 <div class="announcement-text-main-container-xl">
     <img class="icon-image-lg pad-right-15 fs-10" src="{% static 'assets/icons/profile-pic.png' %}">
     <div class="announcement-text-container">

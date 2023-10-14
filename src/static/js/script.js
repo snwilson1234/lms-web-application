@@ -20,6 +20,7 @@
     
 // }
 
+
 function toggleClassContent(buttonId) {
     const homeContent = document.getElementById('home-content');
     const announcementContent = document.getElementById('announcement-content');

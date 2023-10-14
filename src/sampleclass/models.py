@@ -4,8 +4,7 @@ from home.models import Courses
 # Create your models here.
 class CourseAnnouncement(models.Model):
 
-    course_announcement_id          = models.AutoField(primary_key=True)
-    course_title                    = models.ForeignKey(Courses, on_delete=models.CASCADE, null=True) 
+    course_id                       = models.ForeignKey(Courses, on_delete=models.CASCADE) 
     announcement_title              = models.CharField(max_length=60)
     announcement_text               = models.TextField(max_length=400)
     announcement_date               = models.DateField(auto_now=False, auto_now_add=True)
