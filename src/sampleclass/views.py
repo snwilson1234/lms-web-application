@@ -1,13 +1,22 @@
 from django.shortcuts import render
 from sampleclass.models import CourseAnnouncement
+from home.models import Courses,StudentCourses
 
-# Create your views here.
 
-def sample_class_view(request, course_id):
+def sample_class_view(request, course_id):# Pass in course ID (title) clicked
 
     context = {}
 
-    announcements = CourseAnnouncement.objects.all()
+    # Get course object clicked from str passed in above
+    course = Courses.objects.get(course_title=course_id)
+    course_section = StudentCourses.objects.get(course_id=course)
+
+    context['course'] = course
+    context['course_section'] = course_section
+    
+    # Only show course annoucnements for this course
+    announcements = CourseAnnouncement.objects.filter(course_id=course)
+    
     context['announcements'] = announcements
 
     return render(request, "sampleclass/sample_class.html", context)
