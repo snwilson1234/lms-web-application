@@ -17,3 +17,32 @@ class CourseAnnouncement(models.Model):
     class Meta:
         verbose_name = "Announcement"
         verbose_name_plural = "Announcements"
+
+class CourseModules(models.Model):
+
+    module_name                     = models.CharField(max_length=60)
+    course_id                       = models.ForeignKey(Courses, on_delete=models.CASCADE) 
+    order_sequence                  = models.DecimalField(max_digits=3,decimal_places=0)
+    active_ind                      = models.BooleanField(default=True)
+
+    def __str__(self) -> str:
+        return self.module_name
+    
+    class Meta:
+        verbose_name = "Course Module"
+        verbose_name_plural = "Course Modules"
+
+
+class ModuleSections(models.Model):
+
+    module_section_name             = models.CharField(max_length=60)
+    module_id                       = models.ForeignKey(CourseModules, on_delete=models.CASCADE)
+    order_sequence                  = models.DecimalField(max_digits=3,decimal_places=0)
+    active_ind                      = models.BooleanField(default=True)
+
+    def __str__(self) -> str:
+        return f"{self.module_section_name} - {self.module_id}"
+    
+    class Meta:
+        verbose_name = "Module Section"
+        verbose_name_plural = "Module Sections"

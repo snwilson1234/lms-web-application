@@ -127,14 +127,11 @@
             </div>
             <hr>
             <div class="modules-container">
-                <div class="module-container">
-                    <div class="module-header">
-                        <h4 class="module-header-text">▾ Module 1 Text</h4>
-                    </div>
-                    <div class="module-content-1">
-                        <h4 class="module-body-text">Module 1 Sample Lecture</h4>
-                    </div>
-                </div>
+
+                {% for module in modules %}
+                    {% include 'sampleclass/snippets/course_module_snippet.html' with value=module %}
+                {% endfor %}
+                
             </div>
         </div>
 

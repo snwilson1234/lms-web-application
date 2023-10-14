@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from sampleclass.models import CourseAnnouncement
+from sampleclass.models import CourseAnnouncement,CourseModules,ModuleSections
 from home.models import Courses,StudentCourses
 
 
@@ -16,7 +16,10 @@ def sample_class_view(request, course_id):# Pass in course ID (title) clicked
     
     # Only show course annoucnements for this course
     announcements = CourseAnnouncement.objects.filter(course_id=course)
+
+    modules       = CourseModules.objects.filter(course_id=course)
     
     context['announcements'] = announcements
+    context['modules'] = modules
 
     return render(request, "sampleclass/sample_class.html", context)
