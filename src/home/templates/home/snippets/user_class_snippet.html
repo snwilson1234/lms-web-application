@@ -4,10 +4,10 @@
     <button class="btn-class-tile text-white btn-3-dot">
         ⋮
     </button>
-    <a href="sampleclass">
+    <a href="{% url 'sampleclass' course_id=value.course_id %}"><!--here-->
         <div class="class-tile-text">
-            <p class="main-class-text">{{value.course_title}}</p>
-            <p class="sub-class-text">{{value.course_section}}</p>
+            <p class="main-class-text">{{value.course_id}}</p>
+            <p class="sub-class-text">{{value.course_section_id}}</p>
             <p class="term-text">Term</p>
         </div>
     </a>

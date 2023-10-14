@@ -3,23 +3,23 @@ from home.models import Courses,CourseSections, StudentCourses
 
 # Register your models here.
 
-# class CourseSectionsAdmin(admin.ModelAdmin):
-#     list_display = ('course_id','course_title','course_section','course_instructor')
-#     search_fields = ('course_title','course_section')
+class CourseSectionsAdmin(admin.ModelAdmin):
+    list_display = ('course_section','course_id','course_instructor')
+    search_fields = ('course_section','course_id')
 
-#     filter_horizontal = ()
-#     list_filter = ()
-#     fieldsets = ()    
+    filter_horizontal = ()
+    list_filter = ()
+    fieldsets = ()    
 
 class StudentCoursesAdmin(admin.ModelAdmin):
-    list_display = ('username','course_title','course_section')
-    search_fields = ('username','course_title','course_section')
+    list_display = ('username','course_id','course_section_id')
+    search_fields = ('username','course_id','course_section_id')
 
     filter_horizontal = ()
     list_filter = ()
     fieldsets = ()
 
 admin.site.register(Courses)
-admin.site.register(CourseSections)
+admin.site.register(CourseSections, CourseSectionsAdmin)
 
-admin.site.register(StudentCourses)
+admin.site.register(StudentCourses, StudentCoursesAdmin)
