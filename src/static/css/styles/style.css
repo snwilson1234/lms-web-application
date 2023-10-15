@@ -834,6 +834,7 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 .btn-new-attempt {
@@ -847,7 +848,7 @@ header {
 
 .btn-new-attempt-text {
     margin: 10px;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .module-section-middle-content {
@@ -860,6 +861,8 @@ header {
     flex-direction: row;
     justify-content: space-between;
     width: 75%;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 .submission-info-sub-container {
     display: flex;
@@ -873,4 +876,9 @@ header {
 
 .fw-500 {
     font-weight: 500;
+}
+
+.assignment-info-container {
+    margin-top: 25px;
+    width: 100%;
 }
