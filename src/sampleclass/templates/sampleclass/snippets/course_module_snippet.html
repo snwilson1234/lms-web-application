@@ -1,8 +1,13 @@
 {% load static %}
 
-<div class="module-header">
-    <h4 class="module-header-text">▾ {{value.module_name}}</h4>
+<div class="module-container">
+    <div class="module-header">
+        <h4 class="module-header-text">▾ {{value.module_name}}</h4>
+    </div>
+    
+    {% for module_section in module_sections %}
+        {% if value.module_name == module_section.module_id.module_name %}
+            {% include 'sampleclass/snippets/module_section_snippet.html' with value=module_section %}
+        {% endif %}
+    {% endfor %}
 </div>
-{% comment %} <div class="module-content-1">
-    <h4 class="module-body-text">Module 1 Sample Lecture</h4>
-</div> {% endcomment %}

@@ -18,8 +18,15 @@ def sample_class_view(request, course_id):# Pass in course ID (title) clicked
     announcements = CourseAnnouncement.objects.filter(course_id=course)
 
     modules       = CourseModules.objects.filter(course_id=course)
+    module_sections = ModuleSections.objects.filter(module_id__in=modules)
+
+    # module_sections_dict = {}
+
+    # for module in modules:
+    #     module_sections_dict[module] = module_sections.filter(module_id=module)
     
     context['announcements'] = announcements
     context['modules'] = modules
+    context['module_sections'] = module_sections
 
     return render(request, "sampleclass/sample_class.html", context)
