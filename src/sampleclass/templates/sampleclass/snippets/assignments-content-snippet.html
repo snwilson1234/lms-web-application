@@ -13,6 +13,9 @@
     </div>
     <hr>
     <div class="assignments-container">
+        <div class="module-header">
+            <h4 class="module-header-text">▾ Current Assignments</h4>
+        </div><!--TODO: add logic here for current/past/upcoming assignmnets-->
         {% for assignment in assignments %}
             {% include 'sampleclass/snippets/course_assignment_snippet.html' with value=assignment %}
         {% endfor %}
