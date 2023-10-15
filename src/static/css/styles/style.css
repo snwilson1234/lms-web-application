@@ -882,3 +882,45 @@ header {
     margin-top: 25px;
     width: 100%;
 }
+
+#assignments-content {
+    visibility: hidden;
+    display: none;
+}
+
+#assignments-content.active {
+    visibility: visible;
+    display: block;
+}
+
+.assignments-section {
+    width: 76vw;
+}
+
+.assignments-buttons-container {
+    height: 38px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.show-by-buttons-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-show-by {
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+}
+
+.search-assignment-box {
+    border: solid;
+    border-color: rgb(204, 204, 204);
+    border-width: 1px;
+    padding-left: 10px;
+    width: 200px;
+}

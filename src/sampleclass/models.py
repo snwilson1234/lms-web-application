@@ -1,7 +1,7 @@
 from django.db import models
 from home.models import Courses
 
-# Create your models here.
+# Announcements
 class CourseAnnouncement(models.Model):
 
     course_id                       = models.ForeignKey(Courses, on_delete=models.CASCADE) 
@@ -17,6 +17,9 @@ class CourseAnnouncement(models.Model):
     class Meta:
         verbose_name = "Announcement"
         verbose_name_plural = "Announcements"
+
+
+# Modules
 
 class CourseModules(models.Model):
 
@@ -46,3 +49,20 @@ class ModuleSections(models.Model):
     class Meta:
         verbose_name = "Module Section"
         verbose_name_plural = "Module Sections"
+
+
+# Assignments
+
+class CourseAssignments(models.Model):
+
+    assignment_name                 = models.CharField(max_length=60)
+    course_id                       = models.ForeignKey(Courses, on_delete=models.CASCADE) 
+    order_sequence                  = models.DecimalField(max_digits=3,decimal_places=0)
+    active_ind                      = models.BooleanField(default=True)
+
+    def __str__(self) -> str:
+        return self.assignment_name
+    
+    class Meta:
+        verbose_name = "Course Assignment"
+        verbose_name_plural = "Course Assignment"

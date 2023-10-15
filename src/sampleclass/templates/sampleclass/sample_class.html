@@ -29,7 +29,7 @@
             <button class="btn-tab" id="btn-modules" onclick="toggleClassContent('btn-modules')">
                 <h3 class="tabs-text">Modules</h3>
             </button>
-            <button class="btn-tab">
+            <button class="btn-tab" id="btn-assignments" onclick="toggleClassContent('btn-assignments')">
                 <h3 class="tabs-text">Assignments</h3>
             </button>
             <button class="btn-tab">
@@ -54,9 +54,7 @@
         {% include 'sampleclass/snippets/modules-content-snippet.html' %}
         {% include 'sampleclass/snippets/module-section-page-snippet.html' %}
 
-        {% block module_content %}
-
-        {% endblock module_content %}
+        {% include 'sampleclass/snippets/assignments-content-snippet.html' %}
 
     </div>
     

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from sampleclass.models import CourseAnnouncement,CourseModules,ModuleSections
+from sampleclass.models import CourseAnnouncement,CourseModules,ModuleSections, CourseAssignments
 from home.models import Courses,StudentCourses
 
 
@@ -19,9 +19,12 @@ def sample_class_view(request, course_id):# Pass in course ID (title) clicked
 
     modules       = CourseModules.objects.filter(course_id=course)
     module_sections = ModuleSections.objects.filter(module_id__in=modules)
+
+    assignments   = CourseAssignments.objects.filter(course_id=course)
     
     context['announcements'] = announcements
     context['modules'] = modules
     context['module_sections'] = module_sections
+    context['assignments'] = assignments
 
     return render(request, "sampleclass/sample_class.html", context)

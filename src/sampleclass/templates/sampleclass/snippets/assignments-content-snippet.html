@@ -1,0 +1,20 @@
+{% load static %}
+<div id="assignments-content" class="assignments-section">
+    <div class="assignments-buttons-container">
+        <input class="search-assignment-box" type="text" placeholder="Search for Assignment">
+        <div class="show-by-buttons-container">
+            <button class="btn-show-by">
+                <h4><b>show by date</b></h4>
+            </button>
+            <button class="btn-show-by">
+                <h4><b>show by type</b></h4>
+            </button>
+        </div>
+    </div>
+    <hr>
+    <div class="modules-container">
+        {% for assignment in assignments %}
+            {% include 'sampleclass/snippets/course_assignment_snippet.html' with value=assignment %}
+        {% endfor %}
+    </div>
+</div>
