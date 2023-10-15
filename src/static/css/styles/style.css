@@ -792,9 +792,7 @@ header {
 
 
 .module-section-page-container {
-    width: 52vw;
-    display: flex;
-    flex-direction: column;
+    width: 100vw - 200px;
 }
 
 #module-section-page-content {
@@ -805,7 +803,7 @@ header {
 #module-section-page-content.active {
     visibility: visible;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .m-section-page-header {
@@ -825,4 +823,54 @@ header {
 .btn-module-section:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.m-section-page-header {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.m-section-page-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn-new-attempt {
+    background-color: rgb(1, 28, 77);
+    color: white;
+    border: solid;
+    border-width: 1px;
+    border-radius: 3.25%;
+    height: 100%;
+}
+
+.btn-new-attempt-text {
+    margin: 10px;
+    font-size: 20px;
+}
+
+.module-section-middle-content {
+   flex-direction: column;
+   width: 56vw;
+}
+
+.submission-info-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75%;
+}
+.submission-info-sub-container {
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+}
+
+.submission-info-text {
+    display: flex;
+}
+
+.fw-500 {
+    font-weight: 500;
 }
