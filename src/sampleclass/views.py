@@ -25,6 +25,3 @@ def sample_class_view(request, course_id):# Pass in course ID (title) clicked
     context['module_sections'] = module_sections
 
     return render(request, "sampleclass/sample_class.html", context)
-
-def module_view(request):
-    return render(request, "sampleclass/module_section.html")

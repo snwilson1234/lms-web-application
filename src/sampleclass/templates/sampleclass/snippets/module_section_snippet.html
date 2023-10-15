@@ -6,9 +6,9 @@
 </div> 
 {% else %}
 <div class="module-content-1">
-    <a href="{% url 'moduleview' %}">
+    <button id="btn-module-section" class="btn-module-section" onclick="toggleClassContent('btn-module-section')">
         <h4 class="module-body-text">{{value.module_section_name}}</h4>
-    </a>
+    </button>
 </div> 
 {% endif %}
 

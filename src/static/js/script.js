@@ -5,6 +5,9 @@ function toggleClassContent(buttonId) {
     const modulesContent = document.getElementById('modules-content');
     //const assignmentsContent = document.getElementById('assignments-content');
 
+    const moduleSectionContent = document.getElementById('module-section-page-content');
+
+    moduleSectionContent.classList.remove('active');
     homeContent.classList.remove('active');
     announcementContent.classList.remove('active');
     //syllabusContent.classList.remove('active');
@@ -18,6 +21,8 @@ function toggleClassContent(buttonId) {
         announcementContent.classList.toggle('active');
     } else if (buttonId === 'btn-modules') {
         modulesContent.classList.toggle('active');
+    } else if (buttonId === 'btn-module-section') {
+        moduleSectionContent.classList.toggle('active');
     } else if (buttonId === 'btn-syllabus') {
         syllabusContent.classList.toggle('active');
     } else if (buttonId === 'btn-assignments') {

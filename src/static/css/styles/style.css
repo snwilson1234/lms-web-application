@@ -789,3 +789,40 @@ header {
     font-size: 16px;
     margin-bottom: 5px;
 }
+
+
+.module-section-page-container {
+    width: 52vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#module-section-page-content {
+    visibility: hidden;
+    display: none;
+}
+
+#module-section-page-content.active {
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+}
+
+.m-section-page-header {
+    font-size: 72px;
+}
+
+.btn-module-section {
+    height: 100%;
+    font-size: 16px;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.btn-module-section:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
