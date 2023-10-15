@@ -66,3 +66,16 @@ class CourseAssignments(models.Model):
     class Meta:
         verbose_name = "Course Assignment"
         verbose_name_plural = "Course Assignment"
+
+class AssignmentFile(models.Model):
+    file_name               = models.CharField(max_length=60)
+    file                    = models.FileField(upload_to='assignments/')
+    assignment_id           = models.ForeignKey(CourseAssignments, on_delete=models.CASCADE)
+    file_upload_date        = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return self.file_name
+
+    class Meta:
+        verbose_name = "Assignment File"
+        verbose_name_plural = "Asssignment Files"

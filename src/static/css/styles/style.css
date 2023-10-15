@@ -924,3 +924,22 @@ header {
     padding-left: 10px;
     width: 200px;
 }
+
+.assignments-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.assignment-content {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    vertical-align: middle;
+    align-items: center;
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(213, 213, 213);
+}
