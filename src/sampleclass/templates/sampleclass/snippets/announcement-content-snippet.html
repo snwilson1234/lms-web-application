@@ -1,0 +1,15 @@
+{% load static %}
+
+<div id="announcement-content" class="announcement-section">
+    <div class="search-container">
+        <select class="announcement-filter-selector">
+            <option value="filter-all">Test</option>
+            <option value="filter-all">Test</option>
+        </select>
+        <input class="announcement-search" type="text" placeholder="Search">
+    </div>
+    <hr>
+    {% for announcement in announcements %}
+        {% include 'sampleclass/snippets/announcement_snippet.html' with value=announcement %}
+    {% endfor %}
+</div>

@@ -32,13 +32,13 @@ class CourseModules(models.Model):
         verbose_name = "Course Module"
         verbose_name_plural = "Course Modules"
 
-
 class ModuleSections(models.Model):
 
     module_section_name             = models.CharField(max_length=60)
     module_id                       = models.ForeignKey(CourseModules, on_delete=models.CASCADE)
     order_sequence                  = models.DecimalField(max_digits=3,decimal_places=0)
     active_ind                      = models.BooleanField(default=True)
+    clickable_ind                   = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return f"{self.module_section_name} - {self.module_id}"

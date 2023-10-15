@@ -1,5 +1,14 @@
 {% load static %}
 
+{% if value.clickable_ind == False %}
 <div class="module-content-1">
     <h4 class="module-body-text">{{value.module_section_name}}</h4>
 </div> 
+{% else %}
+<div class="module-content-1">
+    <a href="{% url 'moduleview' %}">
+        <h4 class="module-body-text">{{value.module_section_name}}</h4>
+    </a>
+</div> 
+{% endif %}
+

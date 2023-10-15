@@ -1,0 +1,25 @@
+
+{% load static %}
+<div id="modules-content" class="modules-section">
+    <div class="modules-buttons-container">
+        <button class="btn-modules">
+            <div class="button-inner-content">
+                <h3 class="pad-left-10">Collapse All</h3>
+            </div>
+        </button>
+        <button class="btn-modules-export btn-modules">
+            <div class="button-inner-content">
+                <img class="pad-left-10 icon-image-h3" src="{% static 'assets/icons/file-export.png' %}">
+                <h3>Export Course Content</h3>
+            </div>
+        </button>
+    </div>
+    <hr>
+    <div class="modules-container">
+
+        {% for module in modules %}
+            {% include 'sampleclass/snippets/course_module_snippet.html' with value=module %}
+        {% endfor %}
+        
+    </div>
+</div>

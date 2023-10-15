@@ -1,26 +1,3 @@
-
-
-// class ClassMiddleHandler {
-//     constructor(content){
-//         this.content = content;
-//     }
-
-//     setContent(content) {
-//         this.content = content;
-//     }
-// }
-
-// let fileName = location.href.split("/").slice(-1);
-
-// console.debug(fileName);
-
-// let
-
-// if (fileName == 'sample-class-page.html'){
-    
-// }
-
-
 function toggleClassContent(buttonId) {
     const homeContent = document.getElementById('home-content');
     const announcementContent = document.getElementById('announcement-content');

@@ -24,7 +24,8 @@ from grades.views import (
 )
 
 from sampleclass.views import (
-    sample_class_view
+    sample_class_view,
+    module_view,
 )
 
 from account.views import (
@@ -37,6 +38,7 @@ urlpatterns = [
     path("", home_screen_view, name="home"),
     path("grades/", grades_view, name="grades"),
     path("sampleclass/<str:course_id>", sample_class_view, name="sampleclass"),#here
+    path("module/", module_view, name="moduleview"),
     path("register/", registration_view, name="register"),
     path("login/", login_view, name="login"),
 ]

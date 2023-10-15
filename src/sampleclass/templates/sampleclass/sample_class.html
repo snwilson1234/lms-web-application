@@ -48,99 +48,17 @@
                 <h3 class="tabs-text">People</h3>
             </button>
         </div>
-        
-        <div id="home-content" class="home-section">
-            <div class="middle-section">
-                <div id="home-middle">
-                    <h1 class="announcements-header">Recent Announcements</h1>
-                    <hr>
 
-                    {% for announcement in announcements %}
-                        {% include 'sampleclass/snippets/home_announcement_snippet.html' with value=announcement %}
-                    {% endfor %}
-                    
+        {% include 'sampleclass/snippets/home-content-snippet.html' %}
+        {% include 'sampleclass/snippets/announcement-content-snippet.html' %}
+        {% include 'sampleclass/snippets/modules-content-snippet.html' %}
 
-                    <h2 class="pad-top-10"><b>Welcome to CLASS CLASS SEC1234</b></h2>
-                </div>
-            </div>
-            <div class="todo-course-container todo-container">
+        {% block module_content %}
 
-                <button class="btn-view-grades btn-course-stream">
-                    <div class="button-container">
-                        <img class="pad-left-10 icon-image" src="{% static 'assets/icons/bars.png' %}">
-                        <h3>View Course Stream</h3>
-                    </div>
-                </button>
-                <button class="btn-view-grades btn-course-calendar">
-                    <div class="button-container">
-                        <img class="pad-left-10 icon-image" src="{% static 'assets/icons/date.png' %}">
-                        <h3>View Course Calendar</h3>
-                    </div>
-                </button>
-                <button class="btn-view-grades btn-course-calendar">
-                    <div class="button-container">
-                        <img class="pad-left-10 icon-image" src="{% static 'assets/icons/bell.png' %}">
-                        <h3>View Course Notifications</h3>
-                    </div>
-                </button>
+        {% endblock module_content %}
 
-                <div>
-                    <h4 class="subtitle">To Do</h4>
-                    <hr>
-                    <h5 class="info-text">Nothing for now</h5>
-                    <h4 class="subtitle">Course Groups</h4>
-                    <hr>
-                    <h4 class="submenu-text">Team 1</h4>
-                    <h4 class="subtitle">Recent Feedback</h4>
-                    <hr>
-                    <h4 class="term-text">Nothing for now</h4>
-                </div>
-            </div>
-        </div>
-        <div id="announcement-content" class="announcement-section">
-            <div class="search-container">
-                <select class="announcement-filter-selector">
-                    <option value="filter-all">Test</option>
-                    <option value="filter-all">Test</option>
-                </select>
-                <input class="announcement-search" type="text" placeholder="Search">
-            </div>
-            <hr>
-            {% for announcement in announcements %}
-                {% include 'sampleclass/snippets/announcement_snippet.html' with value=announcement %}
-            {% endfor %}
-        </div>
-
-        <div id="modules-content" class="modules-section">
-            <div class="modules-buttons-container">
-                <button class="btn-modules">
-                    <div class="button-inner-content">
-                        <h3 class="pad-left-10">Collapse All</h3>
-                    </div>
-                </button>
-                <button class="btn-modules-export btn-modules">
-                    <div class="button-inner-content">
-                        <img class="pad-left-10 icon-image-h3" src="{% static 'assets/icons/file-export.png' %}">
-                        <h3>Export Course Content</h3>
-                    </div>
-                </button>
-            </div>
-            <hr>
-            <div class="modules-container">
-
-                {% for module in modules %}
-                    {% include 'sampleclass/snippets/course_module_snippet.html' with value=module %}
-                {% endfor %}
-                
-            </div>
-        </div>
-
-        
-
-        
     </div>
     
 </div>
-
 
 {% endblock content %}
