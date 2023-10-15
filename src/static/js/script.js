@@ -6,6 +6,7 @@ function toggleClassContent(buttonId) {
     const assignmentsContent = document.getElementById('assignments-content');
 
     const moduleSectionContent = document.getElementById('module-section-page-content');
+    const assignmentSectionContent = document.getElementById('assignment-section-page-content')
 
     moduleSectionContent.classList.remove('active');
     homeContent.classList.remove('active');
@@ -13,6 +14,8 @@ function toggleClassContent(buttonId) {
     //syllabusContent.classList.remove('active');
     modulesContent.classList.remove('active');
     assignmentsContent.classList.remove('active');
+    assignmentSectionContent.classList.remove('active');
+
     
 
     if (buttonId === 'btn-home') {
@@ -27,6 +30,10 @@ function toggleClassContent(buttonId) {
         syllabusContent.classList.toggle('active');
     } else if (buttonId === 'btn-assignments') {
         assignmentsContent.classList.toggle('active');
+    } else if (buttonId === 'btn-assignment-section') {
+        assignmentSectionContent.classList.toggle('active');
+    } else {
+        throw new Error("invalid button press")
     }
 }
 

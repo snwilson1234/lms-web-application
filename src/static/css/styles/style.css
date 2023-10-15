@@ -943,3 +943,19 @@ header {
     border-style: solid;
     border-color: rgb(213, 213, 213);
 }
+
+.assignment-section-page-container {
+    width: 100vw - 200px;
+    visibility: hidden;
+}
+
+#assignment-section-page-content {
+    visibility: hidden;
+    display: none;
+}
+
+#assignment-section-page-content.active {
+    visibility: visible;
+    display: flex;
+    flex-direction: row;
+}
