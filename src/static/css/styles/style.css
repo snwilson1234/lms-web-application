@@ -572,42 +572,12 @@ header {
     font-weight: 400;
 }
 
-/*Class Content Dynamic*/
-
-#home-content {
-    visibility: hidden;
-    display: none;
-}
-
-#home-content.active {
-    visibility: visible;
-    display: flex;
-}
+/*Class Content Sections*/
 
 .home-section {
     display: flex;
     width: 100vw - 200px;
     z-index: 3;
-}
-
-#announcement-content {
-    visibility: hidden;
-    display: none;
-}
-
-#announcement-content.active {
-    visibility: visible;
-    display: block;
-}
-
-#modules-content {
-    visibility: hidden;
-    display: none;
-}
-
-#modules-content.active {
-    visibility: visible;
-    display: block;
 }
 
 .announcement-section {
@@ -795,17 +765,6 @@ header {
     width: 100vw - 200px;
 }
 
-#module-section-page-content {
-    visibility: hidden;
-    display: none;
-}
-
-#module-section-page-content.active {
-    visibility: visible;
-    display: flex;
-    flex-direction: row;
-}
-
 .m-section-page-header {
     font-size: 72px;
 }
@@ -883,16 +842,6 @@ header {
     width: 100%;
 }
 
-#assignments-content {
-    visibility: hidden;
-    display: none;
-}
-
-#assignments-content.active {
-    visibility: visible;
-    display: block;
-}
-
 .assignments-section {
     width: 76vw;
 }
@@ -946,16 +895,6 @@ header {
 
 .assignment-section-page-container {
     width: 100vw - 200px;
-    visibility: hidden;
-}
-
-#assignment-section-page-content {
-    visibility: hidden;
-    display: none;
-}
-
-#assignment-section-page-content.active {
-    visibility: visible;
     display: flex;
     flex-direction: row;
 }

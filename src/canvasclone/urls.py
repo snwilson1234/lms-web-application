@@ -29,6 +29,7 @@ from sampleclass.views import (
     assignments_view,
     announcements_view,
     modules_view,
+    assignment_detail_view,
 )
 
 from account.views import (
@@ -42,6 +43,7 @@ urlpatterns = [
     path("grades/", grades_view, name="grades"),
     path("sampleclass/<str:course_id>", sample_class_view, name="sampleclass"),#here
     path("sampleclass/<str:course_id>/assignments", assignments_view, name="assignments"),
+    path("sampleclass/<str:course_id>/assignments/<str:assignment_id>", assignment_detail_view, name="assignment_detail"),
     path("sampleclass/<str:course_id>/announcements", announcements_view, name="announcements"),
     path("sampleclass/<str:course_id>/modules", modules_view, name="modules"),
     path("register/", registration_view, name="register"),

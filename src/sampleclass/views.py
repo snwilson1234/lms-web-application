@@ -43,6 +43,20 @@ def assignments_view(request, course_id):
     
     return render(request, "sampleclass/assignments.html", context)
 
+def assignment_detail_view(request, course_id, assignment_id):
+    context = {}
+    
+    # Get the course object for the given course_id
+    course = Courses.objects.get(course_title=course_id)
+    
+    # Query the assignments related to the course
+    assignment = CourseAssignments.objects.get(assignment_name=assignment_id)
+    
+    context['course'] = course
+    context['assignment'] = assignment
+    
+    return render(request, "sampleclass/assignment_detail.html", context)
+
 def announcements_view(request, course_id):# Pass in course ID (title) clicked
 
     context = {}

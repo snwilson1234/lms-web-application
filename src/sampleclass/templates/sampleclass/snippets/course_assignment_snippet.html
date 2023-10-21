@@ -1,6 +1,6 @@
 {% load static %}
 <div class="assignment-content">
-    <button id="btn-assignment-section" class="btn-module-section" onclick="toggleClassContent('btn-assignment-section')">
+    <a href="{% url 'assignment_detail' course_id=value.course_id  assignment_id=value.assignment_name%}">
         <h4 class="module-body-text">{{value.assignment_name}}</h4>
-    </button>
+    </a>
 </div>
