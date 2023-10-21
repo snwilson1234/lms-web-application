@@ -1,5 +1,9 @@
+{% extends 'sampleclass/sample_class.html' %}
+
 {% load static %}
-<div id="assignments-content" class="assignments-section">
+
+{% block course_middle %}
+<div class="assignments-section">
     <div class="assignments-buttons-container">
         <input class="search-assignment-box" type="text" placeholder="Search for Assignment">
         <div class="show-by-buttons-container">
@@ -21,3 +25,4 @@
         {% endfor %}
     </div>
 </div>
+{% endblock course_middle %}

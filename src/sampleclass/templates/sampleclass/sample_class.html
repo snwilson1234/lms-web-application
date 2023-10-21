@@ -17,21 +17,21 @@
     <div class="under-header-container">
         <div class="class-tabs-menu">
             <h3 class="term-text-italic">Summer Term 2022-2023</h3>
-            <button class="btn-tab" id="btn-home" onclick="toggleClassContent('btn-home')">
+            <a href="{% url 'sampleclass' course_id=course %}">
                 <h3 class="tabs-text">Home</h3>
-            </button>
-            <button class="btn-tab" id="btn-announcement" onclick="toggleClassContent('btn-announcement')">
+            </a>
+            <a href="{% url 'announcements' course_id=course %}">
                 <h3 class="tabs-text">Announcements</h3>
-            </button>
+            </a>
             <button class="btn-tab">
                 <h3 class="tabs-text">Syllabus</h3>
             </button>
-            <button class="btn-tab" id="btn-modules" onclick="toggleClassContent('btn-modules')">
+            <a href="{% url 'modules' course_id=course %}">
                 <h3 class="tabs-text">Modules</h3>
-            </button>
-            <button class="btn-tab" id="btn-assignments" onclick="toggleClassContent('btn-assignments')">
+            </a>
+            <a href="{% url 'assignments' course_id=course %}">
                 <h3 class="tabs-text">Assignments</h3>
-            </button>
+            </a>
             <button class="btn-tab">
                 <h3 class="tabs-text">Grades</h3>
             </button>
@@ -49,13 +49,56 @@
             </button>
         </div>
 
-        {% include 'sampleclass/snippets/home-content-snippet.html' %}
-        {% include 'sampleclass/snippets/announcement-content-snippet.html' %}
-        {% include 'sampleclass/snippets/modules-content-snippet.html' %}
-        {% include 'sampleclass/snippets/module-section-page-snippet.html' %}
-
-        {% include 'sampleclass/snippets/assignments-content-snippet.html' %}
-        {% include 'sampleclass/snippets/assignment-section-page-snippet.html' %}
+        {% block course_middle %}
+        <div class="home-section">
+            <div class="middle-section">
+                <div id="home-middle">
+                    <h1 class="announcements-header">Recent Announcements</h1>
+                    <hr>
+        
+                    {% for announcement in announcements %}
+                        {% include 'sampleclass/snippets/home_announcement_snippet.html' with value=announcement %}
+                    {% endfor %}
+                    
+        
+                    <h2 class="pad-top-10"><b>Welcome to CLASS CLASS SEC1234</b></h2>
+                </div>
+            </div>
+            <div class="todo-course-container todo-container">
+        
+                <button class="btn-view-grades btn-course-stream">
+                    <div class="button-container">
+                        <img class="pad-left-10 icon-image" src="{% static 'assets/icons/bars.png' %}">
+                        <h3>View Course Stream</h3>
+                    </div>
+                </button>
+                <button class="btn-view-grades btn-course-calendar">
+                    <div class="button-container">
+                        <img class="pad-left-10 icon-image" src="{% static 'assets/icons/date.png' %}">
+                        <h3>View Course Calendar</h3>
+                    </div>
+                </button>
+                <button class="btn-view-grades btn-course-calendar">
+                    <div class="button-container">
+                        <img class="pad-left-10 icon-image" src="{% static 'assets/icons/bell.png' %}">
+                        <h3>View Course Notifications</h3>
+                    </div>
+                </button>
+        
+                <div>
+                    <h4 class="subtitle">To Do</h4>
+                    <hr>
+                    <h5 class="info-text">Nothing for now</h5>
+                    <h4 class="subtitle">Course Groups</h4>
+                    <hr>
+                    <h4 class="submenu-text">Team 1</h4>
+                    <h4 class="subtitle">Recent Feedback</h4>
+                    <hr>
+                    <h4 class="term-text">Nothing for now</h4>
+                </div>
+            </div>
+        </div>
+        {% endblock course_middle %}
 
     </div>
     

@@ -1,6 +1,10 @@
+{% extends 'sampleclass/sample_class.html' %}
+
 {% load static %}
 
-<div id="announcement-content" class="announcement-section">
+{% block course_middle %}
+
+<div class="announcement-section">
     <div class="search-container">
         <select class="announcement-filter-selector">
             <option value="filter-all">Test</option>
@@ -13,3 +17,5 @@
         {% include 'sampleclass/snippets/announcement_snippet.html' with value=announcement %}
     {% endfor %}
 </div>
+
+{% endblock course_middle %}

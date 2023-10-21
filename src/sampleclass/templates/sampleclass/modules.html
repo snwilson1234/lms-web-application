@@ -1,5 +1,9 @@
+{% extends 'sampleclass/sample_class.html' %}
+
 {% load static %}
-<div id="modules-content" class="modules-section">
+
+{% block course_middle %}
+<div class="modules-section">
     <div class="modules-buttons-container">
         <button class="btn-modules">
             <div class="button-inner-content">
@@ -22,3 +26,5 @@
         
     </div>
 </div>
+
+{% endblock course_middle %}
