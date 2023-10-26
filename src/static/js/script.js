@@ -73,3 +73,8 @@ function openCity(evt, elem_name) {
     document.getElementById(elem_name).style.display = "block";
     evt.currentTarget.className += " active";
   }
+
+function toggleUploadFileContent() {
+    var content = document.getElementById('upload-box-content');
+    content.classList.toggle('active');
+}

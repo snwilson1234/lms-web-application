@@ -811,6 +811,10 @@ header {
     height: 100%;
 }
 
+.btn-new-attempt:hover {
+    cursor: pointer;
+}
+
 .btn-new-attempt-text {
     margin: 10px;
     font-size: 16px;
@@ -909,8 +913,7 @@ header {
 /* File upload tab */
 .upload-tab {
     overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    background-color: transparent;
 }
 
 .upload-tab button {
@@ -925,12 +928,15 @@ header {
 
 /* Change background color of buttons on hover */
 .upload-tab button:hover {
-    background-color: #ddd;
+    text-decoration: underline;
 }
 
 /* Create an active/current tablink class */
 .upload-tab button.active {
-    background-color: #ccc;
+    border-top: solid 1px rgb(200,205,209);
+    border-left: solid 1px rgb(200,205,209);
+    border-right: solid 1px rgb(200,205,209);
+    border-radius: 3.25%;
 }
 
 /* Style the tab content */
@@ -938,5 +944,29 @@ header {
     display: none;
     padding: 6px 12px;
     border: 1px solid #ccc;
-    border-top: none;
+}
+
+.upload-box-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+#upload-box-content {
+    display: none;
+    visibility: hidden;
+}
+
+#upload-box-content.active {
+    display: flex;
+    flex-direction: column;
+    visibility: visible;
+    margin-top: 15px;
+}
+
+.student-submission-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
 }

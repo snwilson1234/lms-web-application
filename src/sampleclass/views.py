@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from sampleclass.models import CourseAnnouncement,CourseModules,ModuleSections, CourseAssignments
+from sampleclass.models import CourseAnnouncement,CourseModules,ModuleSections, CourseAssignments, AssignmentUploadFile
 from sampleclass.forms import AssignmentUploadForm
 from home.models import Courses,StudentCourses
 from django.http import HttpResponseRedirect
@@ -57,8 +57,10 @@ def assignment_detail_view(request, course_id, assignment_id):
     assignment = CourseAssignments.objects.get(assignment_name=assignment_id)
     form = AssignmentUploadForm()
 
-    # Get files associated with this assignment
-    #files = AssignmentFile.object.fil
+    CourseAssignments.objects.check
+
+    # Get uploaded files
+    files = AssignmentUploadFile.objects.filter(assignment_id=assignment)
 
     #file uploading
     if request.method == "POST":
@@ -77,6 +79,7 @@ def assignment_detail_view(request, course_id, assignment_id):
     context['course'] = course
     context['assignment'] = assignment
     context['upload_form'] = form
+    context['uploaded_files'] = files
     
     return render(request, "sampleclass/assignment_detail.html", context)
 

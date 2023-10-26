@@ -7,7 +7,7 @@
     <div class="module-section-middle-content">
         <div class="m-section-page-header-container">
             <h1 class="m-section-page-header">{{assignment.assignment_name}}</h1>
-            <button class="btn-new-attempt">
+            <button class="btn-new-attempt" onclick="toggleUploadFileContent()">
                 <h4 class="btn-new-attempt-text">
                     New Attempt
                 </h4>
@@ -31,35 +31,44 @@
         <hr>
         <div class="assignment-info-container">
             <h4><b>Assignment Guidelines</b></h4>
-            <div class="upload-tab">
-                <button class="tablinks" onclick="openCity(event, 'upload')">Upload File</button>
-                <button class="tablinks" onclick="openCity(event, 'jove')">JoVE LTI Tool</button>
-                <button class="tablinks" onclick="openCity(event, 'office')">Office 365</button>
-            </div>
-            <!-- Tab content -->
-            <div id="upload" class="upload-tab-content">
-                <h5><b>Upload a file, or choose a file you've already uploaded.</b></h5>
-                <div class="">
-    
-                    {% include 'sampleclass/snippets/assignment_upload_form_snippet.html' %}
-                    
+            <div id="upload-box-content" class="upload-box-container">
+                <div class="upload-tab">
+                    <button class="tablinks" onclick="openCity(event, 'upload')">Upload File</button>
+                    <button class="tablinks" onclick="openCity(event, 'jove')">JoVE LTI Tool</button>
+                    <button class="tablinks" onclick="openCity(event, 'office')">Office 365</button>
                 </div>
-            </div>
-            
-            <div id="jove" class="upload-tab-content">
-                <h3>JoVE LTI Tool</h3>
-                <p>{% lorem 3 p random %}</p>
-            </div>
-            
-            <div id="office" class="upload-tab-content">
-                <h3>Office 365</h3>
-                <p>{% lorem 3 p random %}</p>
+                <div id="upload" class="upload-tab-content">
+                    <h5><b>Upload a file, or choose a file you've already uploaded.</b></h5>
+                    <div class="">
+        
+                        {% include 'sampleclass/snippets/assignment_upload_form_snippet.html' %}
+                        
+                    </div>
+                </div>
+                
+                <div id="jove" class="upload-tab-content">
+                    <h3>JoVE LTI Tool</h3>
+                    <p>{% lorem 3 p random %}</p>
+                </div>
+                
+                <div id="office" class="upload-tab-content">
+                    <h3>Office 365</h3>
+                    <p>{% lorem 3 p random %}</p>
+                </div>
             </div>
         </div>
     </div>
     <div class="todo-container">
         <h4><b>Submission</b></h4>
         <hr>
+        {% if uploaded_files %}
+        <h3><b>Submitted!</b></h3>
+            {% for file in uploaded_files %}
+                {% include 'sampleclass/snippets/submission-snippet.html' with value=file %}
+            {% endfor %}
+        {% else %}
+            <h5>No Submission</h5>
+        {% endif%}
     </div>
 </div>
 {% endblock course_middle %}
