@@ -67,6 +67,7 @@ def assignment_detail_view(request, course_id, assignment_id):
         if form.is_valid():
             assignment_upload = form.save(commit=False)
             assignment_upload.assignment_id = assignment
+            assignment_upload.file_name = str(assignment_upload.file).replace(' ','_')
             assignment_upload.save()
 
             form.save()
