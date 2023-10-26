@@ -2,12 +2,9 @@
 
 <form class="" method="post" enctype="multipart/form-data">{% csrf_token %}
     {% for field in upload_form %}
-    {% if field.label_tag != 'Uploaded By:' %}
         <div class="form-element">
-            <h3 class="field-label">{{field.label_tag}}</h3>
             {{field}}
         </div>
-    {% endif %}
 
         {% for error in field.errors %}
             <p style="color: red;">{{error}}</p>
