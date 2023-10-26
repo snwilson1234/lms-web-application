@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from sampleclass.models import CourseAnnouncement,CourseModules,ModuleSections, CourseAssignments
+from sampleclass.forms import AssignmentUploadForm
 from home.models import Courses,StudentCourses
+from django.http import HttpResponseRedirect
+
+from sampleclass.assignment_upload import handle_uploaded_file
 
 
 def sample_class_view(request, course_id):# Pass in course ID (title) clicked
@@ -48,14 +52,33 @@ def assignment_detail_view(request, course_id, assignment_id):
     
     # Get the course object for the given course_id
     course = Courses.objects.get(course_title=course_id)
-    
+
     # Query the assignments related to the course
     assignment = CourseAssignments.objects.get(assignment_name=assignment_id)
+    form = AssignmentUploadForm()
+
+    # Get files associated with this assignment
+    #files = AssignmentFile.object.fil
+
+    #file uploading
+    if request.method == "POST":
+        form = AssignmentUploadForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            assignment_upload = form.save(commit=False)
+            assignment_upload.assignment_id = assignment
+            assignment_upload.save()
+
+            form.save()
+        else:
+            form = AssignmentUploadForm()
     
     context['course'] = course
     context['assignment'] = assignment
+    context['upload_form'] = form
     
     return render(request, "sampleclass/assignment_detail.html", context)
+
 
 def announcements_view(request, course_id):# Pass in course ID (title) clicked
 
@@ -72,7 +95,6 @@ def announcements_view(request, course_id):# Pass in course ID (title) clicked
     context['announcements'] = announcements
 
     return render(request, "sampleclass/announcements.html", context)
-
 
 def modules_view(request, course_id):# Pass in course ID (title) clicked
 
@@ -92,3 +114,19 @@ def modules_view(request, course_id):# Pass in course ID (title) clicked
     context['module_sections'] = module_sections
 
     return render(request, "sampleclass/modules.html", context)
+
+def module_detail_view(request, course_id, module_name, module_section_name):
+    context = {}
+    
+    # Get the course object for the given course_id
+    course = Courses.objects.get(course_title=course_id)
+    
+    # Query the assignments related to the course
+    module       = CourseModules.objects.get(module_name=module_name)
+    module_section = ModuleSections.objects.get(module_section_name=module_section_name)
+    
+    context['course'] = course
+    context['module'] = module
+    context['module_section'] = module_section
+    
+    return render(request, "sampleclass/module_detail.html", context)

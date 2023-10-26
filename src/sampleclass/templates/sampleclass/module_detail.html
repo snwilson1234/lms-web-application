@@ -1,8 +1,12 @@
+{% extends 'sampleclass/sample_class.html' %}
+
 {% load static %}
+
+{% block course_middle %}
 <div id="module-section-page-content" class="module-section-page-container">
     <div class="module-section-middle-content">
         <div class="m-section-page-header-container">
-            <h1 class="m-section-page-header">Assignment Name</h1>
+            <h1 class="m-section-page-header">{{module_section.module_section_name}}</h1>
             <button class="btn-new-attempt">
                 <h4 class="btn-new-attempt-text">
                     New Attempt
@@ -34,3 +38,4 @@
         <hr>
     </div>
 </div>
+{% endblock course_middle %}
