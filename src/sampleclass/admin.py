@@ -4,8 +4,8 @@ from sampleclass.models import CourseAnnouncement,CourseModules,ModuleSections, 
 # Register your models here.
 
 class AssignmentFileAdmin(admin.ModelAdmin):
-    list_display = ('file_name','assignment_id','file','file_upload_date')
-    search_fields = ('file_name','assignment_id','file','file_upload_date')
+    list_display = ('file_name','assignment_id','file','file_upload_date', 'uploaded_by')
+    search_fields = ('file_name','assignment_id','file','file_upload_date', 'uploaded_by')
 
     filter_horizontal = ()
     list_filter = ()
