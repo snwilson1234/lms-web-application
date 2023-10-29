@@ -19,9 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from home.views import (
-    home_screen_view
-)
-from grades.views import (
+    home_screen_view,
     grades_view
 )
 

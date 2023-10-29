@@ -1,5 +1,5 @@
 from django.contrib import admin
-from home.models import Courses,CourseSections, StudentCourses
+from home.models import Courses,CourseSections, StudentCourses, StudentCourseGrade
 
 # Register your models here.
 
@@ -23,3 +23,4 @@ admin.site.register(Courses)
 admin.site.register(CourseSections, CourseSectionsAdmin)
 
 admin.site.register(StudentCourses, StudentCoursesAdmin)
+admin.site.register(StudentCourseGrade)

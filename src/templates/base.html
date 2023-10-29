@@ -19,48 +19,56 @@
     <div class="container-wrapper">
         <!--Navigation-->
         <div class="navbar-container">
-            <ul class="pad-0 pad-top-10 marg-0 navbar">
+            <ul class="pad-0  marg-0 navbar">
                 <li>
-                    <a href="{% url 'home' %}">
-                        <img src="{% static 'assets/icons/pitt-shield.png' %}" height="50px">
-                    </a>
+                    <button class="pitt-button">
+                        <a href="{% url 'home' %}">
+                            <img src="{% static 'assets/icons/pitt-shield.png' %}" height="50px">
+                        </a>
+                    </button>
                 </li>
-                <li class="nav-item-top">
+                <li>
                     <button class="nav-button" onclick="togglePopup('user')">
                         <img class="icon-image-lg" src="{% static 'assets/icons/person.png' %}" height="36px">
                     </button>
                 </li>
-                <li class="nav-item-top">
-                    <a href="{% url 'home' %}">
-                        <img class="icon-image-meter icon-image-lg" src="{% static 'assets/icons/meter.png' %}" height="36px">
-                    </a>
+                <li>
+                    <button class="nav-button">
+                        <a href="{% url 'home' %}">
+                            <img class="icon-image-meter" src="{% static 'assets/icons/meter.png' %}" height="36px">
+                        </a>
+                    </button>
                 </li>
-                <li class="nav-item-top">
+                <li>
                     <button class="nav-button" onclick="togglePopup('courses')">
                         <img class="icon-image-lg" src="{% static 'assets/icons/book.png' %}" height="36px">
                     </button>
                 </li>
-                <li class="nav-item-top">
+                <li>
                     <button class="nav-button" onclick="togglePopup('groups')">
                         <img class="icon-image-meter" src="{% static 'assets/icons/people.png' %}" height="36px">
                     </button>
                 </li>
-                <li class="nav-item-top">
-                    <a href="https://www.w3schools.com">
-                        <img class="icon-image-lg" src="{% static 'assets/icons/calendar.png' %}" height="36px">
-                    </a>
+                <li>
+                    <button class="nav-button">
+                        <a href="https://www.w3schools.com">
+                            <img class="icon-image-lg" src="{% static 'assets/icons/calendar.png' %}" height="36px">
+                        </a>
+                    </button>
                 </li>
-                <li class="nav-item-top">
-                    <a href="https://www.w3schools.com">
-                        <img class="icon-image-lg" src="{% static 'assets/icons/mail.png' %}" height="36px">
-                    </a>
+                <li>
+                    <button class="nav-button">
+                        <a href="https://www.w3schools.com">
+                            <img class="icon-image-lg" src="{% static 'assets/icons/mail.png' %}" height="36px">
+                        </a>
+                    </button>
                 </li>
-                <li class="nav-item-top">
+                <li>
                     <button class="nav-button" onclick="togglePopup('history')">
                         <img class="icon-image-lg" src="{% static 'assets/icons/clock.png' %}" height="36px">
                     </button>
                 </li>
-                <li class="nav-item-top">
+                <li>
                     <button class="nav-button" onclick="togglePopup('help')">
                         <img class="icon-image-lg" src="{% static 'assets/icons/question.png' %}" height="36px">
                     </button>
@@ -69,9 +77,11 @@
             </ul>
             <div class="bottom-item">
                 <li>
-                    <a href="https://www.w3schools.com">
-                        <img src="{% static 'assets/icons/arrow.png' %}" height="36px">
-                    </a>
+                    <button class="nav-button">
+                        <a href="https://www.w3schools.com">
+                            <img src="{% static 'assets/icons/arrow.png' %}" height="36px">
+                        </a>
+                    </button>
                 </li>
             </div>
         </div>
@@ -83,7 +93,11 @@
             </div>
             <div class="user-info-container">
                 <img class="icon-image-xl" src="{% static 'assets/icons/placeholder-pf-pic.png' %}">
-                <h3 class="user-name-text">Shelby Wilson</h3>
+                {% if user.is_authenticated %}
+                    <h3 class="user-name-text">{{user.firstname}} {{user.lastname}}</h3>    
+                {% else %}
+                    <h3 class="user-name-text">Not logged in</h3>
+                {% endif %}
                 <button class="btn-view-grades btn-logout">
                     Logout
                 </button>
