@@ -84,7 +84,6 @@ def assignment_detail_view(request, course_id, assignment_id):
     
     return render(request, "sampleclass/assignment_detail.html", context)
 
-
 def announcements_view(request, course_id):# Pass in course ID (title) clicked
 
     context = {}

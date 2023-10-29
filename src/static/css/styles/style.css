@@ -109,6 +109,11 @@ hr {
     margin-top: auto;
 }
 
+.nav-button {
+    background-color: transparent;
+    border: none;
+}
+
 /* header */
 header {
     padding-left: 20px;

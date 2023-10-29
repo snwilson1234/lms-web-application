@@ -26,9 +26,9 @@
                     </a>
                 </li>
                 <li class="nav-item-top">
-                    <a href="#" onclick="togglePopup('user')">
+                    <button class="nav-button" onclick="togglePopup('user')">
                         <img class="icon-image-lg" src="{% static 'assets/icons/person.png' %}" height="36px">
-                    </a>
+                    </button>
                 </li>
                 <li class="nav-item-top">
                     <a href="{% url 'home' %}">
@@ -36,14 +36,14 @@
                     </a>
                 </li>
                 <li class="nav-item-top">
-                    <a href="#" onclick="togglePopup('courses')">
+                    <button class="nav-button" onclick="togglePopup('courses')">
                         <img class="icon-image-lg" src="{% static 'assets/icons/book.png' %}" height="36px">
-                    </a>
+                    </button>
                 </li>
                 <li class="nav-item-top">
-                    <a href="#" onclick="togglePopup('groups')">
+                    <button class="nav-button" onclick="togglePopup('groups')">
                         <img class="icon-image-meter" src="{% static 'assets/icons/people.png' %}" height="36px">
-                    </a>
+                    </button>
                 </li>
                 <li class="nav-item-top">
                     <a href="https://www.w3schools.com">
@@ -56,14 +56,14 @@
                     </a>
                 </li>
                 <li class="nav-item-top">
-                    <a href="#" onclick="togglePopup('history')">
+                    <button class="nav-button" onclick="togglePopup('history')">
                         <img class="icon-image-lg" src="{% static 'assets/icons/clock.png' %}" height="36px">
-                    </a>
+                    </button>
                 </li>
                 <li class="nav-item-top">
-                    <a href="#" onclick="togglePopup('help')">
+                    <button class="nav-button" onclick="togglePopup('help')">
                         <img class="icon-image-lg" src="{% static 'assets/icons/question.png' %}" height="36px">
-                    </a>
+                    </button>
                 </li>
                 
             </ul>
@@ -77,9 +77,9 @@
         </div>
 
         <!--Pop-up Menus-->
-        <div id="user" class="user-menu">
+        <div id="user" class="user-menu" data-menu="user">
             <div class="x-button-container">
-                <button class="btn-x" href="#" onclick="toggleUserMenu()">X</button>
+                <button class="btn-x" href="#" onclick="togglePopup('user')">X</button>
             </div>
             <div class="user-info-container">
                 <img class="icon-image-xl" src="{% static 'assets/icons/placeholder-pf-pic.png' %}">
@@ -106,33 +106,19 @@
 
         </div>
 
-        <div id="courses" class="user-menu">
+        <div id="courses" class="user-menu" data-menu="courses">
             <div class="x-button-container">
-                <button class="btn-x" href="#" onclick="toggleCoursesMenu()">X</button>
+                <button class="btn-x" href="#" onclick="togglePopup('courses')">X</button>
             </div>
             <h3 class="subtitle subtitle-lg">Courses</h3>
             <hr>
             <div>
-                <div class="course-container">
-                    <h4 class="submenu-text-sm">1234 SAMPLE CLASS SEC1234 CLASS OF CLASSES CLASS CLASS</h4>
-                    <h4 class="text-gray term-text">Summer Term 2022-2023</h4>
-                </div>
-                <div class="course-container">
-                    <h4 class="submenu-text-sm">1234 SAMPLE CLASS SEC1234 CLASS OF CLASSES CLASS CLASS</h4>
-                    <h4 class="text-gray term-text">Summer Term 2022-2023</h4>
-                </div>
-                <div class="course-container">
-                    <h4 class="submenu-text-sm">1234 SAMPLE CLASS SEC1234 CLASS OF CLASSES CLASS CLASS</h4>
-                    <h4 class="text-gray term-text">Summer Term 2022-2023</h4>
-                </div>
-                <div class="course-container">
-                    <h4 class="submenu-text-sm">1234 SAMPLE CLASS SEC1234 CLASS OF CLASSES CLASS CLASS</h4>
-                    <h4 class="text-gray term-text">Summer Term 2022-2023</h4>
-                </div>
-                <div class="course-container course-container-bottom">
-                    <h4 class="submenu-text-sm">1234 SAMPLE CLASS SEC1234 CLASS OF CLASSES CLASS CLASS</h4>
-                    <h4 class="text-gray term-text">Summer Term 2022-2023</h4>
-                </div>
+                {% for course in student_courses %}
+                    <div class="course-container">
+                        <h4 class="submenu-text-sm">{{course.course_id}} {{course.course_section_id}}</h4>
+                        <h4 class="text-gray term-text">Summer Term 2022-2023</h4>
+                    </div>
+                {% endfor %}
                 <hr>
                 <h4 class="submenu-text-sm">All Courses</h4>
                 
@@ -140,9 +126,9 @@
             </div>
         </div>
 
-        <div id="groups" class="user-menu">
+        <div id="groups" class="user-menu" data-menu="groups">
             <div class="x-button-container">
-                <button class="btn-x" href="#" onclick="toggleGroupsMenu()">X</button>
+                <button class="btn-x" href="#" onclick="togglePopup('groups')">X</button>
             </div>
             <h3 class="subtitle subtitle-lg">Groups</h3>
             <hr>
@@ -154,9 +140,9 @@
             <h4 class="submenu-text">Sample Group 4</h4>
         </div>
 
-        <div id="history" class="user-menu">
+        <div id="history" class="user-menu" data-menu="history">
             <div class="x-button-container">
-                <button class="btn-x" href="#" onclick="toggleHistoryMenu()">X</button>
+                <button class="btn-x" href="#" onclick="togglePopup('history')">X</button>
             </div>
             <h3 class="subtitle subtitle-lg">History</h3>
             <hr>
@@ -168,9 +154,9 @@
             <h4 class="submenu-text">Sample Group 4</h4>
         </div>
 
-        <div id="help" class="user-menu">
+        <div id="help" class="user-menu" data-menu="help">
             <div class="x-button-container">
-                <button class="btn-x" href="#" onclick="toggleHelpMenu()">X</button>
+                <button class="btn-x" href="#" onclick="togglePopup('help')">X</button>
             </div>
             <h3 class="subtitle subtitle-lg">Help</h3>
             <hr>
@@ -181,6 +167,7 @@
             <hr>
             <h4 class="submenu-text">Sample Group 4</h4>
         </div>
+
 
         {% block content %}
 
