@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from sampleclass.models import CourseAnnouncement,CourseModules,ModuleSections, CourseAssignments, AssignmentUploadFile
+from sampleclass.models import CourseAnnouncement,CourseModules,ModuleSections, CourseAssignments, AssignmentUploadFile, StudentAssignmentGrades
 from sampleclass.forms import AssignmentUploadForm
 from home.models import Courses,StudentCourses
 from django.http import HttpResponseRedirect
@@ -134,3 +134,12 @@ def module_detail_view(request, course_id, module_name, module_section_name):
     context['module_section'] = module_section
     
     return render(request, "sampleclass/module_detail.html", context)
+
+def class_grades_view(request,course_id):
+    context = {}
+    course = Courses.objects.get(course_title=course_id)
+    student_grades = StudentAssignmentGrades.objects.filter(username=request.user).filter(course_id=course)
+
+    context['course'] = course#need to have this here for reverse
+    context['student_grades'] = student_grades
+    return render(request, "sampleclass/course_grades.html", context)

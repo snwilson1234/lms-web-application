@@ -1,0 +1,17 @@
+{% load static %}
+<div class="student-grade-container">
+    <div class="col-lg">
+        <a href="{% url 'assignment_detail' course_id=course.course_title  assignment_id=grade.assignment_id%}"><h5 class="assignment-link">{{grade.assignment_id}}</h5></a>
+        <h6>Assignments</h6>
+    </div>
+    <div class="col-lg">
+        <h5>hhh</h5>
+    </div>
+    <div class="col-sm">
+        <h5>      </h5>
+    </div>
+    <div class="col-lg">
+        <h5>{{grade.grade|floatformat:0}} / 100</h5>
+    </div>
+</div>
+<hr>

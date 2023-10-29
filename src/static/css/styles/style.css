@@ -736,6 +736,8 @@ header {
 
 .button-inner-content {
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .module-header-text {
@@ -1006,4 +1008,100 @@ header {
     flex-direction: column;
     gap: 10px;
     margin-top: 10px;
+}
+
+/*Course grades*/
+
+.course-grades-container {
+    width: 52vw;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.grades-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.pad-right-10 {
+    margin-right: 10px;
+}
+
+.btn-main {
+    align-items: center;
+    width: 150px;
+}
+
+.selector-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 12vw;
+    width: 52vw;
+}
+
+.grades-header-font {
+    font-size: 28px;
+}
+
+.grades-filter-font {
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.main-selector {
+    background-color: white;
+    border: solid 1px rgb(200,205,209);
+    border-radius: 3.25%;
+    height: 100%;
+    width: 15vw;
+    text-transform: uppercase;
+}
+
+.filters-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    height: 36px;
+    margin-top: 10px;
+}
+
+.btn-apply {
+    margin-left: 10px;
+    background-color: rgb(142,148,169);
+    border: solid 1px rgb(142,148,169);
+    border-radius: 3.25%;
+    color: white;
+    width: 50px;
+}
+
+.flex-table-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.all-grades-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.col-sm {
+    width: 6vw;
+}
+
+.col-lg {
+    width: 12vw;
+}
+
+.student-grade-container {
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    align-items: center;   
+}
+.assignment-link {
+    color: rgb(14,55,142);
+    font-weight: 400;
 }

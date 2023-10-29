@@ -1,5 +1,5 @@
 from django.contrib import admin
-from sampleclass.models import CourseAnnouncement,CourseModules,ModuleSections, CourseAssignments, AssignmentUploadFile
+from sampleclass.models import CourseAnnouncement,CourseModules,ModuleSections, CourseAssignments, AssignmentUploadFile, StudentAssignmentGrades
 
 # Register your models here.
 
@@ -16,3 +16,4 @@ admin.site.register(CourseModules)
 admin.site.register(ModuleSections)
 admin.site.register(CourseAssignments)
 admin.site.register(AssignmentUploadFile, AssignmentFileAdmin)
+admin.site.register(StudentAssignmentGrades)

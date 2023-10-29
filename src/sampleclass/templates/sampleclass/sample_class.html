@@ -32,9 +32,9 @@
             <a href="{% url 'assignments' course_id=course %}">
                 <h3 class="tabs-text">Assignments</h3>
             </a>
-            <button class="btn-tab">
+            <a href="{% url 'course_grades' course_id=course %}">
                 <h3 class="tabs-text">Grades</h3>
-            </button>
+            </a>
             <button class="btn-tab">
                 <h3 class="tabs-text">OMET Surveys</h3>
             </button>

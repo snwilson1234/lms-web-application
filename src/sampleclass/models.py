@@ -59,6 +59,7 @@ class CourseAssignments(models.Model):
     course_id                       = models.ForeignKey(Courses, on_delete=models.CASCADE) 
     order_sequence                  = models.DecimalField(max_digits=3,decimal_places=0)
     active_ind                      = models.BooleanField(default=True)
+    due_date                        = models.DateField(auto_now=False,auto_now_add=False,null=True)
 
     def __str__(self) -> str:
         return self.assignment_name
@@ -80,3 +81,20 @@ class AssignmentUploadFile(models.Model):
     class Meta:
         verbose_name = "Uploaded File"
         verbose_name_plural = "Uploaded Files"
+
+
+class StudentAssignmentGrades(models.Model):
+    username            = models.CharField(max_length=60)
+    assignment_id       = models.ForeignKey(CourseAssignments, on_delete=models.CASCADE)
+    course_id           = models.ForeignKey(Courses, on_delete=models.CASCADE)
+    grade               = models.DecimalField(decimal_places=2, max_digits=5)
+    submitted_ind       = models.BooleanField(default=False)
+    on_time_ind         = models.BooleanField(default=True)
+    graded_ind          = models.BooleanField(default=False)
+
+    def __str__(self) -> str:
+        return f"{self.username} {self.assignment_id} - {self.grade}"
+
+    class Meta:
+        verbose_name = "Student Assignment Grade"
+        verbose_name_plural = "Student Assignment Grades"
