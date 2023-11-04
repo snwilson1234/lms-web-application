@@ -12,7 +12,7 @@ class CourseSectionsAdmin(admin.ModelAdmin):
     fieldsets = ()    
 
 class StudentCoursesAdmin(admin.ModelAdmin):
-    list_display = ('username','course_id','course_section_id')
+    list_display = ('username','course_id','course_section_id', 'course_grade')
     search_fields = ('username','course_id','course_section_id')
 
     filter_horizontal = ()

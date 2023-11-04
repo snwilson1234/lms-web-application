@@ -44,6 +44,7 @@ class StudentCourses(models.Model):
     username                    = models.CharField(max_length=30, null=True)
     course_id                   = models.ForeignKey(Courses, on_delete=models.CASCADE)
     course_section_id           = models.ForeignKey(CourseSections, on_delete=models.CASCADE)
+    course_grade                = models.DecimalField(decimal_places=2, max_digits=5, default=100.00)
     
 
     def __str__(self):

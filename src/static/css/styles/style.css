@@ -89,13 +89,13 @@ hr {
     max-width: 56px;
     background-color: rgb(0, 48, 132);
     text-align: center;
-    z-index: 1;
+    z-index: 999;
     gap: 0;
 }
 
 .navbar {
     max-height: 100%;
-    z-index: 1;
+    z-index: 999;
 }
 
 /* .nav-top {
@@ -358,19 +358,21 @@ header {
     text-align: left;
     padding-left: 20px;
     padding-right: 15px;
-    margin-left: 48px;
-    z-index: 999;
+    margin-left: -400px;
+    z-index: 998;
     background-color: white;
     box-shadow: 0 2px 4px rgb(167, 167, 167);
     position: absolute;
+    transition: margin-left 0.3s ease-in-out;
 }
 
+
 #user {
-    visibility: hidden;
+    margin-left: -400px;
 }
 
 #user.active {
-    visibility: visible;
+    margin-left: 48px;
 }
 
 .user-info-container {
@@ -421,17 +423,26 @@ header {
 
 .btn-x {
     background-color: transparent;
-    border: none;
+    border: solid 1px transparent;
+}
+.btn-x:hover {
+    border: solid 1px;
+    border-radius: 5%;
 }
 
 /*Courses Menu*/
 
+.course-link {
+    color: rgb(14,55,142);
+    font-weight: 400;
+}
+
 #courses {
-    visibility: hidden;
+    margin-left: -400px;
 }
 
 #courses.active {
-    visibility: visible;
+    margin-left: 48px;
 }
 
 .course-container {
@@ -449,29 +460,29 @@ header {
 
 /*Groups Menu*/
 #groups {
-    visibility: hidden;
+    margin-left: -400px;
 }
 
 #groups.active {
-    visibility: visible;
+    margin-left: 48px;
 }
 
 /*History Menu */
 #history {
-    visibility: hidden;
+    margin-left: -400px;
 }
 
 #history.active {
-    visibility: visible;
+    margin-left: 48px;
 }
 
 /*Help Menu */
 #help {
-    visibility: hidden;
+    margin-left: -400px;
 }
 
 #help.active {
-    visibility: visible;
+    margin-left: 48px;
 }
 
 .course-page-container {
@@ -502,6 +513,10 @@ header {
     max-height: 100%;
     width: 200px;
     margin-left: 35px;
+}
+
+.active-tab {
+    border-left: solid black 3px;
 }
 
 .term-text-italic {
@@ -1012,6 +1027,11 @@ header {
 
 /*Course grades*/
 
+.course-grades-page {
+    display: flex;
+    flex-direction: row;
+}
+
 .course-grades-container {
     width: 52vw;
     display: flex;
@@ -1085,23 +1105,43 @@ header {
 .all-grades-header {
     display: flex;
     flex-direction: row;
+    margin-left: 10px;
 }
 
 .col-sm {
-    width: 6vw;
+    width: 7vw;
 }
 
 .col-lg {
-    width: 12vw;
+    width: 16vw;
 }
 
 .student-grade-container {
     display: flex;
     flex-direction: row;
     vertical-align: middle;
-    align-items: center;   
+    align-items: center;
+    margin-left: 10px; 
 }
 .assignment-link {
     color: rgb(14,55,142);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.all-grades-container {
+    display: block;
+    margin-top: 40px;
+}
+
+.assignment-subtext {
+    line-height: 1.5;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.assignment-grade-text {
+    font-size: 14px;
     font-weight: 400;
 }

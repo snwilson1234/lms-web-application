@@ -60,6 +60,7 @@ class CourseAssignments(models.Model):
     order_sequence                  = models.DecimalField(max_digits=3,decimal_places=0)
     active_ind                      = models.BooleanField(default=True)
     due_date                        = models.DateField(auto_now=False,auto_now_add=False,null=True)
+    due_time                        = models.TimeField(auto_now=False,auto_now_add=False,null=True)
 
     def __str__(self) -> str:
         return self.assignment_name

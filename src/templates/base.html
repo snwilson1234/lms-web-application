@@ -129,7 +129,9 @@
             <div>
                 {% for course in student_courses %}
                     <div class="course-container">
-                        <h4 class="submenu-text-sm">{{course.course_id}} {{course.course_section_id}}</h4>
+                        <a href="{% url 'sampleclass' course_id=course.course_id %}">
+                            <h4 class="submenu-text-sm course-link">{{course.course_id}} {{course.course_section_id}}</h4>
+                        </a>
                         <h4 class="text-gray term-text">Summer Term 2022-2023</h4>
                     </div>
                 {% endfor %}

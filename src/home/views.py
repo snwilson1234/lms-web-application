@@ -20,7 +20,7 @@ def home_screen_view(request):
 def grades_view(request):
     context = {}
 
-    student_grades = StudentCourseGrade.objects.filter(username=request.user)
-    context['student_grades'] = student_grades
+    student_courses = StudentCourses.objects.filter(username=request.user)
+    context['student_courses'] = student_courses
 
     return render(request, "home/grades.html", context)

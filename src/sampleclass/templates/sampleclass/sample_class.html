@@ -17,13 +17,13 @@
     <div class="under-header-container">
         <div class="class-tabs-menu">
             <h3 class="term-text-italic">Summer Term 2022-2023</h3>
-            <a href="{% url 'sampleclass' course_id=course %}">
+            <a class-tab="home" href="{% url 'sampleclass' course_id=course %}" onclick="activateClassTab('home')">
                 <h3 class="tabs-text">Home</h3>
             </a>
-            <a href="{% url 'announcements' course_id=course %}">
+            <a class-tab="announcements" href="{% url 'announcements' course_id=course %}">
                 <h3 class="tabs-text">Announcements</h3>
             </a>
-            <button class="btn-tab">
+            <button class="class-tab btn-tab">
                 <h3 class="tabs-text">Syllabus</h3>
             </button>
             <a href="{% url 'modules' course_id=course %}">

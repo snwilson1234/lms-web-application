@@ -12,6 +12,20 @@ function togglePopup(menu_name) {
     });
 }
 
+function activateClassTab(tab_name) {
+    var tabs = document.querySelectorAll('[class-tab]');
+    
+    tabs.forEach(function(tab) {
+      var tabData = tab.getAttribute('class-tab');
+
+      if (tabData === tab_name) {// check input menu name to toggle right one
+        tab.classList.add('active-tab');
+    } else {
+        tab.classList.remove('active-tab');
+    }
+    });
+}
+
 
 //Assignment upload tab functionality
 function toggleUploadTab(evt, elem_name) {

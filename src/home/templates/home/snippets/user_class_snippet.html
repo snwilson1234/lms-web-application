@@ -12,9 +12,9 @@
         </div>
     </a>
     <div class="class-tile-icons">
-        <button class="btn-transparent">
+        <a href="{% url 'announcements' course_id=value.course_id %}" class="btn-transparent">
             <img class="icon-image" src="{% static 'assets/icons/alarm.png' %}">
-        </button>
+        </a>
         <button class="btn-transparent">
             <img class="icon-image" src="{% static 'assets/icons/assignments.png' %}">
         </button>
