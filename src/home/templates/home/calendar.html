@@ -49,9 +49,30 @@
             <hr>
         </header>
         <div class="calendar-grid-container">
+            <div class="calendar-grid-header-item">
+                <h4><b>SUN</b></h4>
+            </div>
+            <div class="calendar-grid-header-item">
+                <h4><b>MON</b></h4>
+            </div>
+            <div class="calendar-grid-header-item">
+                <h4><b>TUE</b></h4>
+            </div>
+            <div class="calendar-grid-header-item">
+                <h4><b>WED</b></h4>
+            </div>
+            <div class="calendar-grid-header-item">
+                <h4><b>THU</b></h4>
+            </div>
+            <div class="calendar-grid-header-item">
+                <h4><b>FRI</b></h4>
+            </div>
+            <div class="calendar-grid-header-item">
+                <h4><b>SAT</b></h4>
+            </div>
             {% for i in 35|get_range %}
                 <div class="calendar-grid-item">
-                    {{i}}
+                    <h4 style="font-weight: 400;">{{i}}</h4>
                 </div>
             {% endfor %}
 
@@ -60,8 +81,33 @@
     </div>
     
     <div class="calendar-right-container">
+        
+        <div class="mini-calendar-container">
+            <div class="mini-calendar-seek-container">
+                <button style="background-color: transparent; border: none;">
+                    <h2><b>&lt;</b></h2>
+                </button>
+                <h4 style="color: rgb(53,53,53);"><b>Month Year</b></h4>
+                <button style="background-color: transparent; border: none;">
+                    <h2><b>&gt;</b></h2>
+                </button>
+            </div>
+            <div class="mini-calendar-grid-container">
+                {% for i in 35|get_range %}
+                <div class="mini-calendar-grid-item">
+                    <h4 style="font-weight: 400;">{{i}}</h4>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+        
+        
         <h4 class="subtitle">
-            Test
+            ▸ CALENDARS
+        </h4>
+        <hr>
+        <h4 class="subtitle">
+            ▸ UNDATED
         </h4>
         <hr>
         

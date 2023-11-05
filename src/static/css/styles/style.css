@@ -1177,9 +1177,8 @@ header {
 }
 
 .calendar-right-container {
-    display: flex;
-    flex-direction: column;
-    width: 28vw;
+    display: block;
+    width: 19.5vw;
 }
 
 .calendar-page-container {
@@ -1274,9 +1273,49 @@ header {
     grid-template-columns: auto auto auto auto auto auto auto;
     padding-left: 20px;
     padding-right: 10px;
+    grid-gap: 1px;
+}
+
+.calendar-grid-header-item {
+    height: 40px;
+    text-align: center;
+    align-items: center;
 }
 
 .calendar-grid-item {
     height: 92px;
+    outline: solid 1px rgb(191, 198, 202);
+}
+
+.mini-calendar-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-right: 50px;
+    width: 100%;
+}
+
+.mini-calendar-seek-container {
+    display: flex;
+    flex-direction: row;
     border: solid 1px rgb(191, 198, 202);
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.mini-calendar-grid-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    border: solid 1px rgb(191, 198, 202);
+    border-top: none;
+    gap: 8px;
+    padding: 10px;
+}
+
+.mini-calendar-grid-item {
+    text-align: center;
 }
