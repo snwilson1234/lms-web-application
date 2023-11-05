@@ -155,7 +155,7 @@ header {
     padding-right: 10px;
     font-weight: 200;
     max-height: 100px;
-    
+    width: 100%;
 }
 
 .title-container {
@@ -1266,4 +1266,17 @@ header {
 
 .btn-plus {
     width: 40px;
+}
+
+.calendar-grid-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.calendar-grid-item {
+    height: 92px;
+    border: solid 1px rgb(191, 198, 202);
 }

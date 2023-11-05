@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
+{% load custom_filters %}
 {% load static %}
+
 
 {% block content %}
 <!--↑ ↓ → -->
@@ -46,6 +48,15 @@
             </div>
             <hr>
         </header>
+        <div class="calendar-grid-container">
+            {% for i in 35|get_range %}
+                <div class="calendar-grid-item">
+                    {{i}}
+                </div>
+            {% endfor %}
+
+        </div>
+    
     </div>
     
     <div class="calendar-right-container">
