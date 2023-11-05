@@ -1169,3 +1169,101 @@ header {
     display: flex;
     flex-direction: row;
 }
+
+.calendar-left-container {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+}
+
+.calendar-right-container {
+    display: flex;
+    flex-direction: column;
+    width: 28vw;
+}
+
+.calendar-page-container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw - 56px;
+    gap: 3vw;
+}
+
+.calendar-header-container {
+    display: flex;
+    flex-direction: row;
+    height: 36px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    vertical-align: middle;
+}
+
+.calendar-left-header-container {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    gap: 10px;
+    justify-content: left;
+}
+
+.calendar-right-header-container {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    gap: 10px;
+    justify-content: right;
+}
+
+.btn-calendar {
+    text-align: center;
+    align-items: center;
+    vertical-align: center;
+    justify-content: center;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgb(243, 243, 243);
+    border: 1px solid rgb(191, 198, 202);
+    border-radius: 5%;
+}
+
+.seek-buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+}
+
+.btn-seek {
+    border: solid 1px rgb(191, 198, 202);
+    background-color: rgb(243, 243, 243);
+    border-radius: 5%;
+}
+
+.view-buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+}
+
+.btn-calendar-left {
+    border-right: none;
+}
+
+.btn-calendar-right {
+    border-left: none;
+}
+
+.btn-calendar:active {
+    background-color: rgb(105,105,105);
+    color: white;
+}
+
+.calendar-tab-active {
+    background-color: rgb(105,105,105);
+    color: white;
+}
+
+.btn-plus {
+    width: 40px;
+}

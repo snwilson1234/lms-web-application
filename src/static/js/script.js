@@ -53,3 +53,22 @@ function toggleUploadFileContent() {
     var content = document.getElementById('upload-box-content');
     content.classList.toggle('active');
 }
+
+
+//Calendar Button functionality
+
+
+function toggleCalendarType(calendar_type) {
+
+  var tabs = document.querySelectorAll('[calendar-tab]');
+    
+    tabs.forEach(function(tab) {
+      var tabData = tab.getAttribute('calendar-tab');
+
+      if (tabData === calendar_type) {// check input menu name to toggle right one
+        tab.classList.add('calendar-tab-active');
+    } else {
+        tab.classList.remove('calendar-tab-active');
+    }
+    });
+}

@@ -32,3 +32,6 @@ def courses_view(request):
     context['student_courses'] = student_courses
 
     return render(request, "home/courses.html", context)
+
+def calendar_view(request):
+    return render(request, "home/calendar.html")

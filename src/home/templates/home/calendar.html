@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!--↑ ↓ → -->
+<div class="calendar-page-container">
+    <div class="calendar-left-container">
+        <header>
+            <div class="calendar-header-container">
+                <div class="calendar-left-header-container">
+                    <button class="btn-calendar">
+                        <h3>Today</h3>
+                    </button>
+                    <div class="seek-buttons-container">
+                        <button class="btn-seek">
+                            <h4>←<h4>
+                        </button>
+                        <button class="btn-seek">
+                            <h4>→<h4>
+                        </button>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <h3 style="text-decoration: underline;">
+                            Month Year
+                        </h3>
+                    </div>
+                </div>
+                <div class="calendar-right-header-container">
+                    <div class="view-buttons-container">
+                        <button id="week" calendar-tab="week" onclick="toggleCalendarType('week')" class="btn-calendar btn-calendar-left">
+                            Week
+                        </button>
+                        <button id="month" calendar-tab="month" onclick="toggleCalendarType('month')" class="btn-calendar calendar-tab-active">
+                            Month
+                        </button>
+                        <button id="agenda" calendar-tab="agenda" onclick="toggleCalendarType('agenda')" class="btn-calendar btn-calendar-right">
+                            Agenda
+                        </button>
+                    </div>
+                    <button class="btn-calendar btn-plus">
+                        <h2>+</h2>
+                    </button>
+                    
+                </div>
+            </div>
+            <hr>
+        </header>
+    </div>
+    
+    <div class="calendar-right-container">
+        <h4 class="subtitle">
+            Test
+        </h4>
+        <hr>
+        
+    </div>
+</div>
+
+{% endblock content %}
