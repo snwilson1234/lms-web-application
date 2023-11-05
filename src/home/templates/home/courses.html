@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="grades-container">
+    <header>
+        <div class="title-container">
+            <h3 class="page-header">
+                All Courses
+            </h3>
+        </div>
+        <hr>
+    </header>
+    <div class="all-grades-container">
+        <div class="margin-left-10 all-grades-header">
+            <div class="col-sm">
+                <h5 class="grades-filter-font"></h5>
+            </div>
+            <div class="col-xl">
+                <h5 class="grades-filter-font">Course</h5>
+            </div>
+            <div class="col-lg">
+                <h5 class="grades-filter-font">Nickname</h5>
+            </div>
+            <div class="col-lg">
+                <h5 class="grades-filter-font">Term</h5>
+            </div>
+            <div class="col-lg">
+                <h5 class="grades-filter-font">Enrolled as</h5>
+            </div>
+            <div class="col-lg">
+                <h5 class="grades-filter-font">Published</h5>
+            </div>
+        </div>
+        <hr>
+        {% for course in student_courses %}
+        <div class="student-grade-container">
+            <div class="col-sm">
+                <img class="icon-image" src="{% static 'assets/icons/star.png' %}">
+            </div>
+            <div class="col-xl">
+                <a href="{% url 'sampleclass' course_id=course.course_id %}">
+                    <h5 class="submenu-text-sm course-link">{{course.course_id}} {{course.course_section_id}}</h5>
+                </a>
+            </div>
+            <div class="col-lg">
+                <h5 class="submenu-text-sm course-link">{{course.course_nickname}}</h5>
+            </div>
+            <div class="col-lg">
+                <h5 class="">Summer Term 2022-2023</h5>
+            </div>
+            <div class="col-lg">
+                <h5 class="">Student</h5>
+            </div>
+            <div class="col-lg">
+                <h5 class="">Yes</h5>
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
+    </div>
+
+</div>
+
+
+{% endblock content %}

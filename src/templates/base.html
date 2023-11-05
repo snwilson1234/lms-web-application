@@ -136,7 +136,9 @@
                     </div>
                 {% endfor %}
                 <hr>
-                <h4 class="submenu-text-sm">All Courses</h4>
+                <a href="{% url 'courses' %}">
+                    <h4 class="submenu-text-sm course-link">All Courses</h4>
+                </a>
                 
                 <h4 class="submenu-text-sm submenu-para">Welcome to your courses! To customize the list of courses, click on the "All Courses" link and star the courses to display.</h4>
             </div>

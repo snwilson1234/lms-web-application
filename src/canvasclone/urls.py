@@ -20,7 +20,8 @@ from django.contrib import admin
 from django.urls import path
 from home.views import (
     home_screen_view,
-    grades_view
+    grades_view,
+    courses_view,
 )
 
 from sampleclass.views import (
@@ -42,6 +43,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", home_screen_view, name="home"),
     path("grades/", grades_view, name="grades"),
+    path("courses/", courses_view, name="courses"),
     path("sampleclass/<str:course_id>", sample_class_view, name="sampleclass"),#here
     path("sampleclass/<str:course_id>/assignments", assignments_view, name="assignments"),
     path("sampleclass/<str:course_id>/assignments/<str:assignment_id>", assignment_detail_view, name="assignment_detail"),

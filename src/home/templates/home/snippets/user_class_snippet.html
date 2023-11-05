@@ -12,11 +12,11 @@
         </div>
     </a>
     <div class="class-tile-icons">
-        <a href="{% url 'announcements' course_id=value.course_id %}" class="btn-transparent">
-            <img class="icon-image" src="{% static 'assets/icons/alarm.png' %}">
+        <a href="{% url 'announcements' course_id=value.course_id %}">
+            <img class="image-link" src="{% static 'assets/icons/alarm.png' %}">
         </a>
-        <button class="btn-transparent">
-            <img class="icon-image" src="{% static 'assets/icons/assignments.png' %}">
-        </button>
+        <a href="{% url 'assignments' course_id=value.course_id %}">
+            <img class="image-link" src="{% static 'assets/icons/assignments.png' %}">
+        </a>
     </div>
 </div>

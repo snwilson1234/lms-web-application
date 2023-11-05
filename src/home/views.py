@@ -24,3 +24,11 @@ def grades_view(request):
     context['student_courses'] = student_courses
 
     return render(request, "home/grades.html", context)
+
+def courses_view(request):
+    context = {}
+
+    student_courses = StudentCourses.objects.filter(username=request.user)
+    context['student_courses'] = student_courses
+
+    return render(request, "home/courses.html", context)

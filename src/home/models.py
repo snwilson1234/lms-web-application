@@ -45,7 +45,7 @@ class StudentCourses(models.Model):
     course_id                   = models.ForeignKey(Courses, on_delete=models.CASCADE)
     course_section_id           = models.ForeignKey(CourseSections, on_delete=models.CASCADE)
     course_grade                = models.DecimalField(decimal_places=2, max_digits=5, default=100.00)
-    
+    course_nickname             = models.CharField(max_length=30, default=str(course_id))
 
     def __str__(self):
         return f"{self.username} - {self.course_section_id} - {self.course_id}"

@@ -28,6 +28,7 @@ a:hover {
     text-decoration: underline;
 }
 
+
 ul {
     list-style-type: none;
 }
@@ -349,6 +350,10 @@ header {
     padding-left: 15px;
     justify-content: space-between;
     letter-spacing: 30px;
+}
+
+.class-tile-icons a:hover {
+    text-decoration: none;
 }
 
 /* User Menu */
@@ -1116,6 +1121,10 @@ header {
     width: 16vw;
 }
 
+.col-xl {
+    width: 30vw;
+}
+
 .student-grade-container {
     display: flex;
     flex-direction: row;
@@ -1144,4 +1153,19 @@ header {
 .assignment-grade-text {
     font-size: 14px;
     font-weight: 400;
+}
+
+.image-link {
+    height: 22px;
+    border-bottom: solid 1px transparent;
+}
+
+
+.image-link:hover {
+    border-bottom: solid 1px black;
+}
+
+.all-course-container {
+    display: flex;
+    flex-direction: row;
 }
