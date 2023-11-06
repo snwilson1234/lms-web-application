@@ -7,86 +7,68 @@
 {% block content %}
 <!--↑ ↓ → -->
 <div class="calendar-page-container">
-    <div class="calendar-left-container">
-        <header>
-            <div class="calendar-header-container">
-                <div class="calendar-left-header-container">
-                    <button class="btn-calendar">
-                        <h3>Today</h3>
-                    </button>
-                    <div class="seek-buttons-container">
-                        <button class="btn-seek">
-                            <h4>←<h4>
+    <div id="app" class="calendar-left-container">
+        <script>
+            const staticPath = "{% static 'assets/icons/calendar.png' %}";
+            document.getElementById("app").innerHTML = `
+            <header>
+                <div class="calendar-header-container">
+                    <div class="calendar-left-header-container">
+                        <button class="btn-calendar">
+                            <h3> hepiuf</h3>
                         </button>
-                        <button class="btn-seek">
-                            <h4>→<h4>
-                        </button>
-                    </div>
-                    <div style="display: flex; align-items: center;">
-                        <button id="btn-toggle-date-search" class="btn-toggle-date-search" onclick="toggleDateSearchForm()">
-                            <h3 style="text-decoration: underline; margin: 0; padding: 0; font-size: 18px; font-weight: 400;">
-                                Month Year
-                            </h3>
-                        </button>
-                    </div>
-                    <form id="date-search-form" class="date-search-form">
-                        <input date-form="search" type="text" id="search" name="search">
+                        <div class="seek-buttons-container">
+                            <button class="btn-seek">
+                                <h4>←<h4>
+                            </button>
+                            <button class="btn-seek">
+                                <h4>→<h4>
+                            </button>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <button id="btn-toggle-date-search" class="btn-toggle-date-search" onclick="toggleDateSearchForm()">
+                                <h3 style="text-decoration: underline; margin: 0; padding: 0; font-size: 18px; font-weight: 400;">
+                                    Month Year
+                                </h3>
+                            </button>
+                        </div>
+                        <form id="date-search-form" class="date-search-form">
+                            <input date-form="search" type="text" id="search" name="search">
 
-                        </input>
-                        <button date-form="calendar" id="calendar" name="calendar">
-                            <img class="icon-image" src="{% static 'assets/icons/calendar.png' %}"></img>
-                        </button>
-                    </form>
-                </div>
-                <div class="calendar-right-header-container">
-                    <div class="view-buttons-container">
-                        <button id="week" calendar-tab="week" onclick="toggleCalendarType('week')" class="btn-calendar btn-calendar-left">
-                            Week
-                        </button>
-                        <button id="month" calendar-tab="month" onclick="toggleCalendarType('month')" class="btn-calendar calendar-tab-active">
-                            Month
-                        </button>
-                        <button id="agenda" calendar-tab="agenda" onclick="toggleCalendarType('agenda')" class="btn-calendar btn-calendar-right">
-                            Agenda
-                        </button>
+                            </input>
+                            <button date-form="calendar" id="calendar" name="calendar">
+                                <img class="icon-image" src="${staticPath}"></img>
+                            </button>
+                        </form>
                     </div>
-                    <button class="btn-calendar btn-plus">
-                        <h2>+</h2>
-                    </button>
-                    
+                    <div class="calendar-right-header-container">
+                        <div class="view-buttons-container">
+                            <button id="week" calendar-tab="week" onclick="toggleCalendarType('week')" class="btn-calendar btn-calendar-left">
+                                Week
+                            </button>
+                            <button id="month" calendar-tab="month" onclick="toggleCalendarType('month')" class="btn-calendar calendar-tab-active">
+                                Month
+                            </button>
+                            <button id="agenda" calendar-tab="agenda" onclick="toggleCalendarType('agenda')" class="btn-calendar btn-calendar-right">
+                                Agenda
+                            </button>
+                        </div>
+                        <button class="btn-calendar btn-plus">
+                            <h2>+</h2>
+                        </button>
+                        
+                    </div>
                 </div>
+                <hr>
+            </header>
+            <div id="calendarheader" class="calendar-grid-header-container">
             </div>
-            <hr>
-        </header>
-        <div class="calendar-grid-container">
-            <div class="calendar-grid-header-item">
-                <h4><b>SUN</b></h4>
-            </div>
-            <div class="calendar-grid-header-item">
-                <h4><b>MON</b></h4>
-            </div>
-            <div class="calendar-grid-header-item">
-                <h4><b>TUE</b></h4>
-            </div>
-            <div class="calendar-grid-header-item">
-                <h4><b>WED</b></h4>
-            </div>
-            <div class="calendar-grid-header-item">
-                <h4><b>THU</b></h4>
-            </div>
-            <div class="calendar-grid-header-item">
-                <h4><b>FRI</b></h4>
-            </div>
-            <div class="calendar-grid-header-item">
-                <h4><b>SAT</b></h4>
-            </div>
-            {% for i in 35|get_range %}
-                <div class="calendar-grid-item">
-                    <h4 style="font-weight: 400;">{{i}}</h4>
-                </div>
-            {% endfor %}
+            <div id="mycalendar" class="calendar-grid-container">
 
-        </div>
+            </div>
+            `;
+        </script>
+        <script src="{% static 'js/index-bundle.js' %}"></script>
     
     </div>
     

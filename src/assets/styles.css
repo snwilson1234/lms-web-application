@@ -105,4 +105,122 @@ body {
     border-radius: 9999px;
     background-color: var(--grey-800);
   }
+
+  .calendar-left-container {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+}
+
+.calendar-right-container {
+    display: block;
+    width: 19.5vw;
+}
+
+.calendar-header-container {
+    display: flex;
+    flex-direction: row;
+    height: 36px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    vertical-align: middle;
+}
+
+.calendar-left-header-container {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    gap: 10px;
+    justify-content: left;
+}
+
+.calendar-right-header-container {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    gap: 10px;
+    justify-content: right;
+}
+
+.btn-calendar {
+    text-align: center;
+    align-items: center;
+    vertical-align: center;
+    justify-content: center;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgb(243, 243, 243);
+    border: 1px solid rgb(191, 198, 202);
+    border-radius: 5%;
+}
+
+.seek-buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+}
+
+.btn-seek {
+    border: solid 1px rgb(191, 198, 202);
+    background-color: rgb(243, 243, 243);
+    border-radius: 5%;
+}
+
+.view-buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+}
+
+.btn-calendar-left {
+    border-right: none;
+}
+
+.btn-calendar-right {
+    border-left: none;
+}
+
+.btn-calendar:active {
+    background-color: rgb(105,105,105);
+    color: white;
+}
+
+.calendar-tab-active {
+    background-color: rgb(105,105,105);
+    color: white;
+}
+
+.btn-plus {
+    width: 40px;
+}
+
+  .calendar-grid-header-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    padding-left: 20px;
+    padding-right: 10px;
+    grid-gap: 1px;
+  }
   
+  .calendar-grid-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    padding-left: 20px;
+    padding-right: 10px;
+    grid-gap: 1px;
+}
+
+.calendar-grid-header-item {
+    height: 40px;
+    text-align: center;
+    align-items: center;
+}
+
+.calendar-grid-item {
+    height: 92px;
+    outline: solid 1px rgb(191, 198, 202);
+}

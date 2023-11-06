@@ -6,34 +6,7 @@ const weekOfYear = require("dayjs/plugin/weekOfYear");
 dayjs.extend(weekday);
 dayjs.extend(weekOfYear);
 
-document.getElementById("app").innerHTML = `
-<div class="calendar-month">
-  <section class="calendar-month-header">
-    <div
-      id="selected-month"
-      class="calendar-month-header-selected-month"
-    ></div>
-    <section class="calendar-month-header-selectors">
-      <span id="previous-month-selector"><</span>
-      <span id="present-month-selector">Today</span>
-      <span id="next-month-selector">></span>
-    </section>
-  </section>
-
-  <ol
-    id="days-of-week"
-    class="day-of-week"
-  /></ol>
-
-  <ol
-    id="calendar-days"
-    class="days-grid"
-  >
-  </ol>
-</div>
-`;
-
-const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const WEEKDAYS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 const TODAY = dayjs().format("YYYY-MM-DD");
 
 const INITIAL_YEAR = dayjs().format("YYYY");
@@ -44,10 +17,10 @@ let currentMonthDays;
 let previousMonthDays;
 let nextMonthDays;
 
-const daysOfWeekElement = document.getElementById("days-of-week");
+const daysOfWeekElement = document.getElementById("calendarheader");
 
 WEEKDAYS.forEach((weekday) => {
-  const weekDayElement = document.createElement("li");
+  const weekDayElement = document.createElement("calendar-grid-header-item");
   daysOfWeekElement.appendChild(weekDayElement);
   weekDayElement.innerText = weekday;
 });
@@ -56,11 +29,11 @@ createCalendar();
 initMonthSelectors();
 
 function createCalendar(year = INITIAL_YEAR, month = INITIAL_MONTH) {
-  const calendarDaysElement = document.getElementById("calendar-days");
+  const calendarDaysElement = document.getElementById("mycalendar");
 
-  document.getElementById("selected-month").innerText = dayjs(
-    new Date(year, month - 1)
-  ).format("MMMM YYYY");
+  // document.getElementById("selected-month").innerText = dayjs(
+  //   new Date(year, month - 1)
+  // ).format("MMMM YYYY");
 
   removeAllDayElements(calendarDaysElement);
 
@@ -84,7 +57,7 @@ function createCalendar(year = INITIAL_YEAR, month = INITIAL_MONTH) {
 function appendDay(day, calendarDaysElement) {
   const dayElement = document.createElement("li");
   const dayElementClassList = dayElement.classList;
-  dayElementClassList.add("calendar-day");
+  dayElementClassList.add("calendar-grid-item");
   const dayOfMonthElement = document.createElement("span");
   dayOfMonthElement.innerText = day.dayOfMonth;
   dayElement.appendChild(dayOfMonthElement);
@@ -128,9 +101,7 @@ function createDaysForPreviousMonth(year, month) {
   const previousMonth = dayjs(`${year}-${month}-01`).subtract(1, "month");
 
   // Cover first day of the month being sunday (firstDayOfTheMonthWeekday === 0)
-  const visibleNumberOfDaysFromPreviousMonth = firstDayOfTheMonthWeekday
-    ? firstDayOfTheMonthWeekday - 1
-    : 6;
+  const visibleNumberOfDaysFromPreviousMonth = firstDayOfTheMonthWeekday;
 
   const previousMonthLastMondayDayOfMonth = dayjs(currentMonthDays[0].date)
     .subtract(visibleNumberOfDaysFromPreviousMonth, "day")
@@ -156,9 +127,9 @@ function createDaysForNextMonth(year, month) {
 
   const nextMonth = dayjs(`${year}-${month}-01`).add(1, "month");
 
-  const visibleNumberOfDaysFromNextMonth = lastDayOfTheMonthWeekday
-    ? 7 - lastDayOfTheMonthWeekday
-    : lastDayOfTheMonthWeekday;
+  const visibleNumberOfDaysFromNextMonth = 6-lastDayOfTheMonthWeekday;
+    // ? 7 - lastDayOfTheMonthWeekday
+    // : lastDayOfTheMonthWeekday;
 
   return [...Array(visibleNumberOfDaysFromNextMonth)].map((day, index) => {
     return {

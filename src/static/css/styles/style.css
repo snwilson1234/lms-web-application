@@ -1170,6 +1170,13 @@ header {
     flex-direction: row;
 }
 
+.calendar-page-container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw - 56px;
+    gap: 3vw;
+}
+
 .calendar-left-container {
     display: flex;
     flex-direction: column;
@@ -1179,13 +1186,6 @@ header {
 .calendar-right-container {
     display: block;
     width: 19.5vw;
-}
-
-.calendar-page-container {
-    display: flex;
-    flex-direction: row;
-    width: 100vw - 56px;
-    gap: 3vw;
 }
 
 .calendar-header-container {
