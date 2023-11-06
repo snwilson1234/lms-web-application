@@ -35,3 +35,6 @@ def courses_view(request):
 
 def calendar_view(request):
     return render(request, "home/calendar.html")
+
+def webpack_view(request):
+    return render(request, "home/hello_webpack.html")
