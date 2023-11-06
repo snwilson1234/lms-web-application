@@ -7,9 +7,6 @@ const dayjs = require('dayjs');
 
 console.debug("hello");
 
-// dayjs.extend('./dayjs/plugin/weekday.js');
-// dayjs.extend('./dayjs/plugin/weekOfYear.js');
-
 // Define some constants
 
 const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
