@@ -56,8 +56,6 @@ function toggleUploadFileContent() {
 
 
 //Calendar Button functionality
-
-
 function toggleCalendarType(calendar_type) {
 
   var tabs = document.querySelectorAll('[calendar-tab]');
@@ -71,4 +69,31 @@ function toggleCalendarType(calendar_type) {
         tab.classList.remove('calendar-tab-active');
     }
     });
+}
+
+// Date search functionality
+
+//Open date search form and hide button
+function toggleDateSearchForm() {
+  var dateSearchForm = document.getElementById('date-search-form');
+  var btn = document.getElementById('btn-toggle-date-search');
+  
+  // add listener when button clicked, needs time out
+  setTimeout(function() {
+      document.addEventListener('click', clickOutsideHandler);
+  }, "1");
+  
+  dateSearchForm.classList.toggle('active'); // show form
+  btn.classList.toggle('active'); // hide button
+}
+
+//handle clicking outside the text box to hide form and reveal button
+function clickOutsideHandler(event) {
+  var dateSearchForm = document.getElementById('date-search-form');
+  var btn = document.getElementById('btn-toggle-date-search');
+  if (!dateSearchForm.contains(event.target) && event.target !== btn) {
+      dateSearchForm.classList.remove('active'); // hide form
+      btn.classList.remove('active'); // show button
+      document.removeEventListener('click', clickOutsideHandler);
+  }
 }

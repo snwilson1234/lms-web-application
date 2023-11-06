@@ -1319,3 +1319,44 @@ header {
 .mini-calendar-grid-item {
     text-align: center;
 }
+
+.btn-toggle-date-search {
+    background-color: transparent; 
+    border: none;
+}
+.btn-toggle-date-search.active {
+    display: none;
+    visibility: hidden;
+}
+
+.btn-toggle-date-search:hover {
+    cursor: pointer;
+}
+
+.date-search-form {
+    display: flex;
+    flex-direction: row;
+    visibility: visible;
+    gap: 0;
+}
+
+#date-search-form {
+    display: none;
+    visibility: hidden;
+}
+
+#date-search-form.active {
+    display: flex;
+    flex-direction: row;
+    visibility: visible;
+    gap: 0;
+}
+
+.calendar-day--not-current {
+    background-color: var(--grey-100);
+    color: var(--grey-300);
+}
+  
+.calendar-day--today {
+    padding-top: 4px;
+}
