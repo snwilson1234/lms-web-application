@@ -17,6 +17,7 @@ let currentMonthDays;
 let previousMonthDays;
 let nextMonthDays;
 
+
 const daysOfWeekElement = document.getElementById("calendarheader");
 
 WEEKDAYS.forEach((weekday) => {
@@ -31,9 +32,9 @@ initMonthSelectors();
 function createCalendar(year = INITIAL_YEAR, month = INITIAL_MONTH) {
   const calendarDaysElement = document.getElementById("mycalendar");
 
-  // document.getElementById("selected-month").innerText = dayjs(
-  //   new Date(year, month - 1)
-  // ).format("MMMM YYYY");
+  document.getElementById("selected-month").innerText = dayjs(
+    new Date(year, month - 1)
+  ).format("MMMM YYYY");
 
   removeAllDayElements(calendarDaysElement);
 
@@ -127,9 +128,7 @@ function createDaysForNextMonth(year, month) {
 
   const nextMonth = dayjs(`${year}-${month}-01`).add(1, "month");
 
-  const visibleNumberOfDaysFromNextMonth = 6-lastDayOfTheMonthWeekday;
-    // ? 7 - lastDayOfTheMonthWeekday
-    // : lastDayOfTheMonthWeekday;
+  const visibleNumberOfDaysFromNextMonth = 6 - lastDayOfTheMonthWeekday;
 
   return [...Array(visibleNumberOfDaysFromNextMonth)].map((day, index) => {
     return {
@@ -142,27 +141,29 @@ function createDaysForNextMonth(year, month) {
   });
 }
 
+
+
 function getWeekday(date) {
   return dayjs(date).weekday();
 }
 
 function initMonthSelectors() {
   document
-    .getElementById("previous-month-selector")
+    .getElementById("previous-month-seek")
     .addEventListener("click", function () {
       selectedMonth = dayjs(selectedMonth).subtract(1, "month");
       createCalendar(selectedMonth.format("YYYY"), selectedMonth.format("M"));
     });
 
-  document
-    .getElementById("present-month-selector")
-    .addEventListener("click", function () {
-      selectedMonth = dayjs(new Date(INITIAL_YEAR, INITIAL_MONTH - 1, 1));
-      createCalendar(selectedMonth.format("YYYY"), selectedMonth.format("M"));
-    });
+  // document
+  //   .getElementById("next-month-seek")
+  //   .addEventListener("click", function () {
+  //     selectedMonth = dayjs(new Date(INITIAL_YEAR, INITIAL_MONTH - 1, 1));
+  //     createCalendar(selectedMonth.format("YYYY"), selectedMonth.format("M"));
+  //   });
 
   document
-    .getElementById("next-month-selector")
+    .getElementById("next-month-seek")
     .addEventListener("click", function () {
       selectedMonth = dayjs(selectedMonth).add(1, "month");
       createCalendar(selectedMonth.format("YYYY"), selectedMonth.format("M"));

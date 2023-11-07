@@ -15,20 +15,20 @@
                 <div class="calendar-header-container">
                     <div class="calendar-left-header-container">
                         <button class="btn-calendar">
-                            <h3> hepiuf</h3>
+                            <h3>Today</h3>
                         </button>
                         <div class="seek-buttons-container">
-                            <button class="btn-seek">
+                            <button id="previous-month-seek" class="btn-seek">
                                 <h4>←<h4>
                             </button>
-                            <button class="btn-seek">
+                            <button id="next-month-seek" class="btn-seek">
                                 <h4>→<h4>
                             </button>
                         </div>
                         <div style="display: flex; align-items: center;">
                             <button id="btn-toggle-date-search" class="btn-toggle-date-search" onclick="toggleDateSearchForm()">
-                                <h3 style="text-decoration: underline; margin: 0; padding: 0; font-size: 18px; font-weight: 400;">
-                                    Month Year
+                                <h3 id="selected-month" style="text-decoration: underline; margin: 0; padding: 0; font-size: 18px; font-weight: 400;">
+                                    
                                 </h3>
                             </button>
                         </div>
@@ -64,7 +64,6 @@
             <div id="calendarheader" class="calendar-grid-header-container">
             </div>
             <div id="mycalendar" class="calendar-grid-container">
-
             </div>
             `;
         </script>
