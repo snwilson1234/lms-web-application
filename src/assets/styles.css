@@ -1,32 +1,15 @@
 body {
-    font-family: sans-serif;
-    font-weight: 100;
-    --grey-100: #e4e9f0;
-    --grey-200: #cfd7e3;
-    --grey-300: #b5c0cd;
-    --grey-800: #3e4e63;
-    --grid-gap: 1px;
-    --day-label-size: 20px;
-  }
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  --grid-gap: 1px;
+  --day-label-size: 20px;
+}
   
   ol,
   li {
     padding: 0;
     margin: 0;
     list-style: none;
-  }
-  
-  .calendar-month {
-    position: relative;
-    background-color: var(--grey-200);
-    border: solid 1px var(--grey-200);
-  }
-  
-  .calendar-month-header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 10px;
   }
   
   .calendar-month-header-selected-month {
@@ -46,11 +29,8 @@ body {
   }
   
   .day-of-week {
-    color: var(--grey-800);
     font-size: 18px;
     background-color: #fff;
-    padding-bottom: 5px;
-    padding-top: 10px;
   }
   
   .day-of-week,
@@ -64,23 +44,6 @@ body {
     padding-right: 5px;
   }
   
-  .days-grid {
-    height: 100%;
-    position: relative;
-    grid-column-gap: var(--grid-gap);
-    grid-row-gap: var(--grid-gap);
-    border-top: solid 1px var(--grey-200);
-  }
-  
-  .calendar-day {
-    position: relative;
-    min-height: 100px;
-    font-size: 16px;
-    background-color: #fff;
-    color: var(--grey-800);
-    padding: 5px;
-  }
-  
   .calendar-day > span {
     display: flex;
     justify-content: center;
@@ -92,18 +55,13 @@ body {
   }
   
   .calendar-day--not-current {
-    background-color: var(--grey-100);
-    color: var(--grey-300);
+    color: rgb(105,105,105);
   }
-  
+
   .calendar-day--today {
-    padding-top: 4px;
-  }
-  
-  .calendar-day--today > span {
-    color: #fff;
-    border-radius: 9999px;
-    background-color: var(--grey-800);
+    margin: 0;
+    padding: 0;
+    background-color: rgb(243, 243, 243);
   }
 
   .calendar-left-container {

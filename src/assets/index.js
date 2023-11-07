@@ -26,8 +26,14 @@ WEEKDAYS.forEach((weekday) => {
   weekDayElement.innerText = weekday;
 });
 
+// initialize calendar
 createCalendar();
+
+// initialize selectors
 initMonthSelectors();
+
+
+/* Calendar creation functions */
 
 function createCalendar(year = INITIAL_YEAR, month = INITIAL_MONTH) {
   const calendarDaysElement = document.getElementById("mycalendar");
@@ -56,10 +62,10 @@ function createCalendar(year = INITIAL_YEAR, month = INITIAL_MONTH) {
 }
 
 function appendDay(day, calendarDaysElement) {
-  const dayElement = document.createElement("li");
+  const dayElement = document.createElement("div");
   const dayElementClassList = dayElement.classList;
   dayElementClassList.add("calendar-grid-item");
-  const dayOfMonthElement = document.createElement("span");
+  const dayOfMonthElement = document.createElement("h4");
   dayOfMonthElement.innerText = day.dayOfMonth;
   dayElement.appendChild(dayOfMonthElement);
   calendarDaysElement.appendChild(dayElement);
@@ -141,8 +147,6 @@ function createDaysForNextMonth(year, month) {
   });
 }
 
-
-
 function getWeekday(date) {
   return dayjs(date).weekday();
 }
@@ -154,13 +158,6 @@ function initMonthSelectors() {
       selectedMonth = dayjs(selectedMonth).subtract(1, "month");
       createCalendar(selectedMonth.format("YYYY"), selectedMonth.format("M"));
     });
-
-  // document
-  //   .getElementById("next-month-seek")
-  //   .addEventListener("click", function () {
-  //     selectedMonth = dayjs(new Date(INITIAL_YEAR, INITIAL_MONTH - 1, 1));
-  //     createCalendar(selectedMonth.format("YYYY"), selectedMonth.format("M"));
-  //   });
 
   document
     .getElementById("next-month-seek")
