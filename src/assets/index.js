@@ -21,7 +21,8 @@ let nextMonthDays;
 const daysOfWeekElement = document.getElementById("calendarheader");
 
 WEEKDAYS.forEach((weekday) => {
-  const weekDayElement = document.createElement("calendar-grid-header-item");
+  const weekDayElement = document.createElement("div");
+  weekDayElement.classList.add("calendar-grid-header-item")
   daysOfWeekElement.appendChild(weekDayElement);
   weekDayElement.innerText = weekday;
 });
@@ -66,6 +67,9 @@ function appendDay(day, calendarDaysElement) {
   const dayElementClassList = dayElement.classList;
   dayElementClassList.add("calendar-grid-item");
   const dayOfMonthElement = document.createElement("h4");
+
+  dayOfMonthElement.classList.add("bold-font")
+
   dayOfMonthElement.innerText = day.dayOfMonth;
   dayElement.appendChild(dayOfMonthElement);
   calendarDaysElement.appendChild(dayElement);

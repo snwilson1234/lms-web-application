@@ -1,6 +1,6 @@
 body {
   font-family: 'Lato', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   --grid-gap: 1px;
   --day-label-size: 20px;
 }
@@ -10,11 +10,6 @@ body {
     padding: 0;
     margin: 0;
     list-style: none;
-  }
-  
-  .calendar-month-header-selected-month {
-    font-size: 24px;
-    font-weight: 600;
   }
   
   .calendar-month-header-selectors {
@@ -39,10 +34,10 @@ body {
     grid-template-columns: repeat(7, 1fr);
   }
   
-  .day-of-week > * {
+  /* .day-of-week > * {
     text-align: right;
     padding-right: 5px;
-  }
+  } */
   
   .calendar-day > span {
     display: flex;
@@ -62,6 +57,10 @@ body {
     margin: 0;
     padding: 0;
     background-color: rgb(243, 243, 243);
+  }
+
+  .bold-font {
+    font-weight: 500;
   }
 
   .calendar-left-container {
@@ -176,6 +175,7 @@ body {
     height: 40px;
     text-align: center;
     align-items: center;
+    justify-content: center;
 }
 
 .calendar-grid-item {

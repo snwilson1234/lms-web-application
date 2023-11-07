@@ -66,6 +66,10 @@
             <div id="mycalendar" class="calendar-grid-container">
             </div>
             `;
+
+            //temp to trigger overlay on clicking whole calendar
+            document.getElementById('mycalendar').addEventListener('click', toggleCalendarEventScheduler);
+            document.getElementById('overlay').addEventListener('click', toggleCalendarEventScheduler);
         </script>
         <script src="{% static 'js/index-bundle.js' %}"></script>
     

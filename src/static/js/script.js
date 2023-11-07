@@ -97,3 +97,9 @@ function clickOutsideHandler(event) {
       document.removeEventListener('click', clickOutsideHandler);
   }
 }
+
+
+function toggleCalendarEventScheduler() {
+  var blur = document.getElementById('overlay');
+  blur.classList.toggle('active');
+}
