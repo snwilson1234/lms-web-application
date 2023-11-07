@@ -102,4 +102,20 @@ function clickOutsideHandler(event) {
 function toggleCalendarEventScheduler() {
   var blur = document.getElementById('overlay');
   blur.classList.toggle('active');
+  var popup = document.getElementById('calendar-event-popup');
+  popup.classList.toggle('active');
+
+  console.debug(popup);
+}
+
+function getCellClicked(event) {
+  const clickedGridItem = event.target.closest(".calendar-grid-item");
+
+  console.debug(clickedGridItem);
+
+  if (clickedGridItem) {
+    let date = "test";
+    toggleCalendarEventScheduler();
+  }
+
 }
