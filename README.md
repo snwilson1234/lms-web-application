@@ -6,7 +6,7 @@ A simplified version of the Canvas Learning Management system that many universi
 
 Tech Stack so far:
 
-Django
-Sqlite3 database
-Node.js
-Day.js
+- Django
+- Sqlite3 database
+- Node.js
+- Day.js
