@@ -99,23 +99,20 @@ function clickOutsideHandler(event) {
 }
 
 
-function toggleCalendarEventScheduler() {
+function toggleCalendarEventScheduler(date) {
   var blur = document.getElementById('overlay');
   blur.classList.toggle('active');
   var popup = document.getElementById('calendar-event-popup');
   popup.classList.toggle('active');
-
-  console.debug(popup);
+  document.getElementById("event-date").value = date;
 }
 
 function getCellClicked(event) {
   const clickedGridItem = event.target.closest(".calendar-grid-item");
 
-  console.debug(clickedGridItem);
-
   if (clickedGridItem) {
-    let date = "test";
-    toggleCalendarEventScheduler();
+    let date = clickedGridItem.getAttribute("day-id");
+    console.debug(date)
+    toggleCalendarEventScheduler(date);
   }
-
 }

@@ -70,6 +70,8 @@ function appendDay(day, calendarDaysElement) {
 
   dayOfMonthElement.classList.add("bold-font")
 
+  dayElement.setAttribute("day-id",day.date);
+
   dayOfMonthElement.innerText = day.dayOfMonth;
   dayElement.appendChild(dayOfMonthElement);
   calendarDaysElement.appendChild(dayElement);

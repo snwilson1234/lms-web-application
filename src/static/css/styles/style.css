@@ -389,7 +389,7 @@ header {
     padding-left: 20px;
     padding-right: 15px;
     margin-left: -400px;
-    z-index: 998;
+    z-index: 996;
     background-color: white;
     box-shadow: 0 2px 4px rgb(167, 167, 167);
     position: absolute;
@@ -458,6 +458,7 @@ header {
 .btn-x:hover {
     border: solid 1px;
     border-radius: 5%;
+    cursor: pointer;
 }
 
 /*Courses Menu*/
@@ -1417,18 +1418,25 @@ header {
 .event-from-to-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    column-gap: 20px;
+    row-gap: 5px;
 }
 
 .label-input-container {
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 
 .calendar-event-form input {
     height: 36px;
 }
 
+.calendar-event-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
 
 #event-date::-webkit-datetime-edit-text, 
 #event-date::-webkit-inner-spin-button, 
