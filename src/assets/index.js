@@ -7,7 +7,7 @@ dayjs.extend(weekday);
 dayjs.extend(weekOfYear);
 
 const WEEKDAYS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-const TODAY = dayjs().format("YYYY-MM-DD");
+const TODAY = dayjs().format("ddd, MMM DD, YYYY");
 
 const INITIAL_YEAR = dayjs().format("YYYY");
 const INITIAL_MONTH = dayjs().format("M");
@@ -68,10 +68,8 @@ function appendDay(day, calendarDaysElement) {
   dayElementClassList.add("calendar-grid-item");
   const dayOfMonthElement = document.createElement("h4");
 
-  dayOfMonthElement.classList.add("bold-font")
-
+  dayOfMonthElement.classList.add("bold-font");
   dayElement.setAttribute("day-id",day.date);
-
   dayOfMonthElement.innerText = day.dayOfMonth;
   dayElement.appendChild(dayOfMonthElement);
   calendarDaysElement.appendChild(dayElement);
@@ -101,7 +99,7 @@ function getNumberOfDaysInMonth(year, month) {
 function createDaysForCurrentMonth(year, month) {
   return [...Array(getNumberOfDaysInMonth(year, month))].map((day, index) => {
     return {
-      date: dayjs(`${year}-${month}-${index + 1}`).format("YYYY-MM-DD"),
+      date: dayjs(`${year}-${month}-${index + 1}`).format("ddd, MMM DD, YYYY"),
       dayOfMonth: index + 1,
       isCurrentMonth: true
     };
@@ -126,7 +124,7 @@ function createDaysForPreviousMonth(year, month) {
         `${previousMonth.year()}-${previousMonth.month() + 1}-${
           previousMonthLastMondayDayOfMonth + index
         }`
-      ).format("YYYY-MM-DD"),
+      ).format("ddd, MMM DD, YYYY"),
       dayOfMonth: previousMonthLastMondayDayOfMonth + index,
       isCurrentMonth: false
     };
@@ -146,7 +144,7 @@ function createDaysForNextMonth(year, month) {
     return {
       date: dayjs(
         `${nextMonth.year()}-${nextMonth.month() + 1}-${index + 1}`
-      ).format("YYYY-MM-DD"),
+      ).format("ddd, MMM DD, YYYY"),
       dayOfMonth: index + 1,
       isCurrentMonth: false
     };

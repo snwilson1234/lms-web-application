@@ -67,23 +67,26 @@
             </div>
             `;
 
-            //temp to trigger overlay on clicking whole calendar
-            //document.getElementById('mycalendar').addEventListener('click', toggleCalendarEventScheduler);
             document.getElementById('overlay').addEventListener('click', toggleCalendarEventScheduler);
+       
         </script>
         <script src="{% static 'js/index-bundle.js' %}"></script>
 
         <script>
-            const grid = document.getElementById('mycalendar')
+            const grid = document.getElementById('mycalendar');
             grid.addEventListener('click', getCellClicked);
         </script>
 
         <div id="calendar-event-popup" class="calendar-event-popup">
             <div class="calendar-event-content-container">
-                <div>
-                    <h4>Edit Event</h4>
+                <div class="event-header"><h3 style="line-height: 3; font-weight: 400;">Edit Event</h3></div>
+                <div class="event-type-tab-container">
+                    <button id="btn-myevent" class="event-tablinks active" onclick="toggleEventTypeTab('myevent')">Event</button>
+                    <button id="btn-mytodo" class="event-tablinks" onclick="toggleEventTypeTab('mytodo')">My To Do</button>
+                    
+                    
                 </div>
-                <form class="calendar-event-form">
+                <form id="myevent" event-type-tab="myevent" class="calendar-event-form active">
                     <div class="label-input-container">
                         <label for="event-title"><b>Title</b></label><br>
                         <input type="text" id="event-title" name="event-title" placeholder="Input Event Title..."><br>
@@ -95,11 +98,33 @@
                     <div class="event-from-to-container">
                         <div class="label-input-container">
                             <label for="from-time"><b>From</b></label>
-                            <input type="text" id="from-time" name="from-time" placeholder="Start Time"><br>
+                            <div id="from-time-container" class="input-dropdown-container">
+                                <input class="time-input" type="text" id="from-time" name="from-time" placeholder="Start Time"><br>
+                                <button type="button" class="btn-time-dd">⌵</button>
+                                <ol id="from-time-dd" class="time-dd">
+                                    <li><h4>12:00 AM</h4></li>
+                                    <li><h4>12:30 AM</h4></li>
+                                    <li><h4>12:30 AM</h4></li>
+                                    <li><h4>12:30 AM</h4></li>
+                                    <li><h4>12:30 AM</h4></li>
+                                    <li><h4>12:30 AM</h4></li>
+                                </ol>
+                            </div>
                         </div>
                         <div class="label-input-container">
                             <label for="to-time"><b>To</b></label>
-                            <input type="text" id="to-time" name="to-time" placeholder="End Time"><br>
+                            <div id="to-time-container"  class="input-dropdown-container">
+                                <input class="time-input" type="text" id="to-time" name="to-time" placeholder="End Time"><br>
+                                <button type="button" class="btn-time-dd">⌵</button>
+                                <ol id="to-time-dd" class="time-dd">
+                                    <li><h4>12:00 AM</h4></li>
+                                    <li><h4>12:30 AM</h4></li>
+                                    <li><h4>12:30 AM</h4></li>
+                                    <li><h4>12:30 AM</h4></li>
+                                    <li><h4>12:30 AM</h4></li>
+                                    <li><h4>12:30 AM</h4></li>
+                                </ol>
+                            </div>
                         </div>
                     </div>
                     <label for="event-frequency"><b>Frequency</b></label></br>
@@ -117,8 +142,54 @@
                         <input type="submit" value="Submit">
                     </div>
                 </form>
+                <form id="mytodo" event-type-tab="mytodo" class="calendar-event-form">
+                    <h3>jdiwfuehfuieshvk</h3>
+                    <p>{% lorem 3 p random %}</p>
+                </form>
             </div>
         </div>
+
+        <script>
+            const calendarPopup = document.getElementById('calendar-event-popup');
+            const fromInput = document.getElementById('from-time');
+            const toInput = document.getElementById('to-time');
+            fromInput.addEventListener('focus', function() {
+                toggleInputDropdown(fromInput);
+            });
+            toInput.addEventListener('focus', function() {
+                toggleInputDropdown(toInput);
+            });
+            fromInput.addEventListener('blur', function() {
+                toggleInputDropdown(fromInput);
+            });
+            toInput.addEventListener('blur', function() {
+                toggleInputDropdown(toInput);
+            });
+        </script>
+
+        <script>
+            function fillTimeList() {
+                var list = document.querySelectorAll("time-dd");
+              
+                // Clear existing list items
+                list.innerHTML = "";
+              
+                // Generate list items for times from 12:00 AM to 11:55 PM with 5-minute intervals
+                for (var hours = 0; hours < 24; hours++) {
+                  for (var minutes = 0; minutes < 60; minutes += 5) {
+                    var listItem = document.createElement("li");
+                    var timeString = pad(hours) + ":" + pad(minutes) + (hours < 12 ? " AM" : " PM");
+                    listItem.textContent = timeString;
+                    list.appendChild(listItem);
+                  }
+                }
+            }
+            function pad(number) {
+                return (number < 10 ? "0" : "") + number;
+            }
+            fillTimeList();
+              
+        </script>
     
     </div>
     

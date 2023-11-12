@@ -32,7 +32,7 @@ function toggleUploadTab(evt, elem_name) {
     // Declare all variables
     var i, tabcontent, tablinks;
   
-    // Get all elements with class="tabcontent" and hide them
+    // Get all elements with class="upload-tab-content" and hide them
     tabcontent = document.getElementsByClassName("upload-tab-content");
     for (i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = "none";
@@ -98,7 +98,17 @@ function clickOutsideHandler(event) {
   }
 }
 
+//detect calendar cell click
+function getCellClicked(event) {
+  const clickedGridItem = event.target.closest(".calendar-grid-item");
 
+  if (clickedGridItem) {
+    let date = clickedGridItem.getAttribute("day-id");
+    toggleCalendarEventScheduler(date);
+  }
+}
+
+//toggle event scheduler for date clicked
 function toggleCalendarEventScheduler(date) {
   var blur = document.getElementById('overlay');
   blur.classList.toggle('active');
@@ -107,12 +117,30 @@ function toggleCalendarEventScheduler(date) {
   document.getElementById("event-date").value = date;
 }
 
-function getCellClicked(event) {
-  const clickedGridItem = event.target.closest(".calendar-grid-item");
+//toggle input-dropdown highlight
+function toggleInputDropdown(inputElement) {
+  let inputDropdown = document.getElementById(inputElement.id + '-container');
+  inputDropdown.classList.toggle('active');
+  let timeDD = document.getElementById(inputElement.id + '-dd');
+  timeDD.classList.toggle('active');
+}
 
-  if (clickedGridItem) {
-    let date = clickedGridItem.getAttribute("day-id");
-    console.debug(date)
-    toggleCalendarEventScheduler(date);
+//event type tab functionality
+function toggleEventTypeTab(tab_name) {
+  // console.debug(tab_name);
+  var tabs = document.querySelectorAll('[event-type-tab]');
+  console.debug(tabs);
+  
+  tabs.forEach(function(tab) {
+    var tabData = tab.getAttribute('event-type-tab');
+    if (tabData === tab_name) {// check input menu name to toggle right one
+      tab.classList.add('active');
+      var tabBtn = document.getElementById('btn-' + tabData);
+      tabBtn.classList.add('active');
+  } else {
+      tab.classList.remove('active');
+      var tabBtn = document.getElementById('btn-' + tabData);
+      tabBtn.classList.remove('active');
   }
+  });
 }
