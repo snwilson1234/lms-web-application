@@ -102,12 +102,7 @@
                                 <input class="time-input" type="text" id="from-time" name="from-time" placeholder="Start Time"><br>
                                 <button type="button" class="btn-time-dd">⌵</button>
                                 <ol id="from-time-dd" class="time-dd">
-                                    <li><h4>12:00 AM</h4></li>
-                                    <li><h4>12:30 AM</h4></li>
-                                    <li><h4>12:30 AM</h4></li>
-                                    <li><h4>12:30 AM</h4></li>
-                                    <li><h4>12:30 AM</h4></li>
-                                    <li><h4>12:30 AM</h4></li>
+                                    
                                 </ol>
                             </div>
                         </div>
@@ -117,29 +112,30 @@
                                 <input class="time-input" type="text" id="to-time" name="to-time" placeholder="End Time"><br>
                                 <button type="button" class="btn-time-dd">⌵</button>
                                 <ol id="to-time-dd" class="time-dd">
-                                    <li><h4>12:00 AM</h4></li>
-                                    <li><h4>12:30 AM</h4></li>
-                                    <li><h4>12:30 AM</h4></li>
-                                    <li><h4>12:30 AM</h4></li>
-                                    <li><h4>12:30 AM</h4></li>
-                                    <li><h4>12:30 AM</h4></li>
+                                    
                                 </ol>
                             </div>
                         </div>
                     </div>
                     <label for="event-frequency"><b>Frequency</b></label></br>
-                    <select style="background-color: #fff; border: solid 1px rgb(200,200,200); border-radius: 5px;" id="event-frequency" name="event-frequency" placeholder="Input Event Title...">
-                        <option value="non-repeating">Does not repeat</option>
+                    <select style="height: 36px; background-color: #fff; border: solid 1px rgb(200,200,200); border-radius: 5px;" id="event-frequency" name="event-frequency" placeholder="Input Event Title...">
+                        <option id="no-repeat" value="no-repeat">Does not repeat</option>
+                        <option id="daily" value="daily">Daily</option>
+                        <option id="weekly-today" value="weekly-today"></option>
+                        <option id="monthly-today" value="monthly-today"></option>
+                        <option id="annually-today" value="annually-today"></option>
+                        <option id="weekdays" value="weekdays"></option>
+                        <option id="custom" value="custom"></option>
                     </select><br>
                     <label for="event-location"><b>Location</b></label></br>
                     <input type="text" id="event-location" name="event-location" placeholder="Input Event Location..."><br>
                     <label for="event-calendar"><b>Calendar</b></label></br>
-                    <select style="background-color: #fff; border: solid 1px rgb(200,200,200); border-radius: 5px;" id="event-calendar" name="event-calendar">
+                    <select style="height: 36px; background-color: #fff; border: solid 1px rgb(200,200,200); border-radius: 5px;" id="event-calendar" name="event-calendar">
                         <option value="user">User</option>
                     </select><br>
                     <div class="calendar-event-buttons-container">
-                        <input type="submit" value="More Options">
-                        <input type="submit" value="Submit">
+                        <input class="btn-more-options" type="button" value="More Options">
+                        <input class="btn-submit" type="submit" value="Submit">
                     </div>
                 </form>
                 <form id="mytodo" event-type-tab="mytodo" class="calendar-event-form">
@@ -165,29 +161,10 @@
             toInput.addEventListener('blur', function() {
                 toggleInputDropdown(toInput);
             });
+            fillTimeDD();
         </script>
 
         <script>
-            function fillTimeList() {
-                var list = document.querySelectorAll("time-dd");
-              
-                // Clear existing list items
-                list.innerHTML = "";
-              
-                // Generate list items for times from 12:00 AM to 11:55 PM with 5-minute intervals
-                for (var hours = 0; hours < 24; hours++) {
-                  for (var minutes = 0; minutes < 60; minutes += 5) {
-                    var listItem = document.createElement("li");
-                    var timeString = pad(hours) + ":" + pad(minutes) + (hours < 12 ? " AM" : " PM");
-                    listItem.textContent = timeString;
-                    list.appendChild(listItem);
-                  }
-                }
-            }
-            function pad(number) {
-                return (number < 10 ? "0" : "") + number;
-            }
-            fillTimeList();
               
         </script>
     

@@ -104,17 +104,39 @@ function getCellClicked(event) {
 
   if (clickedGridItem) {
     let date = clickedGridItem.getAttribute("day-id");
-    toggleCalendarEventScheduler(date);
+    let day = clickedGridItem.getAttribute("weekday");
+    let shortDate = clickedGridItem.getAttribute("short-date");
+    let weekOfMonth = clickedGridItem.getAttribute("week-of-month");
+    toggleCalendarEventScheduler(date, day, shortDate, weekOfMonth);
   }
 }
 
 //toggle event scheduler for date clicked
-function toggleCalendarEventScheduler(date) {
+function toggleCalendarEventScheduler(date, day, shortDate, weekOfMonth) {
   var blur = document.getElementById('overlay');
   blur.classList.toggle('active');
   var popup = document.getElementById('calendar-event-popup');
   popup.classList.toggle('active');
+
+  var ordinalWeek = 0;
+  if (weekOfMonth == 1) {
+    ordinalWeek = "1st";
+  }
+  else if (weekOfMonth == 2) {
+    ordinalWeek = "2nd";
+  }
+  else if (weekOfMonth == 3) {
+    ordinalWeek = "3rd";
+  }
+  else {
+    ordinalWeek = weekOfMonth + "th";
+  }
+
   document.getElementById("event-date").value = date;
+  document.getElementById("weekly-today").text = "Weekly on " + day;
+  document.getElementById("monthly-today").text = "Monthly on the " + ordinalWeek + " " + day;
+  document.getElementById("annually-today").text = "Annually on " + shortDate;
+
 }
 
 //toggle input-dropdown highlight
@@ -143,4 +165,33 @@ function toggleEventTypeTab(tab_name) {
       tabBtn.classList.remove('active');
   }
   });
+}
+
+function fillTimeDD() {
+  let fromList = document.getElementById('from-time-dd');
+  let toList   = document.getElementById('to-time-dd');
+
+  for (var hours = 0; hours < 24; hours++) {
+    for (var minutes = 0; minutes < 60; minutes += 5) {
+      var fromListItem = document.createElement("li");
+      var toListItem = document.createElement("li");
+      if (hours == 0 || hours == 12){
+        var timeString = "12"+ ":" + pad(minutes) + (hours < 12 ? " AM" : " PM");
+      }
+      else {
+        var timeString = hours%12+ ":" + pad(minutes) + (hours < 12 ? " AM" : " PM");
+      }
+      fromListItem.textContent = timeString;
+      var idString = timeString.replace(":","");
+      fromListItem.setAttribute('from-time-list-item', idString.replace(" ","-") + "-from");
+      toListItem.textContent = timeString;
+      toListItem.setAttribute('to-time-list-item', idString.replace(" ","-") + "-to");
+      fromList.appendChild(fromListItem);
+      toList.appendChild(toListItem);
+    }
+  }
+}
+
+function pad(number) {
+  return (number < 10 ? "0" : "") + number;
 }

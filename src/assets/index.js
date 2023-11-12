@@ -70,6 +70,9 @@ function appendDay(day, calendarDaysElement) {
 
   dayOfMonthElement.classList.add("bold-font");
   dayElement.setAttribute("day-id",day.date);
+  dayElement.setAttribute("weekday",day.weekday);
+  dayElement.setAttribute("short-date",day.shortDate);
+  dayElement.setAttribute("week-of-month",day.weekOfMonth);
   dayOfMonthElement.innerText = day.dayOfMonth;
   dayElement.appendChild(dayOfMonthElement);
   calendarDaysElement.appendChild(dayElement);
@@ -101,9 +104,26 @@ function createDaysForCurrentMonth(year, month) {
     return {
       date: dayjs(`${year}-${month}-${index + 1}`).format("ddd, MMM DD, YYYY"),
       dayOfMonth: index + 1,
-      isCurrentMonth: true
+      isCurrentMonth: true,
+      weekday: dayjs(`${year}-${month}-${index + 1}`).format("dddd"),
+      shortDate: dayjs(`${year}-${month}-${index + 1}`).format("MMMM DD"),
+      weekOfMonth: getWeekOfMonth(dayjs(`${year}-${month}-${index + 1}`)),
     };
   });
+}
+
+function getWeekOfMonth(date) {
+  // Get the first day of the month
+  const firstDayOfMonth = dayjs(date).startOf('month');
+
+  // Get the ISO week numbers for the first day of the month and the target date
+  const weekNumberFirstDay = firstDayOfMonth.week();
+  const weekNumberTargetDate = dayjs(date).week();
+
+  // Calculate the week number within the month
+  const weekOfMonth = weekNumberTargetDate - weekNumberFirstDay + 1;
+
+  return weekOfMonth;
 }
 
 function createDaysForPreviousMonth(year, month) {
@@ -111,7 +131,6 @@ function createDaysForPreviousMonth(year, month) {
 
   const previousMonth = dayjs(`${year}-${month}-01`).subtract(1, "month");
 
-  // Cover first day of the month being sunday (firstDayOfTheMonthWeekday === 0)
   const visibleNumberOfDaysFromPreviousMonth = firstDayOfTheMonthWeekday;
 
   const previousMonthLastMondayDayOfMonth = dayjs(currentMonthDays[0].date)
@@ -126,7 +145,21 @@ function createDaysForPreviousMonth(year, month) {
         }`
       ).format("ddd, MMM DD, YYYY"),
       dayOfMonth: previousMonthLastMondayDayOfMonth + index,
-      isCurrentMonth: false
+      isCurrentMonth: false,
+      weekday: dayjs(
+        `${previousMonth.year()}-${previousMonth.month() + 1}-${
+          previousMonthLastMondayDayOfMonth + index
+        }`
+      ).format("dddd"),
+      shortDate: dayjs(
+        `${previousMonth.year()}-${previousMonth.month() + 1}-${
+          previousMonthLastMondayDayOfMonth + index
+        }`
+      ).format("MMMM DD"),
+      weekOfMonth: getWeekOfMonth(dayjs(
+        `${previousMonth.year()}-${previousMonth.month() + 1}-${
+          previousMonthLastMondayDayOfMonth + index
+        }`)),
     };
   });
 }
@@ -146,7 +179,16 @@ function createDaysForNextMonth(year, month) {
         `${nextMonth.year()}-${nextMonth.month() + 1}-${index + 1}`
       ).format("ddd, MMM DD, YYYY"),
       dayOfMonth: index + 1,
-      isCurrentMonth: false
+      isCurrentMonth: false,
+      weekday: dayjs(
+        `${nextMonth.year()}-${nextMonth.month() + 1}-${index + 1}`
+      ).format("dddd"),
+      shortDate: dayjs(
+        `${nextMonth.year()}-${nextMonth.month() + 1}-${index + 1}`
+      ).format("MMMM DD"),
+      weekOfMonth: getWeekOfMonth(dayjs(
+        `${nextMonth.year()}-${nextMonth.month() + 1}-${index + 1}`
+      )),
     };
   });
 }

@@ -1,5 +1,6 @@
 db.sqlite3
 node_modules
+**/index-bundle.js
 
 # Byte-compiled / optimized / DLL files
 **/__pycache__
