@@ -1491,6 +1491,14 @@ header {
     outline: none;
 }
 
+.calendar-event-form select {
+    background-color: white;
+}
+
+.calendar-event-form option {
+    background-color: white;
+}
+
 .calendar-todo-form {
     display: none;
     visibility: hidden;
