@@ -1387,25 +1387,6 @@ header {
     padding-top: 4px;
 }
 
-.calendar-event-popup {
-    z-index: 1000;
-    position: absolute;
-    display: none;
-}
-
-.calendar-event-popup.active {
-    display: flex;
-    flex-direction: column;
-    width: 58vw;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-left: 22vw;
-    margin-right: 16vw;
-    background-color: #fff;
-    border: solid 1px #fff;
-    border-radius: 5px; 
-}
-
 .event-header {
     text-align: left;
     width: 100%;
@@ -1467,13 +1448,25 @@ header {
     width: 100%;
 }
 
-
-.calendar-event-form input {
-    height: 36px;
+.calendar-event-popup {
+    z-index: 1000;
+    display: none;
 }
 
-.calendar-event-form input:focus {
-    outline: none;
+.calendar-event-popup.active {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px; 
+    margin-bottom: 25px;
+    background-color: #fff;
+    border: solid 1px #fff;
+    border-radius: 5px;
+    left: 20vw;
+    top: 5vh;
+    height: 630px;
+    z-index: 1000;
+    justify-content: left;
 }
 
 .calendar-event-form {
@@ -1486,9 +1479,30 @@ header {
     flex-direction: column;
     row-gap: 5px;
     visibility: visible;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 92%;
+    margin: 20px;
+    width: 500px;
+}
+
+.calendar-event-form input {
+    height: 36px;
+}
+
+.calendar-event-form input:focus {
+    outline: none;
+}
+
+.calendar-todo-form {
+    display: none;
+    visibility: hidden;
+}
+
+.calendar-todo-form.active {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    visibility: visible;
+    margin: 20px;
+    width: 250px;
 }
 
 #event-date::-webkit-datetime-edit-text, 
@@ -1557,6 +1571,7 @@ header {
     margin-top: 15px;
     justify-content: right;
     gap: 8px;
+    margin-bottom: 10px;
 }
 
 .btn-submit {
@@ -1577,4 +1592,10 @@ header {
     font-size: 16px;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.todo-field-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
 }

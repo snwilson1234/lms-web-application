@@ -34,7 +34,7 @@ createCalendar();
 initMonthSelectors();
 
 
-/* Calendar creation functions */
+/* Calendar creation/helper functions */
 
 function createCalendar(year = INITIAL_YEAR, month = INITIAL_MONTH) {
   const calendarDaysElement = document.getElementById("mycalendar");

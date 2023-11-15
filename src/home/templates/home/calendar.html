@@ -83,8 +83,6 @@
                 <div class="event-type-tab-container">
                     <button id="btn-myevent" class="event-tablinks active" onclick="toggleEventTypeTab('myevent')">Event</button>
                     <button id="btn-mytodo" class="event-tablinks" onclick="toggleEventTypeTab('mytodo')">My To Do</button>
-                    
-                    
                 </div>
                 <form id="myevent" event-type-tab="myevent" class="calendar-event-form active">
                     <div class="label-input-container">
@@ -102,7 +100,8 @@
                                 <input class="time-input" type="text" id="from-time" name="from-time" placeholder="Start Time"><br>
                                 <button type="button" class="btn-time-dd">⌵</button>
                                 <ol id="from-time-dd" class="time-dd">
-                                    
+                                    <!--filled w/ js-->
+                                    <li class="test"> test</li>
                                 </ol>
                             </div>
                         </div>
@@ -112,7 +111,7 @@
                                 <input class="time-input" type="text" id="to-time" name="to-time" placeholder="End Time"><br>
                                 <button type="button" class="btn-time-dd">⌵</button>
                                 <ol id="to-time-dd" class="time-dd">
-                                    
+                                    <!--filled w/ js-->
                                 </ol>
                             </div>
                         </div>
@@ -131,16 +130,40 @@
                     <input type="text" id="event-location" name="event-location" placeholder="Input Event Location..."><br>
                     <label for="event-calendar"><b>Calendar</b></label></br>
                     <select style="height: 36px; background-color: #fff; border: solid 1px rgb(200,200,200); border-radius: 5px;" id="event-calendar" name="event-calendar">
-                        <option value="user">User</option>
+                        <option value="user">{{request.user}}</option>
                     </select><br>
                     <div class="calendar-event-buttons-container">
                         <input class="btn-more-options" type="button" value="More Options">
                         <input class="btn-submit" type="submit" value="Submit">
                     </div>
                 </form>
-                <form id="mytodo" event-type-tab="mytodo" class="calendar-event-form">
-                    <h3>jdiwfuehfuieshvk</h3>
-                    <p>{% lorem 3 p random %}</p>
+                <form id="mytodo" event-type-tab="mytodo" class="calendar-todo-form">
+                    <div class="todo-field-container">
+                        <label for="event-title"><h5>Title:</h5></label><br>
+                        <input type="text" id="event-title" name="event-title" placeholder="Input Event Title..."><br>
+                    </div>
+                    <div class="todo-field-container">
+                        <label for="event-title"><h5>Date:</h5></label><br>
+                        <input type="text" id="event-date" name="event-date" value="" placeholder=""><br>
+                    </div>
+                    <div class="todo-field-container">
+                        <label for="event-title"><h5>Time:</h5></label><br>
+                        <input type="text" id="event-date" name="event-date" value="" placeholder=""><br>
+                    </div>
+                    <div class="todo-field-container">
+                        <label for="event-title"><h5>Calendar:</h5></label><br>
+                        <select style="height: 36px; background-color: #fff; border: solid 1px rgb(200,200,200); border-radius: 5px;" id="event-calendar" name="event-calendar">
+                            <option value="user">{{request.user}}</option>
+                        </select><br>
+                    </div>
+                    <div class="todo-field-container">
+                        <label for="event-title"><h5>Details:</h5></label><br>
+                        <textarea id="todo-details" name="todo-details" rows="" cols=""></textarea>
+                    </div>
+                    <div class="calendar-event-buttons-container">
+                        <input class="btn-more-options" type="button" value="More Options">
+                        <input class="btn-submit" type="submit" value="Submit">
+                    </div>
                 </form>
             </div>
         </div>
@@ -149,6 +172,8 @@
             const calendarPopup = document.getElementById('calendar-event-popup');
             const fromInput = document.getElementById('from-time');
             const toInput = document.getElementById('to-time');
+            const fromTimeDD = document.getElementById('from-time-dd');
+            const toTimeDD = document.getElementById('to-time-dd');
             fromInput.addEventListener('focus', function() {
                 toggleInputDropdown(fromInput);
             });
@@ -161,11 +186,33 @@
             toInput.addEventListener('blur', function() {
                 toggleInputDropdown(toInput);
             });
-            fillTimeDD();
-        </script>
 
-        <script>
-              
+            fillTimeDD();
+
+            fromTimeDD.addEventListener('mousedown', function(event) {
+                // const clickedListItem = event.target.closest(".time-dd");
+                if (event.target.tagName === 'LI') {
+                  // Get the text content of the clicked list item
+                  var clickedItemText = event.target.textContent;
+                  
+                  fromInput.value = clickedItemText;
+                  // Display the clicked item in the console (you can perform any other action here)
+                  console.log('Clicked item: ' + clickedItemText);
+                }
+            });
+
+            toTimeDD.addEventListener('mousedown', function(event) {
+                // const clickedListItem = event.target.closest(".time-dd");
+                if (event.target.tagName === 'LI') {
+                  // Get the text content of the clicked list item
+                  var clickedItemText = event.target.textContent;
+                  toInput.value = clickedItemText;
+                  
+                  // Display the clicked item in the console (you can perform any other action here)
+                  console.log('Clicked item: ' + clickedItemText);
+                }
+            });
+            
         </script>
     
     </div>

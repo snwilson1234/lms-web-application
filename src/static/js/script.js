@@ -1,4 +1,6 @@
 
+// side menus functionality
+
 function togglePopup(menu_name) {
     var menus = document.querySelectorAll('[data-menu]');
 
@@ -12,6 +14,7 @@ function togglePopup(menu_name) {
     });
 }
 
+// class tabs functionality (maybe not used?)
 function activateClassTab(tab_name) {
     var tabs = document.querySelectorAll('[class-tab]');
     
@@ -26,8 +29,7 @@ function activateClassTab(tab_name) {
     });
 }
 
-
-//Assignment upload tab functionality
+// Assignment upload tab functionality
 function toggleUploadTab(evt, elem_name) {
     // Declare all variables
     var i, tabcontent, tablinks;
@@ -47,7 +49,7 @@ function toggleUploadTab(evt, elem_name) {
     // Show the current tab, and add an "active" class to the button that opened the tab
     document.getElementById(elem_name).style.display = "block";
     evt.currentTarget.className += " active";
-  }
+}
 
 function toggleUploadFileContent() {
     var content = document.getElementById('upload-box-content');
@@ -55,7 +57,7 @@ function toggleUploadFileContent() {
 }
 
 
-//Calendar Button functionality
+// Calendar Button functionality
 function toggleCalendarType(calendar_type) {
 
   var tabs = document.querySelectorAll('[calendar-tab]');
@@ -73,7 +75,7 @@ function toggleCalendarType(calendar_type) {
 
 // Date search functionality
 
-//Open date search form and hide button
+// open date search form and hide button
 function toggleDateSearchForm() {
   var dateSearchForm = document.getElementById('date-search-form');
   var btn = document.getElementById('btn-toggle-date-search');
@@ -87,7 +89,7 @@ function toggleDateSearchForm() {
   btn.classList.toggle('active'); // hide button
 }
 
-//handle clicking outside the text box to hide form and reveal button
+// handle clicking outside the text box to hide form and reveal button
 function clickOutsideHandler(event) {
   var dateSearchForm = document.getElementById('date-search-form');
   var btn = document.getElementById('btn-toggle-date-search');
@@ -98,7 +100,7 @@ function clickOutsideHandler(event) {
   }
 }
 
-//detect calendar cell click
+// detect calendar cell click
 function getCellClicked(event) {
   const clickedGridItem = event.target.closest(".calendar-grid-item");
 
@@ -167,6 +169,7 @@ function toggleEventTypeTab(tab_name) {
   });
 }
 
+// fill from & to time drop downs with 12:00AM-11:55PM separated by 5min
 function fillTimeDD() {
   let fromList = document.getElementById('from-time-dd');
   let toList   = document.getElementById('to-time-dd');
@@ -186,12 +189,14 @@ function fillTimeDD() {
       fromListItem.setAttribute('from-time-list-item', idString.replace(" ","-") + "-from");
       toListItem.textContent = timeString;
       toListItem.setAttribute('to-time-list-item', idString.replace(" ","-") + "-to");
+      //fromListItem.classList.add('')
       fromList.appendChild(fromListItem);
       toList.appendChild(toListItem);
     }
   }
 }
 
+// helper for above to pad with zeros when minutes/hours only one int long (ex: 5 -> 05)
 function pad(number) {
   return (number < 10 ? "0" : "") + number;
 }
