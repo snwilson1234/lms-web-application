@@ -201,3 +201,18 @@ function fillTimeDD() {
 function pad(number) {
   return (number < 10 ? "0" : "") + number;
 }
+
+function displayEventsOnCalendar() {
+  const scheduledEvents = document.querySelectorAll('.scheduled-event');
+
+  scheduledEvents.forEach((scheduledEvent) => {
+    const dateElement = scheduledEvent.querySelector('#scheduled-event-date');
+    
+    if (dateElement) {
+      console.log(dateElement.innerText);
+      const scheduleDate = document.querySelector("[day-id='" + dateElement.innerText + "']");
+      scheduleDate.appendChild(scheduledEvent);
+    }
+  })
+
+}

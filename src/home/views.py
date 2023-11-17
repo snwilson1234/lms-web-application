@@ -38,6 +38,8 @@ def courses_view(request):
 def calendar_view(request):
     context = {}
 
+    scheduled_events = CalendarEvent.objects.filter(owner=request.user)
+
     calendar_event_form = CalendarEventForm()
 
     # calendar_events = CalendarEvent.objects.filter(owner=request.user)
@@ -58,6 +60,8 @@ def calendar_view(request):
         else:
             calendar_event_form = CalendarEventForm()
 
+    context['scheduled_events'] = scheduled_events
     context['calendar_event_form'] = calendar_event_form
+    
     
     return render(request, "home/calendar.html", context)

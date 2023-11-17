@@ -72,6 +72,14 @@
         </script>
         <script src="{% static 'js/index-bundle.js' %}"></script>
 
+        {% for event in scheduled_events %}
+            <div class="scheduled-event">
+                <h4>{{event.title}}</h4>
+                <h4 id="scheduled-event-date">{{event.date}}</h4>
+            </div>
+        {% endfor %}
+
+
         <script>
             const grid = document.getElementById('mycalendar');
             grid.addEventListener('click', getCellClicked);
@@ -119,6 +127,7 @@
         </div>
 
         <script>
+            {% comment %} const calendarEventForm = document.getElementById('calendar-event-form'); {% endcomment %}
             const calendarPopup = document.getElementById('calendar-event-popup');
             const fromInput = document.getElementById('id_from_time');
             const toInput = document.getElementById('id_to_time');
@@ -136,8 +145,12 @@
             toInput.addEventListener('blur', function() {
                 toggleInputDropdown(toInput);
             });
+            {% comment %} calendarEventForm.addEventListener('post', function() {
+                handleClientSideFormSubmission();
+            }) {% endcomment %}
 
             fillTimeDD();
+            displayEventsOnCalendar();
 
             fromTimeDD.addEventListener('mousedown', function(event) {
                 // const clickedListItem = event.target.closest(".time-dd");

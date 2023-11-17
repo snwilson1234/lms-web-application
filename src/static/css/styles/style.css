@@ -1505,6 +1505,21 @@ header {
     background-color: white;
 }
 
+
+.scheduled-event {
+    border: solid 1px;
+    position: relative;
+    display: inline-block;
+}
+.scheduled-event h4 {
+    display: inline-block;
+}
+
+#scheduled-event-date {
+    display: none;
+    visibility: hidden;
+}
+
 #id_from_time {
     border: solid 1px rgb(90,90,90);
     border-right: none;
