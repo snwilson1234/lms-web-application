@@ -84,59 +84,9 @@
                     <button id="btn-myevent" class="event-tablinks active" onclick="toggleEventTypeTab('myevent')">Event</button>
                     <button id="btn-mytodo" class="event-tablinks" onclick="toggleEventTypeTab('mytodo')">My To Do</button>
                 </div>
-                <form id="myevent" event-type-tab="myevent" class="calendar-event-form active">
-                    <div class="label-input-container">
-                        <label for="event-title"><b>Title</b></label><br>
-                        <input type="text" id="event-title" name="event-title" placeholder="Input Event Title..."><br>
-                    </div>
-                    <div class="label-input-container">
-                        <label for="event-date"><b>Date</b></label><br>
-                        <input type="text" id="event-date" name="event-date" value="" placeholder=""><br>
-                    </div>
-                    <div class="event-from-to-container">
-                        <div class="label-input-container">
-                            <label for="from-time"><b>From</b></label>
-                            <div id="from-time-container" class="input-dropdown-container">
-                                <input class="time-input" type="text" id="from-time" name="from-time" placeholder="Start Time"><br>
-                                <button type="button" class="btn-time-dd">⌵</button>
-                                <ol id="from-time-dd" class="time-dd">
-                                    <!--filled w/ js-->
-                                    <li class="test"> test</li>
-                                </ol>
-                            </div>
-                        </div>
-                        <div class="label-input-container">
-                            <label for="to-time"><b>To</b></label>
-                            <div id="to-time-container"  class="input-dropdown-container">
-                                <input class="time-input" type="text" id="to-time" name="to-time" placeholder="End Time"><br>
-                                <button type="button" class="btn-time-dd">⌵</button>
-                                <ol id="to-time-dd" class="time-dd">
-                                    <!--filled w/ js-->
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                    <label for="event-frequency"><b>Frequency</b></label></br>
-                    <select style="height: 36px; background-color: #fff; border: solid 1px rgb(200,200,200); border-radius: 5px;" id="event-frequency" name="event-frequency" placeholder="Input Event Title...">
-                        <option id="no-repeat" value="no-repeat">Does not repeat</option>
-                        <option id="daily" value="daily">Daily</option>
-                        <option id="weekly-today" value="weekly-today"></option>
-                        <option id="monthly-today" value="monthly-today"></option>
-                        <option id="annually-today" value="annually-today"></option>
-                        <option id="weekdays" value="weekdays"></option>
-                        <option id="custom" value="custom"></option>
-                    </select><br>
-                    <label for="event-location"><b>Location</b></label></br>
-                    <input type="text" id="event-location" name="event-location" placeholder="Input Event Location..."><br>
-                    <label for="event-calendar"><b>Calendar</b></label></br>
-                    <select style="height: 36px; background-color: #fff; border: solid 1px rgb(200,200,200); border-radius: 5px;" id="event-calendar" name="event-calendar">
-                        <option value="user">{{request.user}}</option>
-                    </select><br>
-                    <div class="calendar-event-buttons-container">
-                        <input class="btn-more-options" type="button" value="More Options">
-                        <input class="btn-submit" type="submit" value="Submit">
-                    </div>
-                </form>
+
+                {% include 'home/snippets/calendar_event_form_snippet.html' %}
+               
                 <form id="mytodo" event-type-tab="mytodo" class="calendar-todo-form">
                     <div class="todo-field-container">
                         <label for="event-title"><h5>Title:</h5></label><br>
@@ -170,10 +120,10 @@
 
         <script>
             const calendarPopup = document.getElementById('calendar-event-popup');
-            const fromInput = document.getElementById('from-time');
-            const toInput = document.getElementById('to-time');
-            const fromTimeDD = document.getElementById('from-time-dd');
-            const toTimeDD = document.getElementById('to-time-dd');
+            const fromInput = document.getElementById('id_from_time');
+            const toInput = document.getElementById('id_to_time');
+            const fromTimeDD = document.getElementById('id_from_time-dd');
+            const toTimeDD = document.getElementById('id_to_time-dd');
             fromInput.addEventListener('focus', function() {
                 toggleInputDropdown(fromInput);
             });

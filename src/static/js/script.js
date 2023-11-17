@@ -134,10 +134,11 @@ function toggleCalendarEventScheduler(date, day, shortDate, weekOfMonth) {
     ordinalWeek = weekOfMonth + "th";
   }
 
-  document.getElementById("event-date").value = date;
-  document.getElementById("weekly-today").text = "Weekly on " + day;
-  document.getElementById("monthly-today").text = "Monthly on the " + ordinalWeek + " " + day;
-  document.getElementById("annually-today").text = "Annually on " + shortDate;
+  document.getElementById("id_date").value = date;
+  document.getElementById("id_date").text = date;
+  document.querySelector("[value='weekly-today']").text = "Weekly on " + day;
+  document.querySelector("[value='monthly-today']").text = "Monthly on the " + ordinalWeek + " " + day;
+  document.querySelector("[value='annually-today']").text = "Annually on " + shortDate;
 
 }
 
@@ -171,8 +172,8 @@ function toggleEventTypeTab(tab_name) {
 
 // fill from & to time drop downs with 12:00AM-11:55PM separated by 5min
 function fillTimeDD() {
-  let fromList = document.getElementById('from-time-dd');
-  let toList   = document.getElementById('to-time-dd');
+  let fromList = document.getElementById('id_from_time-dd');
+  let toList   = document.getElementById('id_to_time-dd');
 
   for (var hours = 0; hours < 24; hours++) {
     for (var minutes = 0; minutes < 60; minutes += 5) {
@@ -186,9 +187,9 @@ function fillTimeDD() {
       }
       fromListItem.textContent = timeString;
       var idString = timeString.replace(":","");
-      fromListItem.setAttribute('from-time-list-item', idString.replace(" ","-") + "-from");
+      fromListItem.setAttribute('id_from_time-list-item', idString.replace(" ","-") + "-from");
       toListItem.textContent = timeString;
-      toListItem.setAttribute('to-time-list-item', idString.replace(" ","-") + "-to");
+      toListItem.setAttribute('id_to_time-list-item', idString.replace(" ","-") + "-to");
       //fromListItem.classList.add('')
       fromList.appendChild(fromListItem);
       toList.appendChild(toListItem);

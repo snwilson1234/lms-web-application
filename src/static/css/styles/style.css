@@ -1483,6 +1483,10 @@ header {
     width: 500px;
 }
 
+.calendar-event-form label {
+    font-weight: bold;
+}
+
 .calendar-event-form input {
     height: 36px;
 }
@@ -1493,10 +1497,22 @@ header {
 
 .calendar-event-form select {
     background-color: white;
+    height: 36px;
+    border: solid 1px rgb(90,90,90);
 }
 
 .calendar-event-form option {
     background-color: white;
+}
+
+#id_from_time {
+    border: solid 1px rgb(90,90,90);
+    border-right: none;
+}
+
+#id_to_time {
+    border: solid 1px rgb(90,90,90);
+    border-right: none;
 }
 
 .calendar-todo-form {

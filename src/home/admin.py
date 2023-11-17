@@ -1,5 +1,5 @@
 from django.contrib import admin
-from home.models import Courses,CourseSections, StudentCourses, StudentCourseGrade
+from home.models import Courses,CourseSections, StudentCourses, StudentCourseGrade, CalendarEvent
 
 # Register your models here.
 
@@ -24,3 +24,9 @@ admin.site.register(CourseSections, CourseSectionsAdmin)
 
 admin.site.register(StudentCourses, StudentCoursesAdmin)
 admin.site.register(StudentCourseGrade)
+
+
+class CalendarEventAdmin(admin.ModelAdmin):
+    list_display = ('title','date','from_time','to_time','owner')
+
+admin.site.register(CalendarEvent,CalendarEventAdmin)

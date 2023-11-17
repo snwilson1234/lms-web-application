@@ -67,3 +67,16 @@ class StudentCourseGrade(models.Model):
     class Meta:
         verbose_name = "Course Grade"
         verbose_name_plural = "Course Grades"
+
+class CalendarEvent(models.Model):
+    title           = models.CharField(max_length=100, null=False)
+    date            = models.CharField(max_length=20, null=False)
+    from_time       = models.CharField(max_length=20, null=False)
+    to_time         = models.CharField(max_length=20, null=False)
+    frequency       = models.CharField(max_length=60, default="Does not repeat")
+    location        = models.CharField(max_length=60, default="Online")
+    owner           = models.CharField(max_length=60, default="swils")
+
+    class Meta:
+        verbose_name = "Calendar Event"
+        verbose_name_plural = "Calendar Event"
