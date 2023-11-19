@@ -202,17 +202,22 @@ function pad(number) {
   return (number < 10 ? "0" : "") + number;
 }
 
-function displayEventsOnCalendar() {
-  const scheduledEvents = document.querySelectorAll('.scheduled-event');
+// function displayEventsOnCalendar() {
+//   const scheduledEvents = document.querySelectorAll('.scheduled-event');
 
-  scheduledEvents.forEach((scheduledEvent) => {
-    const dateElement = scheduledEvent.querySelector('#scheduled-event-date');
+//   scheduledEvents.forEach((scheduledEvent) => {
+//     const dateElement = scheduledEvent.querySelector('#scheduled-event-date');
     
-    if (dateElement) {
-      console.log(dateElement.innerText);
-      const scheduleDate = document.querySelector("[day-id='" + dateElement.innerText + "']");
-      scheduleDate.appendChild(scheduledEvent);
-    }
-  })
+//     if (dateElement) {
+//       const scheduleDate = document.querySelector("[day-id='" + dateElement.innerText + "']");
+//       if (scheduleDate) {
+//         scheduleDate.appendChild(scheduledEvent);
+//       }
+//       else {
+//         console.debug(dateElement.innerText + " not in view, removing");
+//         scheduledEvent.setAttribute('style','visibility: hidden; display: none;');
+//       } 
+//     }
+//   })
 
-}
+// }

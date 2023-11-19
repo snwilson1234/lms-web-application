@@ -29,6 +29,7 @@ WEEKDAYS.forEach((weekday) => {
 
 // initialize calendar
 createCalendar();
+displayEventsOnCalendar();
 
 // initialize selectors
 initMonthSelectors();
@@ -60,6 +61,7 @@ function createCalendar(year = INITIAL_YEAR, month = INITIAL_MONTH) {
   days.forEach((day) => {
     appendDay(day, calendarDaysElement);
   });
+  
 }
 
 function appendDay(day, calendarDaysElement) {
@@ -203,6 +205,7 @@ function initMonthSelectors() {
     .addEventListener("click", function () {
       selectedMonth = dayjs(selectedMonth).subtract(1, "month");
       createCalendar(selectedMonth.format("YYYY"), selectedMonth.format("M"));
+      displayEventsOnCalendar();
     });
 
   document
@@ -210,5 +213,24 @@ function initMonthSelectors() {
     .addEventListener("click", function () {
       selectedMonth = dayjs(selectedMonth).add(1, "month");
       createCalendar(selectedMonth.format("YYYY"), selectedMonth.format("M"));
+      displayEventsOnCalendar();
     });
+}
+
+function displayEventsOnCalendar() {
+  const scheduledEvents = userScheduledEvents;
+  console.log("i am calling display events");
+  scheduledEvents.forEach((scheduledEvent) => {
+    const dateElement = scheduledEvent.date;
+    
+    if (dateElement) {
+      const scheduleDate = document.querySelector("[day-id='" + dateElement + "']");
+      if (scheduleDate) {
+        const eventElement = document.createElement("div");
+        eventElement.innerText = scheduledEvent.title;
+        scheduleDate.appendChild(eventElement);
+      }
+    }
+  })
+
 }

@@ -70,14 +70,19 @@
             document.getElementById('overlay').addEventListener('click', toggleCalendarEventScheduler);
        
         </script>
-        <script src="{% static 'js/index-bundle.js' %}"></script>
-
-        {% for event in scheduled_events %}
-            <div class="scheduled-event">
-                <h4>{{event.title}}</h4>
-                <h4 id="scheduled-event-date">{{event.date}}</h4>
-            </div>
-        {% endfor %}
+        
+        <!-- get events already scheduled by this user to display on calendar -->
+        <script>
+            var userScheduledEvents = [
+                {% for event in scheduled_events %}
+                    {
+                        title: "{{ event.title }}",
+                        date: "{{ event.date }}",
+                    },
+                {% endfor %}
+            ];
+            console.log(userScheduledEvents);
+        </script>
 
 
         <script>
@@ -150,7 +155,7 @@
             }) {% endcomment %}
 
             fillTimeDD();
-            displayEventsOnCalendar();
+            {% comment %} displayEventsOnCalendar(); {% endcomment %}
 
             fromTimeDD.addEventListener('mousedown', function(event) {
                 // const clickedListItem = event.target.closest(".time-dd");
@@ -177,6 +182,7 @@
             });
             
         </script>
+        <script src="{% static 'js/index-bundle.js' %}"></script>
     
     </div>
     
@@ -210,6 +216,7 @@
             ▸ UNDATED
         </h4>
         <hr>
+        
         
     </div>
 </div>
