@@ -219,18 +219,65 @@ function initMonthSelectors() {
 
 function displayEventsOnCalendar() {
   const scheduledEvents = userScheduledEvents;
-  console.log("i am calling display events");
   scheduledEvents.forEach((scheduledEvent) => {
     const dateElement = scheduledEvent.date;
     
     if (dateElement) {
       const scheduleDate = document.querySelector("[day-id='" + dateElement + "']");
       if (scheduleDate) {
+        const fullTimeStr = scheduledEvent.fromTime;
+        const hour = fullTimeStr.substring(0,fullTimeStr.indexOf(':'));
+        const minute = fullTimeStr.substring(fullTimeStr.indexOf(':')+1,fullTimeStr.indexOf(':')+3);
+        const aOrP = fullTimeStr.substring(fullTimeStr.length-2, fullTimeStr.length);
+        
+        let shortTime = "";
+        
+        if (minute === "00") {
+          shortTime = hour + aOrP[0].toLowerCase();
+        }
+        else {
+          shortTime = hour + ":" + minute + aOrP[0].toLowerCase();
+        }
+
         const eventElement = document.createElement("div");
-        eventElement.innerText = scheduledEvent.title;
+        const eventStartTimeElement = document.createElement("h4");
+        const eventTitleElement = document.createElement("h4");
+        eventStartTimeElement.innerText = shortTime;
+        eventTitleElement.innerText = scheduledEvent.title;
+
+        eventStartTimeElement.style.fontWeight = "800";
+        eventStartTimeElement.style.display = "inline-block";
+        eventTitleElement.style.display = "inline-block";
+        eventTitleElement.style.fontWeight = "400";
+
+        eventElement.style.display = "flex";
+        eventElement.style.flexDirection = "row";
+        eventElement.style.gap = "3px";
+        eventElement.style.padding = "2px";
+
+        
+        styleEventDiv(eventElement);
+
+        eventElement.appendChild(eventStartTimeElement);
+        eventElement.appendChild(eventTitleElement);
+
         scheduleDate.appendChild(eventElement);
       }
     }
   })
 
+}
+
+function styleEventDiv(elem) {
+  var randomInteger = Math.floor(Math.random() * 205) + 50;
+  var randomInteger2 = Math.floor(Math.random() * 50) + 50;
+  var randomInteger3 = Math.floor(Math.random() * 205) + 50;
+
+  const color = "rgb(" + randomInteger + "," + randomInteger2 + "," + randomInteger3 + ")";
+  elem.style.border = "solid 1px " + color;// + color;
+  elem.style.color = color;
+  elem.style.fontSize = "14px";
+  elem.style.borderRadius = "3px";
+
+  elem.classList.add('calendar-event-item');
 }

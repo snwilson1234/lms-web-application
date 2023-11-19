@@ -153,32 +153,37 @@ body {
     width: 40px;
 }
 
-  .calendar-grid-header-container {
-    display: grid;
-    width: 100%;
-    grid-template-columns: auto auto auto auto auto auto auto;
-    padding-left: 20px;
-    padding-right: 10px;
-    grid-gap: 1px;
-  }
+.calendar-grid-header-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 14.2% 14.2% 14.2% 14.2% 14.2% 14.2% 14.2%;
+  padding-left: 20px;
+  padding-right: 10px;
+  grid-gap: 1px;
+}
   
-  .calendar-grid-container {
-    display: grid;
-    width: 100%;
-    grid-template-columns: auto auto auto auto auto auto auto;
-    padding-left: 20px;
-    padding-right: 10px;
-    grid-gap: 1px;
+.calendar-grid-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 14.2% 14.2% 14.2% 14.2% 14.2% 14.2% 14.2%;
+  padding-left: 20px;
+  padding-right: 10px;
+  grid-gap: 1px;
 }
 
 .calendar-grid-header-item {
-    height: 40px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+  height: 40px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .calendar-grid-item {
-    height: 92px;
-    outline: solid 1px rgb(191, 198, 202);
+  height: 92px;
+  outline: solid 1px rgb(191, 198, 202);
+}
+
+
+.calendar-event-item {
+
 }

@@ -102,14 +102,20 @@ function clickOutsideHandler(event) {
 
 // detect calendar cell click
 function getCellClicked(event) {
-  const clickedGridItem = event.target.closest(".calendar-grid-item");
+  const actualClickedItem = event.target;
+  const closestGridItem = event.target.closest(".calendar-grid-item");
+  const closestEventItem = event.target.closest(".calendar-event-item");
 
-  if (clickedGridItem) {
-    let date = clickedGridItem.getAttribute("day-id");
-    let day = clickedGridItem.getAttribute("weekday");
-    let shortDate = clickedGridItem.getAttribute("short-date");
-    let weekOfMonth = clickedGridItem.getAttribute("week-of-month");
+  if (closestGridItem === actualClickedItem) {
+    let date = closestGridItem.getAttribute("day-id");
+    let day = closestGridItem.getAttribute("weekday");
+    let shortDate = closestGridItem.getAttribute("short-date");
+    let weekOfMonth = closestGridItem.getAttribute("week-of-month");
     toggleCalendarEventScheduler(date, day, shortDate, weekOfMonth);
+  }
+  else if (actualClickedItem === closestEventItem) {
+    console.log("clicked event");
+    showEventPopup(closestGridItem);
   }
 }
 
@@ -202,22 +208,35 @@ function pad(number) {
   return (number < 10 ? "0" : "") + number;
 }
 
-// function displayEventsOnCalendar() {
-//   const scheduledEvents = document.querySelectorAll('.scheduled-event');
+function showEventPopup(calendarCell) {
+  console.log("calling event popup");
+  const popupElement = document.createElement("div");
+  popupElement.classList.add("event-detail-popup");
 
-//   scheduledEvents.forEach((scheduledEvent) => {
-//     const dateElement = scheduledEvent.querySelector('#scheduled-event-date');
-    
-//     if (dateElement) {
-//       const scheduleDate = document.querySelector("[day-id='" + dateElement.innerText + "']");
-//       if (scheduleDate) {
-//         scheduleDate.appendChild(scheduledEvent);
-//       }
-//       else {
-//         console.debug(dateElement.innerText + " not in view, removing");
-//         scheduledEvent.setAttribute('style','visibility: hidden; display: none;');
-//       } 
-//     }
-//   })
+  popupElement.innerText = "TEST EVENT POPUP";
 
-// }
+  popupElement.style.position = "absolute";
+  popupElement.style.background = "white";
+  popupElement.style.border = "1px solid #ccc";
+  popupElement.style.padding = "10px";
+  popupElement.style.zIndex = "1000";
+  popupElement.style.width = "500px";
+  popupElement.style.height = "100px";
+  
+  const rect = calendarCell.getBoundingClientRect();
+  popupElement.style.top = rect.top - popupElement.offsetHeight-100 + "px";
+  popupElement.style.left = rect.left-150 + "px";
+
+  
+  document.body.appendChild(popupElement);
+
+  const closePopup = function(e) {
+    if (!popupElement.contains(e.target) && e.target !== popupElement) {
+      document.body.removeChild(popupElement);
+      document.removeEventListener("mousedown", closePopup);
+    }
+  }
+
+  document.addEventListener("mousedown", closePopup);
+  
+}

@@ -5,7 +5,7 @@
 
 
 {% block content %}
-<!--↑ ↓ → -->
+
 <div class="calendar-page-container">
     <div id="app" class="calendar-left-container">
         <script>
@@ -68,24 +68,18 @@
             `;
 
             document.getElementById('overlay').addEventListener('click', toggleCalendarEventScheduler);
-       
-        </script>
-        
-        <!-- get events already scheduled by this user to display on calendar -->
-        <script>
             var userScheduledEvents = [
                 {% for event in scheduled_events %}
                     {
                         title: "{{ event.title }}",
                         date: "{{ event.date }}",
+                        fromTime: "{{ event.from_time }}",
+                        toTime: "{{ event.to_time }}",
+                        frequency: "{{ event.frequency }}",
+                        location: "{{ event.location }}",
                     },
                 {% endfor %}
             ];
-            console.log(userScheduledEvents);
-        </script>
-
-
-        <script>
             const grid = document.getElementById('mycalendar');
             grid.addEventListener('click', getCellClicked);
         </script>
@@ -182,6 +176,7 @@
             });
             
         </script>
+        
         <script src="{% static 'js/index-bundle.js' %}"></script>
     
     </div>
