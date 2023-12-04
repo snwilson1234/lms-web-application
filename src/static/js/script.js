@@ -114,8 +114,7 @@ function getCellClicked(event) {
     toggleCalendarEventScheduler(date, day, shortDate, weekOfMonth);
   }
   else if (actualClickedItem === closestEventItem) {
-    console.log("clicked event");
-    showEventPopup(closestGridItem);
+    showEventPopup(closestEventItem);
   }
 }
 
@@ -158,9 +157,9 @@ function toggleInputDropdown(inputElement) {
 
 //event type tab functionality
 function toggleEventTypeTab(tab_name) {
-  // console.debug(tab_name);
+  
   var tabs = document.querySelectorAll('[event-type-tab]');
-  console.debug(tabs);
+  
   
   tabs.forEach(function(tab) {
     var tabData = tab.getAttribute('event-type-tab');
@@ -208,35 +207,20 @@ function pad(number) {
   return (number < 10 ? "0" : "") + number;
 }
 
-function showEventPopup(calendarCell) {
-  console.log("calling event popup");
-  const popupElement = document.createElement("div");
-  popupElement.classList.add("event-detail-popup");
-
-  popupElement.innerText = "TEST EVENT POPUP";
-
-  popupElement.style.position = "absolute";
-  popupElement.style.background = "white";
-  popupElement.style.border = "1px solid #ccc";
-  popupElement.style.padding = "10px";
-  popupElement.style.zIndex = "1000";
-  popupElement.style.width = "500px";
-  popupElement.style.height = "100px";
+function showEventPopup(eventCell) {
   
-  const rect = calendarCell.getBoundingClientRect();
-  popupElement.style.top = rect.top - popupElement.offsetHeight-100 + "px";
-  popupElement.style.left = rect.left-150 + "px";
-
+  const popup = document.getElementById(eventCell.getAttribute('event-title-id') + '-' + eventCell.getAttribute('event-date-id'));
   
-  document.body.appendChild(popupElement);
-
-  const closePopup = function(e) {
-    if (!popupElement.contains(e.target) && e.target !== popupElement) {
-      document.body.removeChild(popupElement);
-      document.removeEventListener("mousedown", closePopup);
+  if (popup) {
+      popup.classList.toggle('active');
+      const closePopup = function(e) {
+      if (!popup.contains(e.target) && e.target !== popup) {
+        popup.classList.toggle('active');
+        document.removeEventListener("mousedown", closePopup);
+      }
     }
+    document.addEventListener("mousedown", closePopup);
   }
-
-  document.addEventListener("mousedown", closePopup);
+  
   
 }

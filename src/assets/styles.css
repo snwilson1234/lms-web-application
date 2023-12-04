@@ -92,7 +92,7 @@ body {
     justify-content: left;
 }
 
-.calendar-right-header-container {
+/*.calendar-right-header-container {
     display: flex;
     flex-direction: row;
     width: 50%;
@@ -162,7 +162,7 @@ body {
   grid-gap: 1px;
 }
   
-.calendar-grid-container {
+ .calendar-grid-container {
   display: grid;
   width: 100%;
   grid-template-columns: 14.2% 14.2% 14.2% 14.2% 14.2% 14.2% 14.2%;
@@ -183,7 +183,8 @@ body {
   outline: solid 1px rgb(191, 198, 202);
 }
 
-
-.calendar-event-item {
-
-}
+.event-detail-popup.active {
+  visibility: visible;
+  display: flex;
+  flex-direction: column;
+} */

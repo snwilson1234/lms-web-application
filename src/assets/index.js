@@ -220,52 +220,57 @@ function initMonthSelectors() {
 function displayEventsOnCalendar() {
   const scheduledEvents = userScheduledEvents;
   scheduledEvents.forEach((scheduledEvent) => {
-    const dateElement = scheduledEvent.date;
     
-    if (dateElement) {
-      const scheduleDate = document.querySelector("[day-id='" + dateElement + "']");
-      if (scheduleDate) {
-        const fullTimeStr = scheduledEvent.fromTime;
-        const hour = fullTimeStr.substring(0,fullTimeStr.indexOf(':'));
-        const minute = fullTimeStr.substring(fullTimeStr.indexOf(':')+1,fullTimeStr.indexOf(':')+3);
-        const aOrP = fullTimeStr.substring(fullTimeStr.length-2, fullTimeStr.length);
-        
-        let shortTime = "";
-        
-        if (minute === "00") {
-          shortTime = hour + aOrP[0].toLowerCase();
-        }
-        else {
-          shortTime = hour + ":" + minute + aOrP[0].toLowerCase();
-        }
-
-        const eventElement = document.createElement("div");
-        const eventStartTimeElement = document.createElement("h4");
-        const eventTitleElement = document.createElement("h4");
-        eventStartTimeElement.innerText = shortTime;
-        eventTitleElement.innerText = scheduledEvent.title;
-
-        eventStartTimeElement.style.fontWeight = "800";
-        eventStartTimeElement.style.display = "inline-block";
-        eventTitleElement.style.display = "inline-block";
-        eventTitleElement.style.fontWeight = "400";
-
-        eventElement.style.display = "flex";
-        eventElement.style.flexDirection = "row";
-        eventElement.style.gap = "3px";
-        eventElement.style.padding = "2px";
-
-        
-        styleEventDiv(eventElement);
-
-        eventElement.appendChild(eventStartTimeElement);
-        eventElement.appendChild(eventTitleElement);
-
-        scheduleDate.appendChild(eventElement);
+    const scheduleDate = document.querySelector("[day-id='" + scheduledEvent.date + "']");
+    if (scheduleDate) {
+      const fullTimeStr = scheduledEvent.fromTime;
+      
+      
+      const hour = fullTimeStr.substring(0,fullTimeStr.indexOf(':'));
+      const minute = fullTimeStr.substring(fullTimeStr.indexOf(':')+1,fullTimeStr.indexOf(':')+3);
+      const aOrP = fullTimeStr.substring(fullTimeStr.length-2, fullTimeStr.length);
+      
+      let shortTime = "";
+      
+      if (minute === "00") {
+        shortTime = hour + aOrP[0].toLowerCase();
       }
+      else {
+        shortTime = hour + ":" + minute + aOrP[0].toLowerCase();
+      }
+
+      var eventElement = document.createElement("div");
+      var eventStartTimeElement = document.createElement("h4");
+      var eventTitleElement = document.createElement("h4");
+      
+      eventStartTimeElement.innerText = shortTime;
+      eventTitleElement.innerText = scheduledEvent.title;
+
+      eventStartTimeElement.style.fontWeight = "800";
+      eventStartTimeElement.style.display = "inline-block";
+      
+      eventTitleElement.style.display = "inline-block";
+      eventTitleElement.style.fontWeight = "400";
+
+      eventElement.style.display = "flex";
+      eventElement.style.flexDirection = "row";
+      eventElement.style.gap = "3px";
+      eventElement.style.padding = "2px";
+
+      let dayElementId = scheduledEvent.date.replace(/ /g, "-").replace(/,/g,"").toLowerCase();
+
+      eventElement.setAttribute('event-date-id', dayElementId);
+      eventElement.setAttribute('event-title-id', scheduledEvent.title.replace(/ /g, "-").toLowerCase());
+
+      styleEventDiv(eventElement);
+
+      eventElement.appendChild(eventStartTimeElement);
+      eventElement.appendChild(eventTitleElement);
+      
+      scheduleDate.appendChild(eventElement);
+      createCalendarEventPopUp(eventElement,scheduledEvent);
     }
   })
-
 }
 
 function styleEventDiv(elem) {
@@ -280,4 +285,31 @@ function styleEventDiv(elem) {
   elem.style.borderRadius = "3px";
 
   elem.classList.add('calendar-event-item');
+}
+
+function createCalendarEventPopUp(calendarEventElement,dbEventObject) {
+  
+  
+  var popupElement = document.createElement("div");
+ 
+  popupElement.setAttribute("id",calendarEventElement.getAttribute('event-title-id') + "-" + calendarEventElement.getAttribute('event-date-id'));
+  popupElement.innerHTML = `
+                  
+  <div class="event-popup-inner-container">
+    <a><h2>${dbEventObject.title}</h2></a>
+    <h4>From: ${dbEventObject.fromTime}</h4>
+    <h4>To: ${dbEventObject.toTime}</h4>
+    <h4>Location: ${dbEventObject.location}</h4>
+    <h4>Date: ${dbEventObject.date}</h4>
+  </div>
+
+  `;
+
+
+  popupElement.classList.add("event-detail-popup");
+  
+  const rect = calendarEventElement.getBoundingClientRect();
+  // popupElement.style.marginBottom = "100px";
+  popupElement.style.top = rect.top - popupElement.offsetHeight-110 + "px";
+  calendarEventElement.appendChild(popupElement);
 }

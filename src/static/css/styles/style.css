@@ -1296,7 +1296,7 @@ header {
 .calendar-grid-container {
     display: grid;
     width: 100%;
-    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-template-columns: 14.2% 14.2% 14.2% 14.2% 14.2% 14.2% 14.2%;
     padding-left: 20px;
     padding-right: 10px;
     grid-gap: 1px;
@@ -1306,6 +1306,7 @@ header {
     height: 40px;
     text-align: center;
     align-items: center;
+    justify-content: center;
 }
 
 .calendar-grid-item {
@@ -1637,4 +1638,43 @@ header {
     display: flex;
     flex-direction: row;
     gap: 5px;
+}
+
+.calendar-grid-header-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 14.2% 14.2% 14.2% 14.2% 14.2% 14.2% 14.2%;
+    padding-left: 20px;
+    padding-right: 10px;
+    grid-gap: 1px;
+  }
+  
+.calendar-grid-header-item {
+    height: 40px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-grid-item {
+    height: 92px;
+    outline: solid 1px rgb(191, 198, 202);
+}
+
+.event-detail-popup {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 5px;
+    z-index: 1005;
+    width: 500px;
+    height: 100px;
+    display: none;
+    visibility: hidden;
+}
+
+.event-detail-popup.active {
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
 }
