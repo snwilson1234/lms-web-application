@@ -2,7 +2,7 @@ db.sqlite3
 /node_modules/
 **/index-bundle.js
 .DS_Store
-/settings.py/
+settings.py
 
 # Byte-compiled / optimized / DLL files
 **/__pycache__
