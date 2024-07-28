@@ -11,5 +11,9 @@ div#course-tiles-container {
         align-items: center;
         justify-content: center;
         row-gap: 10px;
+        &:hover {
+            background-color: rgb(50, 47, 50);
+            cursor: pointer;
+        }
     }
 }

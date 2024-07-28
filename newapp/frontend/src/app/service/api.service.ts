@@ -7,13 +7,16 @@ import { Observable, catchError, tap, throwError } from 'rxjs';
 export class ApiService {
     private readonly apiUrl = 'http://localhost:8000';
 
-    // // inject HttpClient into category service
+    // inject HttpClient into category service
     constructor(private http: HttpClient) { }
     
 
-    // // Courses
+    // Courses
     public getCourses(): Observable<any> {
         return this.http.get(`${this.apiUrl}/courses/`)
+    }
+    public getCourse(courseID: number): Observable<any> {
+        return this.http.get(`${this.apiUrl}/courses/${courseID}/`);
     }
 
     // // public postCourse(purchase: any): Observable<any> {

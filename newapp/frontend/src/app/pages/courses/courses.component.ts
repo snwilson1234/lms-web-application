@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { CourseInfo } from '../../interface/course-info';
 import { CommonModule, NgFor } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ApiService } from '../../service/api.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -22,10 +23,11 @@ import { HttpClient } from '@angular/common/http';
   ]
 })
 export class CoursesComponent implements OnInit {
-  courses: Array<CourseInfo> = []
+  courses!: Array<CourseInfo>;
 
   constructor(
-    private apiSerivce: ApiService
+    private apiSerivce: ApiService,
+    private router: Router
   ) {}
 
   private reformatCourseData(courseData: Array<CourseInfo>):
@@ -44,6 +46,13 @@ export class CoursesComponent implements OnInit {
     return courseData;
   }
 
+  goToCoursePage(course: CourseInfo) {
+    console.log("selected:", course.id);
+    this.router.navigate(
+      ['/course', course.id]
+    );
+  }
+
   ngOnInit(): void {
     this.apiSerivce.getCourses().subscribe({
       next: (data) => {
@@ -57,20 +66,6 @@ export class CoursesComponent implements OnInit {
         console.log("attempted to fetch courses");
       }
     });
-    this.courses = [
-      {
-        title : 'placeholder1',
-        term  : 'Spring'
-      },
-      {
-        title : 'placeholder2',
-        term  : 'Spring'
-      },
-      {
-        title : 'placeholder3',
-        term  : 'Spring'
-      },
-    ]
   }
 
 }

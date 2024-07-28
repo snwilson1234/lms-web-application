@@ -1,7 +1,12 @@
 <div class="main-navbar">
     <ul>
         <li>
-            <mat-icon fontIcon="home" style="color: white;"></mat-icon>
+            <a
+                routerLink="/courses" 
+                routerLinkActive="active" 
+                ariaCurrentWhenActive="page">
+                <mat-icon fontIcon="home" style="color: white;"></mat-icon>
+            </a>
         </li>
         <li>
             <mat-icon fontIcon="person" style="color: white;"></mat-icon>
@@ -30,18 +35,5 @@
     </ul>
 </div>
 <header>
-    <h2>Dashboard</h2>
+    <h2>{{ title }}</h2>
 </header>
-<!-- </header> -->
-
-<!-- <a
-            routerLink="/classes" 
-            routerLinkActive="active" 
-            ariaCurrentWhenActive="page"><mat-icon fontIcon="home" style="color: white;"></mat-icon></a> -->
-<!-- <nav>
-        <a  
-            mat-flat-button
-            routerLink="/classes" 
-            routerLinkActive="active" 
-            ariaCurrentWhenActive="page">Home</a>
-    </nav> -->
