@@ -1,0 +1,50 @@
+// Styles used for all media types
+div#course-tiles-container {
+    display: grid;
+    gap: 10px;
+    padding: 5px;
+    border: solid 1px white;
+}
+
+mat-card {
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    &:hover {
+        background-color: rgb(50, 47, 50);
+        cursor: pointer;
+    }
+}
+
+// Responsive styles
+@media (min-width: 1280px) {
+    div#course-tiles-container {
+        width: 800px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    mat-card {
+        flex: 1 1 calc(25% - 10px);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+    div#course-tiles-container {
+        width: 600px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    mat-card {
+        flex: 1 1 calc(33.33% - 10px);
+    }
+}
+
+@media (max-width: 767px) {
+    div#course-tiles-container {
+        width: calc(100vw - 85px);
+    }
+    mat-card {
+        flex: 1 1 calc(100% - 10px);
+    }
+}

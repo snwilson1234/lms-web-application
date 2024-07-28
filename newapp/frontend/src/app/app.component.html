@@ -1,0 +1,6 @@
+<app-header [title]="title"></app-header>
+<div id="app-container" class="app-container">
+    <router-outlet
+        (activate)="setHeader()"
+    ></router-outlet>
+</div>

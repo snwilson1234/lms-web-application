@@ -1,0 +1,33 @@
+
+.main-navbar {
+    min-height: 100vh;
+    position: fixed;
+    width: 50px;
+    background: #293749;
+    z-index: 999;
+    padding-top: 5px;
+
+    ul {
+        list-style:none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+
+        li {
+            &:hover {
+                cursor: pointer;
+                background-color: #3c4858;
+            }
+        }
+    }
+    
+}
+
+header {
+    color: white;
+    padding-left: 60px;
+    padding-top: 10px;
+}
