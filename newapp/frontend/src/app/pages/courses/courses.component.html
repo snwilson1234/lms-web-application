@@ -1,0 +1,7 @@
+<div id="course-tiles-container">
+    <mat-card class="course-tile" *ngFor="let course of courses">
+        <mat-icon fontIcon="school" style="transform: scale(2);"></mat-icon>
+        <p>{{ course.title }}</p>
+        <p>{{ course.term }}</p>
+    </mat-card>
+</div>

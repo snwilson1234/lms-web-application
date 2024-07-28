@@ -1,7 +1,8 @@
 from django.contrib.auth.models import Group, User
+from api.models import Course
 from rest_framework import permissions, viewsets
 
-from api.serializers import GroupSerializer, UserSerializer
+from api.serializers import CourseSerializer, GroupSerializer, UserSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -20,3 +21,13 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all().order_by('name')
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+class CourseViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows courses to be viewed or edited.
+    """
+
+    queryset = Course.objects.all().order_by('title')
+    serializer_class = CourseSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    
