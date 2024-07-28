@@ -3,6 +3,7 @@ import { CourseInfo } from '../../interface/course-info';
 import { CommonModule, NgFor } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list'
 import { ApiService } from '../../service/api.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -15,6 +16,7 @@ import { Router } from '@angular/router';
     NgFor,
     MatCardModule,
     MatIconModule,
+    MatGridListModule
   ],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.scss',
