@@ -15,8 +15,8 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ['url', 'name']
 
-
-class CourseSerializer(serializers.BaseSerializer):
+# We validate against the model itself
+class CourseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Course
         fields = ['title', 'term']
