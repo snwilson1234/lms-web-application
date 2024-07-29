@@ -1,14 +1,10 @@
-# canvas-clone
-***STRICTLY FOR LEARNING PURPOSES - I am not affiliated with Instructure Inc. nor intend to use this project for financial gain. It is not and will never be released as a public/commercial website with real users.***
+#lms-web-application
 
-A simplified version of the Canvas Learning Management system that many universities use for their course management.
+**Disclaimer: This application is being made strictly for learning purposes and is not designed to obtain financial gain.**
 
+A simple web-based learning management system application inspired by others like Canvas, Blackboard, and Google Classroom.
 
-Tech Stack so far:
+Tech Stack:
 
-- Django, Python
-- Sqlite3 database
-- Node.js
-- JavaScript, HTML, CSS
-
-test
+Django
+Angular
