@@ -6,5 +6,5 @@ A simple web-based learning management system application inspired by others lik
 
 Tech Stack:
 
-Django
-Angular
+- Django
+- Angular
